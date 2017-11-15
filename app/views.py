@@ -4,6 +4,9 @@ from django.template import RequestContext
 from app.models import Curso
 from app.models import Aluno
 from app.models import Professor
+from app.models import Matricula
+
+
 from app.models import Colaborador
 from app.models import Usuario
 from datetime import datetime
@@ -11,6 +14,9 @@ from app.forms import UserModelForm
 from app.forms import CursoForm
 from app.forms import AlunoForm
 from app.forms import ProfessorForm
+from app.forms import MatriculaForm
+
+
 from app.forms import ColaboradorForm
 from app.forms import UsuarioForm
 from django.views.generic import TemplateView,ListView
@@ -260,4 +266,44 @@ def editar_curso(request, pk, template_name='app/curso/novo_curso.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_cursos')
+    return render(request, template_name, {'form':form})
+
+
+def listar_matricula(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/matricula/listar_matricula.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Cadastro de matricula',
+            'matriculas': Matricula.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_matricula(request, template_name='app/matricula/novo_matricula.html'):
+    form = MatriculaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_matricula')
+    return render(request, template_name, {'form':form})
+
+def apagar_matricula(request, pk, template_name='app/matricula/confirmacao_apagar_matricula.html'):
+    matricula = get_object_or_404(Matricula, pk=pk)
+    if request.method=='POST':
+        matricula.delete()
+        return redirect('listar_matricula')
+    return render(request, template_name, {'object':matricula.ra_aluno_matricula})
+
+
+def editar_matricula(request, pk, template_name='app/matricula/novo_matricula.html'):
+    if request.user.is_superuser:
+        matricula = get_object_or_404(Matricula, pk=pk)
+    else:
+        matricula = get_object_or_404(Matricula, pk=pk)
+    form = MatriculaForm(request.POST or None, instance = matricula)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_matricula')
     return render(request, template_name, {'form':form})

@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from models import Curso
 from models import Aluno
 from models import Professor
+from models import Matricula
+
+
 from models import Colaborador
 from models import Usuario
 from django.contrib.auth.forms import AuthenticationForm
@@ -198,6 +201,82 @@ class ProfessorForm(forms.ModelForm):
     class Meta:
         model = Professor
         fields = ['ra_professor', 'apelido_professor', 'nome_professor', 'email_professor', 'celular_professor']
+
+class MatriculaForm(forms.ModelForm):
+    ra_aluno_matricula = forms.CharField(
+    max_length=10,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Ra',
+            'type': 'number',
+            'name': 'ra_aluno_matricula',
+            'id': 'ra_aluno_matricula',
+            'size': 10,
+            'placeholder': 'Ra'
+        }
+    )
+)
+    nome_disciplina_matricula = forms.CharField(
+    max_length=200,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Nome da disciplina',
+            'type': 'text',
+            'name': 'nome_disciplina_matricula',
+            'id': 'nome_disciplina_matricula',
+            'size': 35,
+            'placeholder': 'Nome da disciplina'
+        }
+    )
+)
+    ano_ofertado_matricula = forms.CharField(
+    max_length=10,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Ano',
+            'type': 'text',
+            'name': 'ano_ofertado_matricula',
+            'id': 'ano_ofertado_matricula',
+            'size': 5,
+            'placeholder': 'Ano'
+        }
+    )
+)
+
+    semestre_ofertado_matricula = forms.CharField(
+    max_length=10,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Semestre',
+            'type': 'text',
+            'name': 'semestre_ofertado_matricula',
+            'id': 'semestre_ofertado_matricula',
+            'size': 5,
+            'placeholder': 'Semestre'
+        }
+    )
+)
+
+    id_turma_matricula = forms.CharField(
+    max_length=10,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Turma',
+            'type': 'text',
+            'name': 'id_turma_matricula',
+            'id': 'id_turma_matricula',
+            'size': 10,
+            'placeholder': 'Turma'
+        }
+    )
+)
+
+
+    class Meta:
+        model = Professor
+        fields = ['ra_aluno_matricula', 'nome_disciplina_matricula', 'ano_ofertado_matricula', 'semestre_ofertado_matricula', 'id_turma_matricula']
+
+
 
 class ColaboradorForm(forms.ModelForm):
 

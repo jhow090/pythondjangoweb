@@ -20,6 +20,13 @@ class Professor(models.Model):
     email_professor = models.CharField(max_length=80)
     celular_professor = models.CharField(max_length=11)
 
+class Matricula(models.Model):
+    ra_aluno_matricula = models.CharField(max_length=10)
+    nome_disciplina_matricula = models.CharField(max_length=200)
+    ano_ofertado_matricula = models.CharField(max_length=10)
+    semestre_ofertado_matricula = models.CharField(max_length=10)
+    id_turma_matricula  = models.CharField(max_length=10)
+
 class Colaborador(models.Model):
     nome = models.CharField(max_length=100)
     cargo = models.CharField(max_length=100)

@@ -1,0 +1,32 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de matricula</h1>
+</div>
+
+<table class="table">
+    <tr>
+      <th>Ra</th>
+      <th>Nome da disciplina</th>
+      <th>Ano</th>
+      <th>Semestre</th>
+      <th>Turma</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+        {% for matricula in matriculas %}
+          <tr>
+            <td>{{ matricula.ra_aluno_matricula }}</td>
+            <td>{{ matricula.nome_disciplina_matricula }}</td>
+            <td>{{ matricula.ano_ofertado_matricula }}</td>
+            <td>{{ matricula.semestre_ofertado_matricula }}</td>
+            <td>{{ matricula.id_turma_matricula }}</td>
+            <td><a href="{% url 'editar_matricula' matricula.id %}">Editar</a></td>
+            <td><a href="{% url 'apagar_matricula' matricula.id %}">Apagar</a></td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

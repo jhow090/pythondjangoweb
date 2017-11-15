@@ -22,6 +22,11 @@ urlpatterns = patterns('',
     url(r'^editar_professor/(?P<pk>\d+)$', 'app.views.editar_professor', name='editar_professor'),
     url(r'^apagar_professor/(?P<pk>\d+)$', 'app.views.apagar_professor', name='apagar_professor'),
 
+    url(r'^listar_matricula', 'app.views.listar_matricula', name='listar_matricula'),
+    url(r'^novo_matricula', 'app.views.novo_matricula', name='novo_matricula'),
+    url(r'^editar_matricula/(?P<pk>\d+)$', 'app.views.editar_matricula', name='editar_matricula'),
+    url(r'^apagar_matricula/(?P<pk>\d+)$', 'app.views.apagar_matricula', name='apagar_matricula'),
+
     url(r'^listar_colaborador', 'app.views.listar_colaborador', name='listar_colaborador'),
     url(r'^novo_colaborador', 'app.views.novo_colaborador', name='novo_colaborador'),
     url(r'^editar_colaborador/(?P<pk>\d+)$', 'app.views.editar_colaborador', name='editar_colaborador'),
