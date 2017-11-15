@@ -276,7 +276,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'nome_disciplina',
             'id': 'nome_disciplina',
-            'size': 25,
+            'size': 15,
             'placeholder': 'Nome da disciplina'
         }
     )
@@ -333,7 +333,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'ementa_disciplina',
             'id': 'ementa_disciplina',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Ementa'
         }
     )
@@ -347,7 +347,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'competencias_disciplina',
             'id': 'competencias_disciplina',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Competencias'
         }
     )
@@ -361,7 +361,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'habilidades_disciplina',
             'id': 'habilidades_disciplina',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Habilidades'
         }
     )
@@ -375,7 +375,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'conteudo_disciplina',
             'id': 'conteudo_disciplina',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Conteudo'
         }
     )
@@ -389,7 +389,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'bibliografia_disciplina',
             'id':  'bibliografia_disciplina',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Bibliografia'
         }
     )
@@ -403,7 +403,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'bibliografia_complementar',
             'id':  'bibliografia_complementar',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Bibliografia complementar'
         }
     )
@@ -430,7 +430,7 @@ class GradeCurricularForm(forms.ModelForm):
             'type': 'text',
             'name': 'sigla_curso_grade_curricular',
             'id': 'sigla_curso_grade_curricular',
-            'size': 25,
+            'size': 10,
             'placeholder': 'Sigla do curso'
         }
     )
@@ -479,7 +479,7 @@ class PeriodoForm(forms.ModelForm):
             'type': 'text',
             'name': 'sigla_curso_periodo',
             'id': 'sigla_curso_periodo',
-            'size': 25,
+            'size': 15,
             'placeholder': 'Sigla do curso'
         }
     )
