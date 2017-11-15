@@ -1,0 +1,22 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de cursos</h1>
+</div>
+
+<table class="table">
+    <tr><th>Nome do curso</th><th>Período</th><th>Faculdade</th></tr>
+        {% for curso in cursos %}
+          <tr>
+            <td>{{ curso.nome }}</td>
+            <td>{{ curso.periodo }}</td>
+            <td>{{ curso.instituicao }}</td>
+            <td><a href="{% url 'editar_curso' curso.id %}">Editar</a></td>
+            <td><a href="{% url 'apagar_curso' curso.id %}">Apagar</a></td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

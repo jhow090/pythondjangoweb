@@ -1,0 +1,32 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+        <section id="loginForm">
+            <form action="." method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4>Autenticação de usuário</h4>
+                <hr />
+                    <label for="id_username">Usuário: </label>
+                    {{ form.username }}
+                    <label for="id_password">Senha: </label>
+                    {{ form.password }}
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Log in" class="btn btn-default" />
+                {% if form.errors %}
+                <p class="validation-summary-errors">Erro</p>
+                {% endif %}
+            </form>
+        </section>
+        <section id="socialLoginForm"></section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    {% load staticfiles %}
+<script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+
+{% endblock %}
