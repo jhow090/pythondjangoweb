@@ -6,7 +6,7 @@
     <h1>Cadastro de alunos</h1>
 </div>
 
-<form method="post" action="{% url 'novo_aluno' %}">{% csrf_token %}
+<form action="{% url 'novo_aluno' %}" method="POST">{% csrf_token %}
   <fieldset>
     <legend>Dados do aluno</legend>
       <table cellspacing="2">
