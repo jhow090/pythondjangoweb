@@ -555,3 +555,52 @@ class GradeCurricularForm(forms.ModelForm):
         fields = [  'sigla_curso_grade_curricular',
                     'ano_grade_curricular',
                     'semeste_grade_curricular']
+
+class PeriodoForm(forms.ModelForm):
+    sigla_curso_periodo = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Sigla do curso',
+            'type': 'text',
+            'name': 'sigla_curso_periodo',
+            'id': 'sigla_curso_periodo',
+            'size': 25,
+            'placeholder': 'Sigla do curso'
+        }
+    )
+)
+
+    ano_grade_curricular_periodo = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Ano',
+            'type': 'text',
+            'name': 'ano_grade_periodo',
+            'id': 'ano_grade_periodo',
+            'size': 10,
+            'placeholder': 'Ano'
+        }
+    )
+)
+
+    semeste_grade_periodo = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Semestre',
+            'type': 'text',
+            'name': 'semeste_grade_periodo',
+            'id': 'semeste_grade_periodo',
+            'size': 10,
+            'placeholder': 'Semestre'
+        }
+    )
+)
+
+    class Meta:
+        model = Periodo
+        fields = [  'sigla_curso_periodo',
+                    'ano_grade_curricular_periodo',
+                    'semeste_grade_curricular__periodo']

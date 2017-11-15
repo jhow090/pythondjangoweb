@@ -240,7 +240,7 @@ def listar_grade_curricular(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/grade_curricular/listar_gradecurricular.html',
+        'app/grade_curricular/listar_grade_curricular.html',
         context_instance = RequestContext(request,
         {
             'title':'Lista de grade curricular',
@@ -249,21 +249,21 @@ def listar_grade_curricular(request):
         })
     )
 
-def novo_grade_curricular(request, template_name='app/grade_curricular/novo_gradecurricular.html'):
+def novo_grade_curricular(request, template_name='app/grade_curricular/novo_grade_curricular.html'):
     form = GradeCurricularForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_gradecurricular')
     return render(request, template_name, {'form':form})
 
-def apagar_grade_curricular(request, pk, template_name='app/grade_curricular/confirmacao_apagar_gradecurricular.html'):
+def apagar_grade_curricular(request, pk, template_name='app/grade_curricular/confirmacao_apagar_grade_curricular.html'):
     gradecurricular = get_object_or_404(GradeCurricular, pk=pk)
     if request.method=='POST':
         gradecurricular.delete()
-        return redirect('listar_gradecurricular')
+        return redirect('listar_grade_curricular')
     return render(request, template_name, {'object':gradecurricular.sigla_curso_grade_curricular})
 
-def editar_grade_curricular(request, pk, template_name='app/grade_curricular/novo_gradecurricular.html'):
+def editar_grade_curricular(request, pk, template_name='app/grade_curricular/novo_grade_curricular.html'):
     if request.user.is_superuser:
         gradecurricular = get_object_or_404(GradeCurricular, pk=pk)
     else:
@@ -272,4 +272,43 @@ def editar_grade_curricular(request, pk, template_name='app/grade_curricular/nov
     if form.is_valid():
         form.save()
         return redirect('listar_grade_curricular')
+    return render(request, template_name, {'form':form})
+
+
+def listar_periodo(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/periodo/listar_periodo.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de periodo',
+            'periodos': Periodo.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_periodo(request, template_name='app/periodo/novo_periodo.html'):
+    form = PeriodoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_periodo')
+    return render(request, template_name, {'form':form})
+
+def apagar_periodo(request, pk, template_name='app/periodo/confirmacao_apagar_periodo.html'):
+    periodo = get_object_or_404(Periodo, pk=pk)
+    if request.method=='POST':
+        periodo.delete()
+        return redirect('listar_periodo')
+    return render(request, template_name, {'object':periodo.sigla_curso_periodo})
+
+def editar__periodo(request, pk, template_name='app/periodo/novo_periodo.html'):
+    if request.user.is_superuser:
+        periodo = get_object_or_404(Periodo, pk=pk)
+    else:
+        periodo = get_object_or_404(Periodo, pk=pk)
+    form = PeriodoForm(request.POST or None, instance = periodo)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_periodo')
     return render(request, template_name, {'form':form})

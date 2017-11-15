@@ -12,6 +12,10 @@ class Curso(models.Model):
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
 
+class Periodo(models.Model):
+    sigla_curso_periodo = models.CharField(max_length=5)
+    ano_grade_curricular_periodo = models.CharField(max_length=5)
+    semestre_grade_curricular_periodo = models.CharField(max_length=5)
 
 class Professor(models.Model):
     ra_professor = models.CharField(max_length=10)
