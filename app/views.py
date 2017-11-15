@@ -52,7 +52,7 @@ def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.
     aluno = get_object_or_404(Aluno, pk=pk)
     if request.method=='POST':
         aluno.delete()
-        return redirect('listar_alunos')
+        return redirect('listar_aluno')
     return render(request, template_name, {'object':aluno.nome_aluno})
 
 def editar_aluno(request, pk, template_name='app/aluno/novo_aluno.html'):
@@ -60,14 +60,14 @@ def editar_aluno(request, pk, template_name='app/aluno/novo_aluno.html'):
     form = AlunoForm(request.POST or None, instance = aluno)
     if form.is_valid():
         form.save()
-        return redirect('listar_alunos')
+        return redirect('listar_aluno')
     return render(request, template_name, {'form':form})
 
 def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.html'):
     aluno = get_object_or_404(Aluno, pk=pk)
     if request.method=='POST':
         aluno.delete()
-        return redirect('listar_alunos')
+        return redirect('listar_aluno')
     return render(request, template_name, {'object':aluno.nome_aluno})
 
 def listar_curso(request):
@@ -87,14 +87,14 @@ def novo_curso(request, template_name='app/curso/novo_curso.html'):
     form = CursoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_cursos')
+        return redirect('listar_curso')
     return render(request, template_name, {'form':form})
 
 def apagar_curso(request, pk, template_name='app/curso/confirmacao_apagar_curso.html'):
     curso = get_object_or_404(Curso, pk=pk)
     if request.method=='POST':
         curso.delete()
-        return redirect('listar_cursos')
+        return redirect('listar_curso')
     return render(request, template_name, {'object':curso.nome_curso})
 
 def editar_curso(request, pk, template_name='app/curso/novo_curso.html'):
@@ -105,5 +105,5 @@ def editar_curso(request, pk, template_name='app/curso/novo_curso.html'):
     form = CursoForm(request.POST or None, instance = curso)
     if form.is_valid():
         form.save()
-        return redirect('listar_cursos')
+        return redirect('listar_curso')
     return render(request, template_name, {'form':form})
