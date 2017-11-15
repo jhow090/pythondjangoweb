@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from app.models import Curso
@@ -17,7 +17,8 @@ from django.views.generic import TemplateView,ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.forms import ModelForm
-
+from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
 
 def pagina_inicial(request):
     assert isinstance(request, HttpRequest)
