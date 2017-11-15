@@ -38,7 +38,7 @@ def listar_aluno(request):
     )
 
 def novo_aluno(request):
-    aluno = Aluno.object.all()
+    aluno = Aluno.objects.all()
     cname = request.POST.get('curso_aluno')
     if request.method == 'GET':
         form = AlunoForm()
