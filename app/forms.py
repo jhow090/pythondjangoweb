@@ -389,7 +389,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'bibliografia_disciplina',
             'id':  'bibliografia_disciplina',
-            'size': 15,
+            'size': 20,
             'placeholder': 'Bibliografia'
         }
     )
@@ -403,7 +403,7 @@ class DisciplinaForm(forms.ModelForm):
             'type': 'text',
             'name': 'bibliografia_complementar',
             'id':  'bibliografia_complementar',
-            'size': 15,
+            'size': 20,
             'placeholder': 'Bibliografia complementar'
         }
     )
