@@ -76,22 +76,10 @@ class AlunoForm(forms.ModelForm):
     )
 )
 
-    curso_aluno = forms.CharField(
-    max_length=50,
-    widget=forms.TextInput(
-        attrs={
-            'title': 'Curso',
-            'type': 'text',
-            'name': 'curso_aluno',
-            'id': 'curso_aluno',
-            'size': 35,
-            'placeholder': 'Curso'
-        }
-    )
-)
+
     class Meta:
         model = Aluno
-        fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno', 'curso_aluno']
+        fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno']
 
 
 class UserModelForm(forms.ModelForm):
