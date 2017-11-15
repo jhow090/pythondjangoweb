@@ -145,7 +145,7 @@ class ProfessorForm(forms.ModelForm):
             'type': 'text',
             'name': 'apelido_professor',
             'id': 'apelido_professor',
-            'size': 35,
+            'size': 10,
             'placeholder': 'Apelido'
         }
     )
@@ -158,7 +158,7 @@ class ProfessorForm(forms.ModelForm):
             'type': 'text',
             'name': 'nome_professor',
             'id': 'nome_professor',
-            'size': 35,
+            'size': 10,
             'placeholder': 'Nome'
         }
     )
@@ -171,7 +171,7 @@ class ProfessorForm(forms.ModelForm):
             'type': 'text',
             'name': 'email_professor',
             'id': 'email_professor',
-            'size': 35,
+            'size': 10,
             'placeholder': 'Email'
         }
     )
@@ -266,92 +266,6 @@ class MatriculaForm(forms.ModelForm):
     class Meta:
         model = Matricula
         fields = ['ra_aluno_matricula', 'nome_disciplina_matricula', 'ano_ofertado_matricula', 'semestre_ofertado_matricula', 'id_turma_matricula']
-
-class ColaboradorForm(forms.ModelForm):
-
-    nome = forms.CharField(
-    max_length=100,
-    widget=forms.TextInput(
-        attrs={
-            'size': 35,
-            'placeholder': 'Nome'
-        }
-    )
-)
-
-    data_nascimento = forms.CharField(
-    max_length=15,
-    widget=forms.TextInput(
-        attrs={
-            'size': 15,
-            'placeholder': 'Data de nascimento'
-        }
-    )
-)
-
-    email = forms.CharField(
-    max_length=15,
-    widget=forms.TextInput(
-        attrs={
-            'size': 35,
-            'placeholder': 'Email'
-        }
-    )
-)
-
-    endereco = forms.CharField(
-    max_length=200,
-    widget=forms.TextInput(
-        attrs={
-            'size': 35,
-            'placeholder': 'Endereco'
-        }
-    )
-)
-
-    cidade = forms.CharField(
-    max_length=100,
-    widget=forms.TextInput(
-        attrs={
-            'size': 10,
-            'placeholder': 'Cidade'
-        }
-    )
-)
-
-    estado = forms.CharField(
-    max_length=10,
-    widget=forms.TextInput(
-        attrs={
-            'size': 5,
-            'placeholder': 'Estado'
-        }
-    )
-)
-
-    telefone = forms.CharField(
-    max_length=15,
-    widget=forms.TextInput(
-        attrs={
-            'size': 10,
-            'placeholder': 'Telefone'
-        }
-    )
-)
-
-    celular = forms.CharField(
-    max_length=15,
-    widget=forms.TextInput(
-        attrs={
-            'size': 10,
-            'placeholder': 'Celular'
-        }
-    )
-)
-
-    class Meta:
-        model = Colaborador
-        fields = ['nome', 'cargo', 'data_nascimento', 'email', 'endereco', 'cidade', 'estado', 'telefone', 'celular']
 
 class DisciplinaForm(forms.ModelForm):
     nome_disciplina = forms.CharField(
