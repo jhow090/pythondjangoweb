@@ -145,99 +145,99 @@ class DisciplinaForm(forms.ModelForm):
         )
     )
 
-            pratica_disciplina = forms.CharField(
-            max_length=3,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Pratica',
-                    'type': 'text',
-                    'name': 'pratica_disciplina',
-                    'id': 'pratica_disciplina',
-                    'size': 5,
-                    'placeholder': 'Pratica'
-                }
-            )
+        pratica_disciplina = forms.CharField(
+        max_length=3,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Pratica',
+                'type': 'text',
+                'name': 'pratica_disciplina',
+                'id': 'pratica_disciplina',
+                'size': 5,
+                'placeholder': 'Pratica'
+            }
         )
+    )
 
-            ementa_disciplina = forms.CharField(
-            max_length=50,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Ementa',
-                    'type': 'text',
-                    'name': 'ementa_disciplina',
-                    'id': 'ementa_disciplina',
-                    'size': 15,
-                    'placeholder': 'Ementa'
-                }
-            )
+        ementa_disciplina = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Ementa',
+                'type': 'text',
+                'name': 'ementa_disciplina',
+                'id': 'ementa_disciplina',
+                'size': 15,
+                'placeholder': 'Ementa'
+            }
         )
+    )
 
-            competencias_disciplina = forms.CharField(
-            max_length=50,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Competencias',
-                    'type': 'text',
-                    'name': 'competencias_disciplina',
-                    'id': 'competencias_disciplina',
-                    'size': 15,
-                    'placeholder': 'Competencias'
-                }
-            )
+        competencias_disciplina = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Competencias',
+                'type': 'text',
+                'name': 'competencias_disciplina',
+                'id': 'competencias_disciplina',
+                'size': 15,
+                'placeholder': 'Competencias'
+            }
         )
-            habilidades_disciplina = forms.CharField(
-            max_length=50,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Habilidades',
-                    'type': 'text',
-                    'name': 'habilidades_disciplina',
-                    'id': 'habilidades_disciplina',
-                    'size': 15,
-                    'placeholder': 'Habilidades'
-                }
-            )
+    )
+        habilidades_disciplina = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Habilidades',
+                'type': 'text',
+                'name': 'habilidades_disciplina',
+                'id': 'habilidades_disciplina',
+                'size': 15,
+                'placeholder': 'Habilidades'
+            }
         )
-            conteudo_disciplina = forms.CharField(
-            max_length=50,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Conteudo',
-                    'type': 'text',
-                    'name': 'conteudo_disciplina',
-                    'id': 'conteudo_disciplina',
-                    'size': 15,
-                    'placeholder': 'Conteudo'
-                }
-            )
+    )
+        conteudo_disciplina = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Conteudo',
+                'type': 'text',
+                'name': 'conteudo_disciplina',
+                'id': 'conteudo_disciplina',
+                'size': 15,
+                'placeholder': 'Conteudo'
+            }
         )
-            bibliografia_disciplina = forms.CharField(
-            max_length=50,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Bibliografia',
-                    'type': 'text',
-                    'name': 'bibliografia_disciplina',
-                    'id': 'bibliografia_disciplina',
-                    'size': 20,
-                    'placeholder': 'Bibliografia'
-                }
-            )
+    )
+        bibliografia_disciplina = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Bibliografia',
+                'type': 'text',
+                'name': 'bibliografia_disciplina',
+                'id': 'bibliografia_disciplina',
+                'size': 20,
+                'placeholder': 'Bibliografia'
+            }
         )
-            bibliografia_complementar_disciplina = forms.CharField(
-            max_length=50,
-            widget=forms.TextInput(
-                attrs={
-                    'title': 'Bibliografia complementar',
-                    'type': 'text',
-                    'name': 'bibliografia_complementar_disciplina',
-                    'id': 'bibliografia_complementar_disciplina',
-                    'size': 20,
-                    'placeholder': 'Bibliografia complementar'
-                }
-            )
+    )
+        bibliografia_complementar_disciplina = forms.CharField(
+        max_length=50,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Bibliografia complementar',
+                'type': 'text',
+                'name': 'bibliografia_complementar_disciplina',
+                'id': 'bibliografia_complementar_disciplina',
+                'size': 20,
+                'placeholder': 'Bibliografia complementar'
+            }
         )
+    )
         class Meta:
             model = Matricula
             fields =    ['nome_disciplina',
