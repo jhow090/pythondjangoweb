@@ -26,6 +26,7 @@ class AlunoForm(forms.ModelForm):
     widget=forms.TextInput(
         attrs={
             'title': 'Ra: ',
+            'type': 'number',
             'name': 'ra_aluno',
             'id': 'ra_aluno',
             'size': 10,
