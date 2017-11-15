@@ -114,5 +114,5 @@ class CursoForm(forms.ModelForm):
 
         class Meta:
             model = Curso
-            fields =    ['nome_curso
+            fields =    ['nome_curso',
                         'sigla_curso']
