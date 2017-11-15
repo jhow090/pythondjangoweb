@@ -188,7 +188,7 @@ def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.
     if request.method=='POST':
         aluno.delete()
         return redirect('listar_alunos')
-    return render(request, template_name, {'object':aluno.nome})
+    return render(request, template_name, {'object':aluno.nome_aluno})
 
 def apagar_candidato(request, pk, template_name='app/candidato/confirmacao_apagar_candidato.html'):
     candidato = get_object_or_404(Candidato, pk=pk)
