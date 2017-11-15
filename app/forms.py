@@ -163,7 +163,6 @@ class ProfessorForm(forms.ModelForm):
         }
     )
 )
-
     email_professor = forms.CharField(
     max_length=15,
     widget=forms.TextInput(
@@ -177,7 +176,6 @@ class ProfessorForm(forms.ModelForm):
         }
     )
 )
-
     celular_professor = forms.CharField(
     max_length=15,
     widget=forms.TextInput(
@@ -265,13 +263,9 @@ class MatriculaForm(forms.ModelForm):
         }
     )
 )
-
-
     class Meta:
-        model = Professor
+        model = Matricula
         fields = ['ra_aluno_matricula', 'nome_disciplina_matricula', 'ano_ofertado_matricula', 'semestre_ofertado_matricula', 'id_turma_matricula']
-
-
 
 class ColaboradorForm(forms.ModelForm):
 
