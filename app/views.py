@@ -106,28 +106,15 @@ def listar_cursos(request):
     )
 
 
-def listar_usuarios(request):
+def listar_disciplina(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/usuario/listar_usuarios.html',
+        'app/disciplina/listar_disciplina.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de usuarios',
-            'usuarios': Usuario.objects.all(),
-            'year':datetime.now().year,
-        })
-    )
-
-def novo_usuario(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/usuario/novo_usuario.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Novo usuario',
-            'message':'Novo usuario',
+            'title':'Cadastro de disciplina',
+            'disciplinas': Disciplina.objects.all(),
             'year':datetime.now().year,
         })
     )
@@ -160,19 +147,19 @@ def novo_colaborador(request, template_name='app/colaborador/novo_colaborador.ht
         return redirect('listar_colaborador')
     return render(request, template_name, {'form':form})
 
-def novo_usuario(request, template_name='app/usuario/novo_usuario.html'):
-    form = UsuarioForm(request.POST or None)
+def novo_disciplina(request, template_name='app/disciplina/novo_disciplina.html'):
+    form = DisciplinaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_usuarios')
+        return redirect('listar_disciplina')
     return render(request, template_name, {'form':form})
 
-def apagar_usuario(request, pk, template_name='app/usuario/confirmacao_apagar_usuario.html'):
-    usuario = get_object_or_404(Usuario, pk=pk)
+def apagar_disciplina(request, pk, template_name='app/disciplina/confirmacao_apagar_disciplina.html'):
+    disciplina = get_object_or_404(Disciplina, pk=pk)
     if request.method=='POST':
-        usuario.delete()
-        return redirect('listar_usuario')
-    return render(request, template_name, {'object':usuario.nome})
+        disciplina.delete()
+        return redirect('listar_disciplina')
+    return render(request, template_name, {'object':disciplina.nome})
 
 
 def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.html'):
@@ -212,14 +199,13 @@ def editar_aluno(request, pk, template_name='app/aluno/novo_aluno.html'):
         return redirect('listar_alunos')
     return render(request, template_name, {'form':form})
 
-def editar_usuario(request, pk, template_name='app/usuario/novo_usuario.html'):
-    usuario= get_object_or_404(Usuario, pk=pk)
-    form = UsuarioForm(request.POST or None, instance = usuario)
+def editar_usuario(request, pk, template_name='app/disciplina/novo_disciplina.html'):
+    disciplina= get_object_or_404(Disciplina, pk=pk)
+    form = DisciplinaForm(request.POST or None, instance = disciplina)
     if form.is_valid():
         form.save()
-        return redirect('lista_usuarios')
+        return redirect('lista_disciplina')
     return render(request, template_name, {'form':form})
-
 
 def editar_professor(request, pk, template_name='app/professor/novo_candidato.html'):
     if request.user.is_superuser:

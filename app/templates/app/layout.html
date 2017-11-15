@@ -9,22 +9,6 @@
 </head>
 
 <body>
-  <div class="navusuario">
-    <div class="nav">
-      <div>
-          <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/login.png" height="42" width="42">
-            <ul>
-              <li class="dropdown">
-                <a href="" class="dropbtn">Usuario</a>
-                <div class="dropdown-content">
-                  <a href="{% url 'listar_usuarios' %}">Lista</a>
-                  <a href="{% url 'novo_usuario' %}">Novo</a>
-                </div>
-              </li>
-            </ul>
-      </div>
-    </div>
-  </div>
   <div class="nav">
     <ul>
       <li class="dropdown">
@@ -35,10 +19,17 @@
         </div>
       </li>
       <li class="dropdown">
-        <a href="" class="dropbtn">Professor</a>
+        <a href="" class="dropbtn">Cursos</a>
         <div class="dropdown-content">
-          <a href="{% url 'listar_professor' %}">Lista</a>
-          <a href="{% url 'novo_professor' %}">Novo</a>
+          <a href="{% url 'listar_cursos' %}">Lista</a>
+          <a href="{% url 'novo_curso' %}">Novo</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Disciplina</a>
+        <div class="dropdown-content">
+          <a href="{% url 'listar_matricula' %}">Lista</a>
+          <a href="{% url 'novo_matricula' %}">Novo</a>
         </div>
       </li>
       <li class="dropdown">
@@ -49,19 +40,13 @@
         </div>
       </li>
       <li class="dropdown">
-        <a href="" class="dropbtn">Colaborador</a>
+        <a href="" class="dropbtn">Professor</a>
         <div class="dropdown-content">
-          <a href="{% url 'listar_colaborador' %}">Lista</a>
-          <a href="{% url 'novo_colaborador' %}">Novo</a>
+          <a href="{% url 'listar_professor' %}">Lista</a>
+          <a href="{% url 'novo_professor' %}">Novo</a>
         </div>
       </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Cursos</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_cursos' %}">Lista</a>
-          <a href="{% url 'novo_curso' %}">Novo</a>
-        </div>
-      </li>
+
     </ul>
   </div>
 

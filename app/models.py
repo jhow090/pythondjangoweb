@@ -27,6 +27,19 @@ class Matricula(models.Model):
     semestre_ofertado_matricula = models.CharField(max_length=10)
     id_turma_matricula  = models.CharField(max_length=10)
 
+class Disciplina(models.Model):
+    nome_disciplina = models.CharField(max_length=200)
+    carga_horaria_disciplina = models.CharField(max_length=100)
+    teoria_disciplina = models.CharField(max_length=100)
+    pratica_disciplina = models.CharField(max_length=100)
+    ementa_disciplina = models.CharField(max_length=100)
+    competencias_disciplina = models.CharField(max_length=100)
+    habilidades_disciplina = models.CharField(max_length=100)
+    conteudo_disciplina = models.CharField(max_length=100)
+    bibliografia_disciplina = models.CharField(max_length=100)
+    bibliografia_complementar_disciplina = models.CharField(max_length=100)
+
+
 class Colaborador(models.Model):
     nome = models.CharField(max_length=100)
     cargo = models.CharField(max_length=100)
@@ -37,8 +50,3 @@ class Colaborador(models.Model):
     estado = models.CharField(max_length=10)
     telefone = models.CharField(max_length=15)
     celular = models.CharField(max_length=15)
-
-class Usuario(models.Model):
-    nome = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
-    senha = models.CharField(max_length=15)

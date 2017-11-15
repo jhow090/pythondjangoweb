@@ -353,38 +353,156 @@ class ColaboradorForm(forms.ModelForm):
         model = Colaborador
         fields = ['nome', 'cargo', 'data_nascimento', 'email', 'endereco', 'cidade', 'estado', 'telefone', 'celular']
 
-class UsuarioForm(forms.ModelForm):
+class DisciplinaForm(forms.ModelForm):
+    nome_disciplina = forms.CharField(
+    max_length=200,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Nome da disciplina',
+            'type': 'text',
+            'name': 'nome_disciplina',
+            'id': 'nome_disciplina',
+            'size': 25,
+            'placeholder': 'Nome da disciplina'
+        }
+    )
+)
 
-    nome = forms.CharField(
+    carga_horaria_disciplina = forms.CharField(
     max_length=100,
     widget=forms.TextInput(
         attrs={
+            'title': 'Nome da disciplina',
+            'type': 'text',
+            'name': 'carga_horaria_disciplina',
+            'id': 'carga_horaria_disciplina',
             'size': 25,
-            'placeholder': 'Nome'
+            'placeholder': 'Nome da disciplina'
         }
     )
 )
 
-    email = forms.CharField(
+
+    teoria_disciplina = forms.CharField(
     max_length=100,
     widget=forms.TextInput(
         attrs={
-            'size': 25,
-            'placeholder': 'Email'
+            'title': 'Teoria',
+            'type': 'text',
+            'name': 'teoria_disciplina',
+            'id': 'teoria_disciplina',
+            'size': 10,
+            'placeholder': 'Teoria'
         }
     )
 )
 
-    senha = forms.CharField(
-    max_length=15,
+    pratica_disciplina = forms.CharField(
+    max_length=100,
     widget=forms.TextInput(
         attrs={
-            'size': 25,
-            'placeholder': 'Senha'
+            'title': 'Pratica',
+            'type': 'text',
+            'name': 'pratica_disciplina',
+            'id': 'pratica_disciplina',
+            'size': 10,
+            'placeholder': 'Pratica'
         }
     )
 )
 
+    ementa_disciplina = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Ementa',
+            'type': 'text',
+            'name': 'ementa_disciplina',
+            'id': 'ementa_disciplina',
+            'size': 10,
+            'placeholder': 'Ementa'
+        }
+    )
+)
+
+    competencias_disciplina = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Competencias',
+            'type': 'text',
+            'name': 'competencias_disciplina',
+            'id': 'competencias_disciplina',
+            'size': 10,
+            'placeholder': 'Competencias'
+        }
+    )
+)
+
+    habilidades_disciplina = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Habilidades',
+            'type': 'text',
+            'name': 'habilidades_disciplina',
+            'id': 'habilidades_disciplina',
+            'size': 10,
+            'placeholder': 'Habilidades'
+        }
+    )
+)
+
+    conteudo_disciplina = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Conteudo',
+            'type': 'text',
+            'name': 'conteudo_disciplina',
+            'id': 'conteudo_disciplina',
+            'size': 10,
+            'placeholder': 'Conteudo'
+        }
+    )
+)
+
+    bibliografia_disciplina = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Bibliografia',
+            'type': 'text',
+            'name': 'bibliografia_disciplina',
+            'id':  'bibliografia_disciplina',
+            'size': 10,
+            'placeholder': 'Bibliografia'
+        }
+    )
+)
+
+    bibliografia_complementar_disciplina = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Bibliografia complementar',
+            'type': 'text',
+            'name': 'bibliografia_complementar',
+            'id':  'bibliografia_complementar',
+            'size': 10,
+            'placeholder': 'Bibliografia complementar'
+        }
+    )
+)
     class Meta:
-        model = Usuario
-        fields = ['nome', 'email', 'senha']
+        model = Disciplina
+        fields = [  'nome_disciplina',
+                    'carga_horaria_disciplina',
+                    'teoria_disciplina',
+                    'pratica_disciplina',
+                    'ementa_disciplina',
+                    'competencias_disciplina',
+                    'habilidades_disciplina',
+                    'conteudo_disciplina',
+                    'bibliografia_disciplina',
+                    'bibliografia_complementar_disciplina']
