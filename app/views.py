@@ -312,7 +312,7 @@ def apagar_periodo(request, pk, template_name='app/periodo/confirmacao_apagar_pe
         return redirect('listar_periodo')
     return render(request, template_name, {'object':periodo.sigla_curso_periodo})
 
-def editar__periodo(request, pk, template_name='app/periodo/novo_periodo.html'):
+def editar_periodo(request, pk, template_name='app/periodo/novo_periodo.html'):
     if request.user.is_superuser:
         periodo = get_object_or_404(Periodo, pk=pk)
     else:
