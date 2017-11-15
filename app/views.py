@@ -79,18 +79,6 @@ def listar_cursos(request):
     )
 
 
-def listar_disciplina(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/disciplina/listar_disciplina.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Lista de disciplina',
-            'disciplinas': Disciplina.objects.all(),
-            'year':datetime.now().year,
-        })
-    )
 
 def novo_curso(request, template_name='app/curso/novo_curso.html'):
     form = CursoForm(request.POST or None)
@@ -120,8 +108,30 @@ def novo_colaborador(request, template_name='app/colaborador/novo_colaborador.ht
         return redirect('listar_colaborador')
     return render(request, template_name, {'form':form})
 
+def listar_disciplina(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/disciplina/listar_disciplina.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de disciplina',
+            'disciplinas': Disciplina.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+
 def novo_disciplina(request, template_name='app/disciplina/novo_disciplina.html'):
     form = DisciplinaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplina')
+    return render(request, template_name, {'form':form})
+
+def editar_disciplina(request, pk, template_name='app/disciplina/novo_disciplina.html'):
+    disciplina= get_object_or_404(Disciplina, pk=pk)
+    form = DisciplinaForm(request.POST or None, instance = disciplina)
     if form.is_valid():
         form.save()
         return redirect('listar_disciplina')
