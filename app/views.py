@@ -39,13 +39,7 @@ def listar_aluno(request):
 
 def novo_aluno(request):
     aluno = Aluno.objects.all()
-    cname = request.POST.get('curso_aluno')
-    if request.method == 'GET':
-        form = AlunoForm()
-    else:
-        aluno = Aluno.objects.get(cname = cname)
-        aluno.delete()
-        return redirect('lista_aluno')
+    aluno = Aluno.objects.get(cname = cname)
     return render(request, 'app/novo_aluno.html', {'form': form, 'aluno': aluno})
 
 def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.html'):
