@@ -40,7 +40,7 @@ class AlunoForm(forms.ModelForm):
             'type': 'text',
             'name': 'nome_aluno',
             'id': 'nome_aluno',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Nome'
         }
     )
@@ -54,7 +54,7 @@ class AlunoForm(forms.ModelForm):
             'type': 'text',
             'name': 'email_aluno',
             'id': 'email_aluno',
-            'size': 35,
+            'size': 15,
             'placeholder': 'Email'
         }
     )
@@ -99,7 +99,7 @@ class CursoForm(forms.ModelForm):
             'type': 'text',
             'name': 'nome_curso',
             'id': 'nome_curso',
-            'size': 25,
+            'size': 15,
             'placeholder': 'Nome'
         }
     )
@@ -132,7 +132,7 @@ class ProfessorForm(forms.ModelForm):
             'type': 'number',
             'name': 'ra_professor',
             'id': 'ra_professor',
-            'size': 10,
+            'size': 5,
             'placeholder': 'Ra'
         }
     )
@@ -158,7 +158,7 @@ class ProfessorForm(forms.ModelForm):
             'type': 'text',
             'name': 'nome_professor',
             'id': 'nome_professor',
-            'size': 10,
+            'size': 15,
             'placeholder': 'Nome'
         }
     )
@@ -171,7 +171,7 @@ class ProfessorForm(forms.ModelForm):
             'type': 'text',
             'name': 'email_professor',
             'id': 'email_professor',
-            'size': 10,
+            'size': 15,
             'placeholder': 'Email'
         }
     )
