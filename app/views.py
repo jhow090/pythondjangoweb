@@ -35,7 +35,7 @@ def listar_alunos(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/aluno/listar_alunos.html',
+        'app/listar_alunos.html',
         context_instance = RequestContext(request,
         {
             'title':'Cadastro de alunos',
@@ -146,7 +146,7 @@ def novo_curso(request, template_name='app/curso/novo_curso.html'):
         return redirect('listar_cursos')
     return render(request, template_name, {'form':form})
 
-def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
+def novo_aluno(request, template_name='app/novo_aluno.html'):
     form = AlunoForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -182,7 +182,7 @@ def apagar_usuario(request, pk, template_name='app/usuario/confirmacao_apagar_us
     return render(request, template_name, {'object':usuario.nome})
 
 
-def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.html'):
+def apagar_aluno(request, pk, template_name='app/confirmacao_apagar_aluno.html'):
     aluno = get_object_or_404(Aluno, pk=pk)
     if request.method=='POST':
         aluno.delete()
@@ -211,7 +211,7 @@ def apagar_curso(request, pk, template_name='app/curso/confirmacao_apagar_curso.
     return render(request, template_name, {'object':curso.nome})
 
 
-def editar_aluno(request, pk, template_name='app/aluno/editar_aluno.html'):
+def editar_aluno(request, pk, template_name='app/editar_aluno.html'):
     aluno= get_object_or_404(Aluno, pk=pk)
     form = AlunoForm(request.POST or None, instance = aluno)
     if form.is_valid():
