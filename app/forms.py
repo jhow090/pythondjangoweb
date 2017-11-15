@@ -585,14 +585,14 @@ class PeriodoForm(forms.ModelForm):
     )
 )
 
-    semeste_grade_periodo = forms.CharField(
+    semeste_grade_curricular_periodo = forms.CharField(
     max_length=5,
     widget=forms.TextInput(
         attrs={
             'title': 'Semestre',
             'type': 'text',
-            'name': 'semeste_grade_periodo',
-            'id': 'semeste_grade_periodo',
+            'name': 'semeste_grade_curricular_periodo',
+            'id': 'semeste_grade_curricular_periodo',
             'size': 10,
             'placeholder': 'Semestre'
         }
