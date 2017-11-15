@@ -59,14 +59,10 @@
           <label for="curso_aluno">Curso: </label>
         </td>
         <td align="left">
-          <select id="curso_aluno" name="curso_aluno" value="{{ form.curso_aluno }}">
-            <option value="Administração">Administração</option>
-            <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
-            <option value="Banco de Dados">Banco de Dados</option>
-            <option value="Jogos Digitais">Jogos Digitais</option>
-            <option value="Produção Multimídia">Produção Multimídia</option>
-            <option value="Redes de Computadores">Redes de Computadores</option>
-            <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <select id="curso_aluno" name="curso_aluno">
+            {% for curso in cursos %}
+              <option value="{{ curso.id }}">{{curso.nome}}</option>
+            {% endfor %}
           </select></br>
         </td>
       </tr>
