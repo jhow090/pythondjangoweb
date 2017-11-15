@@ -10,8 +10,8 @@
     <tr><th>Nome do aluno</th><th>Curso</th></tr>
         {% for aluno in alunos %}
           <tr>
-            <td>{{ aluno.nome }}</td>
-            <td>{{ aluno.curso }}</td>
+            <td>{{ aluno.nome_aluno }}</td>
+            <td>{{ aluno.curso_aluno }}</td>
             <td><a href="{% url 'editar_aluno' aluno.id_aluno %}">Editar</a></td>
             <td><a href="{% url 'apagar_aluno' aluno.id_aluno %}">Apagar</a></td>
           </tr>
