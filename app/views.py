@@ -37,10 +37,14 @@ def listar_aluno(request):
         })
     )
 
-def novo_aluno(request):
+
+def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
     aluno = Aluno.objects.all()
-    aluno = Aluno.objects.get(cname = cname)
-    return render(request, 'app/novo_aluno.html', {'form': form, 'aluno': aluno})
+    form = AlunoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_aluno')
+    return render(request, template_name, {'form':form, 'aluno': aluno})
 
 def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.html'):
     aluno = get_object_or_404(Aluno, pk=pk)
