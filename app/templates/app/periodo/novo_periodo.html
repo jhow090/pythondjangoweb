@@ -3,59 +3,40 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Cadastro de professor</h1>
+    <h1>Cadastro de periodo</h1>
 </div>
 
-<form method="post" action="{% url 'novo_professor' %}">{% csrf_token %}
+<form method="post" action="{% url 'novo_periodo' %}">{% csrf_token %}
   <fieldset>
-    <legend>Dados do professor</legend>
+    <legend>Dados do periodo</legend>
       <table cellspacing="2">
 
         <tr>
           <td>
-            <label for="ra__professor">Ra: </label>
+            <label for="sigla_curso_periodo">Sigla do curso: </label>
           </td>
           <td align="left">
-            {{ form.ra_professor }}</br>
+            {{ form.sigla_curso_periodo }}</br>
           </td>
         </tr>
 
 
         <tr>
           <td>
-            <label for="apelido__professor">Apelido: </label>
+            <label for="ano_grade_curricular_periodo">Ano: </label>
           </td>
           <td align="left">
-            {{ form.apelido_professor }}</br>
+            {{ form.ano_grade_curricular_periodo }}</br>
           </td>
         </tr>
 
         <tr>
           <td>
 
-            <label for="nome_professor">Nome: </label>
+            <label for="semestre_grade_curricular_periodo">Semestre: </label>
           </td>
           <td align="left">
-            {{ form.nome_professor }}</br>
-          </td>
-        </tr>
-
-
-        <tr>
-          <td>
-            <label for="email_professor">Email: </label>
-          </td>
-          <td align="left">
-            {{ form.email_professor }}</br>
-          </td>
-        </tr>
-
-        <tr>
-          <td>
-            <label for="celular_professor">Celular: </label>
-          </td>
-          <td>
-            {{ form.celular_professor }}</br>
+            {{ form.semestre_grade_curricular_periodo }}</br>
           </td>
         </tr>
 
