@@ -70,7 +70,7 @@ def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.
         return redirect('listar_alunos')
     return render(request, template_name, {'object':aluno.nome_aluno})
 
-def lista_curso(request):
+def listar_curso(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
