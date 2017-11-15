@@ -10,9 +10,8 @@
     <tr><th>Nome do curso</th><th>Período</th><th>Faculdade</th></tr>
         {% for curso in cursos %}
           <tr>
-            <td>{{ curso.nome }}</td>
-            <td>{{ curso.periodo }}</td>
-            <td>{{ curso.instituicao }}</td>
+            <td>{{ curso.nome_curso }}</td>
+            <td>{{ curso.sigla_curso }}</td>
             <td><a href="{% url 'editar_curso' curso.id %}">Editar</a></td>
             <td><a href="{% url 'apagar_curso' curso.id %}">Apagar</a></td>
           </tr>

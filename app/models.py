@@ -9,10 +9,8 @@ class Aluno(models.Model):
     curso_aluno = models.CharField(max_length=50)
 
 class Curso(models.Model):
-    nome = models.CharField(max_length=100)#size 25
-    periodo = models.CharField(max_length=50)#size 15
-    instituicao = models.CharField(max_length=200)#size 25
-
+    nome_curso = models.CharField(max_length=50)
+    sigla_curso = models.CharField(max_length=5)
 
 
 class Candidato(models.Model):

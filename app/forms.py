@@ -93,28 +93,36 @@ class UserModelForm(forms.ModelForm):
         }
 
 class CursoForm(forms.ModelForm):
-    nome = forms.CharField(
-    max_length=100,
+    nome_curso = forms.CharField(
+    max_length=50,
     widget=forms.TextInput(
         attrs={
+            'title': 'Nome',
+            'type': 'text',
+            'name': 'nome_curso',
+            'id': 'nome_curso',
             'size': 25,
             'placeholder': 'Nome'
         }
     )
 )
-    instituicao = forms.CharField(
-    max_length=15,
+    sigla_curso = forms.CharField(
+    max_length=3,
     widget=forms.TextInput(
         attrs={
-            'size': 15,
-            'placeholder': 'Instituicao'
+            'title': 'Sigla',
+            'type': 'text',
+            'name': 'sigla_curso',
+            'id': 'sigla_curso',
+            'size': 5,
+            'placeholder': 'Sigla'
         }
     )
 )
 
     class Meta:
         model = Curso
-        fields = ['nome', 'periodo', 'instituicao']
+        fields = ['nome_curso', 'sigla_curso']
 
 
 class CandidatoForm(forms.ModelForm):
