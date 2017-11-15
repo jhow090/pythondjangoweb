@@ -42,7 +42,7 @@ def novo_aluno(request):
     cname = request.POST.get('curso_aluno')
     if request.method == 'GET':
         form = CursoForm()
-    else
+    else:
         curso = Curso.objects.get(cname = cname)
         curso.delet()
         return redirect('lista_aluno')
