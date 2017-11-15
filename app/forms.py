@@ -577,8 +577,8 @@ class PeriodoForm(forms.ModelForm):
         attrs={
             'title': 'Ano',
             'type': 'text',
-            'name': 'ano_grade_periodo',
-            'id': 'ano_grade_periodo',
+            'name': 'ano_grade_curricular_periodo',
+            'id': 'ano_grade_curricular_periodo',
             'size': 10,
             'placeholder': 'Ano'
         }
