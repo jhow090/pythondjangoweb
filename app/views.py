@@ -1,13 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
-
 from app.models import *
 from app.forms import *
-
 from datetime import datetime
-from django.views.generic import TemplateView,ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
