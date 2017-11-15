@@ -17,7 +17,7 @@ class Professor(models.Model):
     ra_professor = models.CharField(max_length=10)
     apelido_professor = models.CharField(max_length=30)
     nome_professor = models.CharField(max_length=120)
-    email_preofessor = models.CharField(max_length=80)
+    email_professor = models.CharField(max_length=80)
     celular_professor = models.CharField(max_length=11)
 
 class Colaborador(models.Model):
