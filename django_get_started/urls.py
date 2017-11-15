@@ -22,23 +22,4 @@ urlpatterns = patterns('',
     url(r'^editar_matricula/(?P<pk>\d+)$', 'app.views.editar_matricula', name='editar_matricula'),
     url(r'^apagar_matricula/(?P<pk>\d+)$', 'app.views.apagar_matricula', name='apagar_matricula'),
 
-    url(r'^login/$',
-        'django.contrib.auth.views.login',
-        {
-            'template_name': 'app/login.html',
-            'authentication_form': BootstrapAuthenticationForm,
-            'extra_context':
-            {
-                'title':'Log in',
-                'year':datetime.now().year,
-            }
-        },
-        name='login'),
-    url(r'^logout$',
-        'django.contrib.auth.views.logout',
-        {
-            'next_page': '/',
-        },
-        name='logout'),
-
 )
