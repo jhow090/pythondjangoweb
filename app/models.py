@@ -12,7 +12,7 @@ class Aluno(models.Model):
         return self.id_aluno
 
 class Curso(models.Model):
-    id_curso = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    id_curso = models.CharField(primary_key=True, max_length=10)
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
 
