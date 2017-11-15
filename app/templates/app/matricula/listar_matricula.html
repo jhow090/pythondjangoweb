@@ -23,8 +23,16 @@
             <td>{{ matricula.ano_ofertado_matricula }}</td>
             <td>{{ matricula.semestre_ofertado_matricula }}</td>
             <td>{{ matricula.id_turma_matricula }}</td>
-            <td><a href="{% url 'editar_matricula' matricula.id %}">Editar</a></td>
-            <td><a href="{% url 'apagar_matricula' matricula.id %}">Apagar</a></td>
+            <td>
+              <a href="{% url 'editar_matricula' matricula.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'apagar_matricula' matricula.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
+              </a>
+            </td>
           </tr>
         {% endfor %}
 </table>
