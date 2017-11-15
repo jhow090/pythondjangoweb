@@ -157,6 +157,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Pratica'
                 }
             )
+        )
 
             ementa_disciplina = forms.CharField(
             max_length=50,
@@ -170,6 +171,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Ementa'
                 }
             )
+        )
 
             competencias_disciplina = forms.CharField(
             max_length=50,
@@ -183,7 +185,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Competencias'
                 }
             )
-
+        )
             habilidades_disciplina = forms.CharField(
             max_length=50,
             widget=forms.TextInput(
@@ -196,7 +198,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Habilidades'
                 }
             )
-
+        )
             conteudo_disciplina = forms.CharField(
             max_length=50,
             widget=forms.TextInput(
@@ -209,7 +211,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Conteudo'
                 }
             )
-
+        )
             bibliografia_disciplina = forms.CharField(
             max_length=50,
             widget=forms.TextInput(
@@ -222,7 +224,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Bibliografia'
                 }
             )
-
+        )
             bibliografia_complementar_disciplina = forms.CharField(
             max_length=50,
             widget=forms.TextInput(
@@ -235,7 +237,7 @@ class DisciplinaForm(forms.ModelForm):
                     'placeholder': 'Bibliografia complementar'
                 }
             )
-
+        )
         class Meta:
             model = Matricula
             fields =    ['nome_disciplina',
