@@ -78,20 +78,6 @@ def listar_colaborador(request):
         })
     )
 
-def novo_colaborador(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/colaborador/novo_colaborador.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Novo colaborador',
-            'message':'Novo colaborador',
-            'year':datetime.now().year,
-        })
-    )
-
-
 def listar_cursos(request):
     assert isinstance(request, HttpRequest)
     return render(
@@ -176,13 +162,6 @@ def apagar_professor(request, pk, template_name='app/professor/confirmacao_apaga
         return redirect('listar_professor')
     return render(request, template_name, {'object':candidato.nome})
 
-def apagar_colaborador(request, pk, template_name='app/colaborador/confirmacao_apagar_colaborador.html'):
-    colaborador = get_object_or_404(Colaborador, pk=pk)
-    if request.method=='POST':
-        colaborador.delete()
-        return redirect('listar_colaborador')
-    return render(request, template_name, {'object':colaborador.nome})
-
 def apagar_curso(request, pk, template_name='app/curso/confirmacao_apagar_curso.html'):
     curso = get_object_or_404(Curso, pk=pk)
     if request.method=='POST':
@@ -216,17 +195,6 @@ def editar_professor(request, pk, template_name='app/professor/novo_candidato.ht
     if form.is_valid():
         form.save()
         return redirect('listar_professor')
-    return render(request, template_name, {'form':form})
-
-def editar_colaborador(request, pk, template_name='app/colaborador/novo_colaborador.html'):
-    if request.user.is_superuser:
-        colaborador= get_object_or_404(Colaborador, pk=pk)
-    else:
-        colaborador= get_object_or_404(Colaborador, pk=pk)
-    form = ColaboradorForm(request.POST or None, instance = colaborador)
-    if form.is_valid():
-        form.save()
-        return redirect('listar_colaborador')
     return render(request, template_name, {'form':form})
 
 def editar_curso(request, pk, template_name='app/curso/novo_curso.html'):
