@@ -372,12 +372,12 @@ class DisciplinaForm(forms.ModelForm):
     max_length=100,
     widget=forms.TextInput(
         attrs={
-            'title': 'Nome da disciplina',
+            'title': 'Carga horaria',
             'type': 'text',
             'name': 'carga_horaria_disciplina',
             'id': 'carga_horaria_disciplina',
-            'size': 5,
-            'placeholder': 'Nome da disciplina'
+            'size': 10,
+            'placeholder': 'Carga horaria'
         }
     )
 )
