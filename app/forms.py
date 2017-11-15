@@ -239,7 +239,7 @@ class DisciplinaForm(forms.ModelForm):
         )
     )
         class Meta:
-            model = Matricula
+            model = Disciplina
             fields =    ['nome_disciplina',
                         'carga_horaria_disciplina',
                         'teoria_disciplina',
