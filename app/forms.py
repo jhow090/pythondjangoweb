@@ -79,7 +79,7 @@ class AlunoForm(forms.ModelForm):
 
     class Meta:
         model = Aluno
-        fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno']
+        fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno', 'curso_aluno']
 
 
 class UserModelForm(forms.ModelForm):
