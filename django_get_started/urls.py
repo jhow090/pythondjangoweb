@@ -37,8 +37,6 @@ urlpatterns = patterns('',
     url(r'^editar_curso/(?P<pk>\d+)$', 'app.views.editar_curso', name='editar_curso'),
     url(r'^apagar_curso/(?P<pk>\d+)$', 'app.views.apagar_curso', name='apagar_curso'),
 
-    url(r'^cadastro$', 'app.views.cadastro', name='cadastro'),
-
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {
