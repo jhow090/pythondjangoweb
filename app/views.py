@@ -205,6 +205,7 @@ def apagar_curso(request, pk, template_name='app/curso/confirmacao_apagar_curso.
 
 
 def editar_aluno(request, pk, template_name='app/aluno/editar_aluno.html'):
+    aluno= get_object_or_404(Aluno, pk=pk)
     form = AlunoForm(request.POST or None, instance = aluno)
     if form.is_valid():
         form.save()
