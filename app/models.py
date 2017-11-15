@@ -6,7 +6,7 @@ class Aluno(models.Model):
     nome_aluno = models.CharField(max_length=100)
     email_aluno = models.CharField(max_length=100)
     celular_aluno = models.CharField(max_length=15)
-    id_curso = models.CharField(max_length=50)
+    curso_aluno = models.CharField(max_length=50)
 
     def __unicode__(self):
         return self.nome
