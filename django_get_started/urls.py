@@ -18,6 +18,11 @@ urlpatterns = patterns('',
     url(r'^editar_curso/(?P<pk>\d+)$', 'app.views.editar_curso', name='editar_curso'),
     url(r'^apagar_curso/(?P<pk>\d+)$', 'app.views.apagar_curso', name='apagar_curso'),
 
+    url(r'^listar_matricula', 'app.views.listar_matricula', name='listar_matricula'),
+    url(r'^novo_matricula', 'app.views.novo_matricula', name='novo_matricula'),
+    url(r'^editar_matricula/(?P<pk>\d+)$', 'app.views.editar_matricula', name='editar_matricula'),
+    url(r'^apagar_matricula/(?P<pk>\d+)$', 'app.views.apagar_matricula', name='apagar_matricula'),
+
     url(r'^login/$',
         'django.contrib.auth.views.login',
         {

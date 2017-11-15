@@ -105,3 +105,41 @@ def editar_curso(request, pk, template_name='app/curso/novo_curso.html'):
         form.save()
         return redirect('listar_curso')
     return render(request, template_name, {'form':form})
+
+def listar_disciplina(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/disciplina/listar_disciplina.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de disciplina',
+            'disciplinas': Disciplina.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_disciplina(request, template_name='app/disciplina/novo_disciplina.html'):
+    form = DisciplinaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplina')
+    return render(request, template_name, {'form':form})
+
+def apagar_disciplina(request, pk, template_name='app/disciplina/confirmacao_apagar_disciplina.html'):
+    disciplina = get_object_or_404(Disciplina, pk=pk)
+    if request.method=='POST':
+        disciplina.delete()
+        return redirect('listar_disciplina')
+    return render(request, template_name, {'object':disciplina.nome_disciplina})
+
+def editar_disciplina(request, pk, template_name='app/disciplina/novo_disciplina.html'):
+    if request.user.is_superuser:
+        disciplina = get_object_or_404(Disciplina, pk=pk)
+    else:
+        disciplina = get_object_or_404(Disciplina, pk=pk)
+    form = DisciplinaForm(request.POST or None, instance = disciplina)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplina')
+    return render(request, template_name, {'form':form})
