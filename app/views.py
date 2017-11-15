@@ -1,28 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
-from app.models import Curso
-from app.models import Aluno
-from app.models import Professor
-from app.models import Matricula
 
+from app.models import *
+from app.forms import *
 
-from app.models import Colaborador
-from app.models import Usuario
 from datetime import datetime
-from app.forms import UserModelForm
-from app.forms import CursoForm
-from app.forms import AlunoForm
-from app.forms import ProfessorForm
-from app.forms import MatriculaForm
-
-
-from app.forms import ColaboradorForm
-from app.forms import UsuarioForm
 from django.views.generic import TemplateView,ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from django.forms import ModelForm
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 
