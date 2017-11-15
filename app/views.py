@@ -3,14 +3,14 @@ from django.http import HttpRequest
 from django.template import RequestContext
 from app.models import Curso
 from app.models import Aluno
-from app.models import Candidato
+from app.models import Professor
 from app.models import Colaborador
 from app.models import Usuario
 from datetime import datetime
 from app.forms import UserModelForm
 from app.forms import CursoForm
 from app.forms import AlunoForm
-from app.forms import CandidatoForm
+from app.forms import ProfessorForm
 from app.forms import ColaboradorForm
 from app.forms import UsuarioForm
 from django.views.generic import TemplateView,ListView
@@ -46,28 +46,28 @@ def listar_alunos(request):
     )
 
 
-def listar_candidatos(request):
+def listar_professor(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/candidato/listar_candidatos.html',
+        'app/professor/listar_professor.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de candidatos',
-            'candidatos': Candidato.objects.all(),
+            'title':'Cadastro de professores',
+            'professores': Professor.objects.all(),
             'year':datetime.now().year,
         })
     )
 
-def novo_candidato(request):
+def novo_professor(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/candidato/novo_candidato.html',
+        'app/professor/novo_candidato.html',
         context_instance = RequestContext(request,
         {
-            'title':'Novo candidato',
-            'message':'Novo candidato',
+            'title':'Novo professor',
+            'message':'Novo professor',
             'year':datetime.now().year,
         })
     )
@@ -190,11 +190,11 @@ def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.
         return redirect('listar_alunos')
     return render(request, template_name, {'object':aluno.nome_aluno})
 
-def apagar_candidato(request, pk, template_name='app/candidato/confirmacao_apagar_candidato.html'):
+def apagar_professor(request, pk, template_name='app/professor/confirmacao_apagar_candidato.html'):
     candidato = get_object_or_404(Candidato, pk=pk)
     if request.method=='POST':
         candidato.delete()
-        return redirect('listar_candidatos')
+        return redirect('listar_professor')
     return render(request, template_name, {'object':candidato.nome})
 
 def apagar_colaborador(request, pk, template_name='app/colaborador/confirmacao_apagar_colaborador.html'):
@@ -229,15 +229,15 @@ def editar_usuario(request, pk, template_name='app/usuario/novo_usuario.html'):
     return render(request, template_name, {'form':form})
 
 
-def editar_candidato(request, pk, template_name='app/candidato/novo_candidato.html'):
+def editar_professor(request, pk, template_name='app/professor/novo_candidato.html'):
     if request.user.is_superuser:
-        candidato= get_object_or_404(Candidato, pk=pk)
+        candidato= get_object_or_404(Professor, pk=pk)
     else:
-        candidato= get_object_or_404(Candidato, pk=pk)
-    form = CandidatoForm(request.POST or None, instance = candidato)
+        candidato= get_object_or_404(Professor, pk=pk)
+    form = ProfessorForm(request.POST or None, instance = professor)
     if form.is_valid():
         form.save()
-        return redirect('listar_candidatos')
+        return redirect('listar_professor')
     return render(request, template_name, {'form':form})
 
 def editar_colaborador(request, pk, template_name='app/colaborador/novo_colaborador.html'):

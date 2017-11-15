@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from models import Curso
 from models import Aluno
-from models import Candidato
+from models import Professor
 from models import Colaborador
 from models import Usuario
 from django.contrib.auth.forms import AuthenticationForm
@@ -125,90 +125,79 @@ class CursoForm(forms.ModelForm):
         fields = ['nome_curso', 'sigla_curso']
 
 
-class CandidatoForm(forms.ModelForm):
-    nome = forms.CharField(
+class ProfessorForm(forms.ModelForm):
+    ra_professor = forms.CharField(
     max_length=100,
     widget=forms.TextInput(
         attrs={
+            'title': 'Ra',
+            'type': 'number',
+            'name': 'ra_professor',
+            'id': 'ra_professor',
+            'size': 10,
+            'placeholder': 'Ra'
+        }
+    )
+)
+    apelido_professor = forms.CharField(
+    max_length=30,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Apelido',
+            'type': 'text',
+            'name': 'apelido_professor',
+            'id': 'apelido_professor',
+            'size': 35,
+            'placeholder': 'Apelido'
+        }
+    )
+)
+    nome_professor = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Nome',
+            'type': 'text',
+            'name': 'nome_professor',
+            'id': 'nome_professor',
             'size': 35,
             'placeholder': 'Nome'
         }
     )
 )
 
-    data_nascimento = forms.CharField(
+    email_professor = forms.CharField(
     max_length=15,
     widget=forms.TextInput(
         attrs={
-            'size': 15,
-            'placeholder': 'Data de nascimento'
-        }
-    )
-)
-
-    email = forms.CharField(
-    max_length=15,
-    widget=forms.TextInput(
-        attrs={
+            'title': 'Email',
+            'type': 'text',
+            'name': 'email_professor',
+            'id': 'email_professor',
             'size': 35,
             'placeholder': 'Email'
         }
     )
 )
 
-    endereco = forms.CharField(
-    max_length=200,
-    widget=forms.TextInput(
-        attrs={
-            'size': 35,
-            'placeholder': 'Endereco'
-        }
-    )
-)
-
-    cidade = forms.CharField(
-    max_length=100,
-    widget=forms.TextInput(
-        attrs={
-            'size': 10,
-            'placeholder': 'Cidade'
-        }
-    )
-)
-
-    estado = forms.CharField(
-    max_length=10,
-    widget=forms.TextInput(
-        attrs={
-            'size': 5,
-            'placeholder': 'Estado'
-        }
-    )
-)
-
-    telefone = forms.CharField(
+    celular_professor = forms.CharField(
     max_length=15,
     widget=forms.TextInput(
         attrs={
-            'size': 10,
-            'placeholder': 'Telefone'
-        }
-    )
-)
-
-    celular = forms.CharField(
-    max_length=15,
-    widget=forms.TextInput(
-        attrs={
+            'title': 'Celular',
+            'type': 'text',
+            'name': 'celular_professor',
+            'id': 'celular_professor',
             'size': 10,
             'placeholder': 'Celular'
         }
     )
 )
 
+
     class Meta:
-        model = Candidato
-        fields = ['nome', 'curso', 'data_nascimento', 'email', 'endereco', 'cidade', 'estado', 'telefone', 'celular']
+        model = Professor
+        fields = ['ra_professor', 'apelido_professor', 'nome_professor', 'email_professor', 'celular_professor']
 
 class ColaboradorForm(forms.ModelForm):
 

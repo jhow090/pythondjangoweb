@@ -13,16 +13,12 @@ class Curso(models.Model):
     sigla_curso = models.CharField(max_length=5)
 
 
-class Candidato(models.Model):
-    nome = models.CharField(max_length=100)
-    curso = models.CharField(max_length=100)
-    data_nascimento = models.CharField(max_length=15)
-    email = models.CharField(max_length=100)
-    endereco = models.CharField(max_length=200)
-    cidade = models.CharField(max_length=100)
-    estado = models.CharField(max_length=10)
-    telefone = models.CharField(max_length=15)
-    celular = models.CharField(max_length=15)
+class Professor(models.Model):
+    ra_professor = models.CharField(max_length=10)
+    apelido_professor = models.CharField(max_length=30)
+    nome_professor = models.CharField(max_length=120)
+    email_preofessor = models.CharField(max_length=80)
+    celular_professor = models.CharField(max_length=11)
 
 class Colaborador(models.Model):
     nome = models.CharField(max_length=100)
