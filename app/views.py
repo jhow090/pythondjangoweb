@@ -154,11 +154,11 @@ def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
         return redirect('listar_alunos')
     return render(request, template_name, {'form':form})
 
-def novo_candidato(request, template_name='app/candidato/novo_candidato.html'):
-    form = CandidatoForm(request.POST or None)
+def novo_professor(request, template_name='app/professor/novo_professor.html'):
+    form = ProfessorForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_candidatos')
+        return redirect('listar_professor')
     return render(request, template_name, {'form':form})
 
 def novo_colaborador(request, template_name='app/colaborador/novo_colaborador.html'):
