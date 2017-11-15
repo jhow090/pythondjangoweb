@@ -8,13 +8,7 @@ class Aluno(models.Model):
     email_aluno = models.CharField(max_length=100)
     celular_aluno = models.CharField(max_length=15)
 
-    def __str__(self):
-        return self.id_aluno
-
 class Curso(models.Model):
     id_curso = models.CharField(primary_key=True, max_length=10)
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
-
-    def __str__(self):
-        return self.id_curso
