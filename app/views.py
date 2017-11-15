@@ -38,11 +38,7 @@ def listar_aluno(request):
     )
 
 def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
-    assert isinstance(request, HttpRequest)
-    context_instance = RequestContext(request,
-    {
-        'cursos': Curso.objects.all(),
-    })
+    cursos: Curso.objects.all()
     form = AlunoForm(request.POST or None)
     if form.is_valid():
         form.save()
