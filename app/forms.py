@@ -25,7 +25,7 @@ class AlunoForm(forms.ModelForm):
     max_length=100,
     widget=forms.TextInput(
         attrs={
-            'title': 'Ra: ',
+            'title': 'Ra',
             'type': 'number',
             'name': 'ra_aluno',
             'id': 'ra_aluno',
@@ -38,6 +38,10 @@ class AlunoForm(forms.ModelForm):
     max_length=100,
     widget=forms.TextInput(
         attrs={
+            'title': 'Nome',
+            'type': 'text',
+            'name': 'nome_aluno',
+            'id': 'nome_aluno',
             'size': 35,
             'placeholder': 'Nome'
         }
@@ -48,6 +52,10 @@ class AlunoForm(forms.ModelForm):
     max_length=15,
     widget=forms.TextInput(
         attrs={
+            'title': 'Email',
+            'type': 'text',
+            'name': 'email_aluno',
+            'id': 'email_aluno',
             'size': 35,
             'placeholder': 'Email'
         }
@@ -58,6 +66,10 @@ class AlunoForm(forms.ModelForm):
     max_length=15,
     widget=forms.TextInput(
         attrs={
+            'title': 'Celular',
+            'type': 'text',
+            'name': 'celular_aluno',
+            'id': 'celular_aluno',
             'size': 10,
             'placeholder': 'Celular'
         }
@@ -68,7 +80,11 @@ class AlunoForm(forms.ModelForm):
     max_length=50,
     widget=forms.TextInput(
         attrs={
-            'size': 50,
+            'title': 'Curso',
+            'type': 'text',
+            'name': 'curso_aluno',
+            'id': 'curso_aluno',
+            'size': 35,
             'placeholder': 'Curso'
         }
     )
