@@ -39,6 +39,10 @@ class Disciplina(models.Model):
     bibliografia_disciplina = models.CharField(max_length=100)
     bibliografia_complementar_disciplina = models.CharField(max_length=100)
 
+class GradeCurricular(models.Model):
+    sigla_curso_grade_curricular = models.CharField(max_length=5)
+    ano_grade_curricular = models.CharField(max_length=5)
+    semeste_grade_curricular = models.CharField(max_length=5)
 
 class Colaborador(models.Model):
     nome = models.CharField(max_length=100)

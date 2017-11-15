@@ -506,3 +506,52 @@ class DisciplinaForm(forms.ModelForm):
                     'conteudo_disciplina',
                     'bibliografia_disciplina',
                     'bibliografia_complementar_disciplina']
+
+class GradeCurricularForm(forms.ModelForm):
+    sigla_curso_grade_curricular = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Sigla do curso',
+            'type': 'text',
+            'name': 'sigla_curso_grade_curricular',
+            'id': 'sigla_curso_grade_curricular',
+            'size': 25,
+            'placeholder': 'Sigla do curso'
+        }
+    )
+)
+
+    ano_grade_curricular = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Ano',
+            'type': 'text',
+            'name': 'ano_grade_curricular',
+            'id': 'ano_grade_curricular',
+            'size': 10,
+            'placeholder': 'Ano'
+        }
+    )
+)
+
+    semeste_grade_curricular = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Semestre',
+            'type': 'text',
+            'name': 'semeste_grade_curricular',
+            'id': 'semeste_grade_curricular',
+            'size': 10,
+            'placeholder': 'Semestre'
+        }
+    )
+)
+
+    class Meta:
+        model = GradeCurricular
+        fields = [  'sigla_curso_grade_curricular',
+                    'ano_grade_curricular',
+                    'semeste_grade_curricular']

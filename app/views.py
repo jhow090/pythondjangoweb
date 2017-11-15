@@ -31,7 +31,7 @@ def listar_alunos(request):
         'app/aluno/listar_alunos.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de alunos',
+            'title':'Lista de alunos',
             'alunos': Aluno.objects.all(),
             'year':datetime.now().year,
         })
@@ -45,7 +45,7 @@ def listar_professor(request):
         'app/professor/listar_professor.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de professores',
+            'title':'Lista de professores',
             'professores': Professor.objects.all(),
             'year':datetime.now().year,
         })
@@ -65,19 +65,6 @@ def novo_professor(request):
     )
 
 
-def listar_colaborador(request):
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/colaborador/listar_colaborador.html',
-        context_instance = RequestContext(request,
-        {
-            'title':'Cadastro de colaborador',
-            'colaboradores': Colaborador.objects.all(),
-            'year':datetime.now().year,
-        })
-    )
-
 def listar_cursos(request):
     assert isinstance(request, HttpRequest)
     return render(
@@ -85,7 +72,7 @@ def listar_cursos(request):
         'app/curso/listar_cursos.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de cursos',
+            'title':'Lista de cursos',
             'cursos': Curso.objects.all(),
             'year':datetime.now().year,
         })
@@ -99,7 +86,7 @@ def listar_disciplina(request):
         'app/disciplina/listar_disciplina.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de disciplina',
+            'title':'Lista de disciplina',
             'disciplinas': Disciplina.objects.all(),
             'year':datetime.now().year,
         })
@@ -216,7 +203,7 @@ def listar_matricula(request):
         'app/matricula/listar_matricula.html',
         context_instance = RequestContext(request,
         {
-            'title':'Cadastro de matricula',
+            'title':'Lista de matricula',
             'matriculas': Matricula.objects.all(),
             'year':datetime.now().year,
         })
@@ -246,4 +233,43 @@ def editar_matricula(request, pk, template_name='app/matricula/novo_matricula.ht
     if form.is_valid():
         form.save()
         return redirect('listar_matricula')
+    return render(request, template_name, {'form':form})
+
+
+def listar_grade_curricular(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/grade_curricular/listar_gradecurricular.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de grade curricular',
+            'gradecurriculars': GradeCurricular.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_grade_curricular(request, template_name='app/grade_curricular/novo_gradecurricular.html'):
+    form = GradeCurricularForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_gradecurricular')
+    return render(request, template_name, {'form':form})
+
+def apagar_grade_curricular(request, pk, template_name='app/grade_curricular/confirmacao_apagar_gradecurricular.html'):
+    gradecurricular = get_object_or_404(GradeCurricular, pk=pk)
+    if request.method=='POST':
+        gradecurricular.delete()
+        return redirect('listar_gradecurricular')
+    return render(request, template_name, {'object':gradecurricular.sigla_curso_grade_curricular})
+
+def editar_grade_curricular(request, pk, template_name='app/grade_curricular/novo_gradecurricular.html'):
+    if request.user.is_superuser:
+        gradecurricular = get_object_or_404(GradeCurricular, pk=pk)
+    else:
+        gradecurricular = get_object_or_404(GradeCurricular, pk=pk)
+    form = GradeCurricularForm(request.POST or None, instance = gradecurricular)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_grade_curricular')
     return render(request, template_name, {'form':form})
