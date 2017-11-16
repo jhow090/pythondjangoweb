@@ -287,6 +287,30 @@ class GradeForm(forms.ModelForm):
                         'semestre_grade']
 
 
+class PeriodoForm(forms.ModelForm):
+        numero_periodo = forms.CharField(
+        max_length=4,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Numero',
+                'type': 'number',
+                'name': 'numero_periodo',
+                'id': 'numero_periodo',
+                'size': 5,
+                'placeholder': 'Numero'
+            }
+        )
+    )
+
+        class Meta:
+            model = Periodo
+            fields =    ['sigla_curso',
+                        'ano_grade',
+                        'semestre_grade',
+                        'numero']
+
+
+
 class ProfessorForm(forms.ModelForm):
         ra_professor = forms.CharField(
         max_length=10,

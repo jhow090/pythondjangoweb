@@ -1,0 +1,70 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de periodo</h1>
+</div>
+
+<form action="{% url 'novo_periodo' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados do periodo</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="sigla_curso">Sigla do curso: </label>
+          </td>
+          <td align="left">
+            <select name="sigla_curso">
+              {% for curso in curso %}
+                <option value="{{ curso.sigla_curso }}">{{ curso.sigla_curso }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_grade">Ano: </label>
+          </td>
+          <td align="left">
+            <select name="ano_grade">
+              {% for grade in grade %}
+                <option value="{{ grade.ano_grade }}">{{ grade.ano_grade }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_grade">Semestre: </label>
+          </td>
+          <td align="left">
+            <select name="semestre_grade">
+              {% for grade in grade %}
+                <option value="{{ grade.semestre_grade }}">{{ grade.semestre_grade }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="numero_periodo">Numero: </label>
+          </td>
+          <td align="left">
+            {{ form.numero_periodo }}</br>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

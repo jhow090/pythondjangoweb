@@ -220,3 +220,49 @@ def editar_grade(request, pk, template_name='app/grade/novo_grade.html'):
         form.save()
         return redirect('listar_grade')
     return render(request, template_name, {'form':form})
+
+def listar_periodo(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/periodo/listar_periodo.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de periodo',
+            'periodos': Periodo.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_grade(request, template_name='app/periodo/novo_periodo.html'):
+    curso = Curso.objects.all()
+    sigla_curso = request.POST.get('sigla_curso')
+    grade = Grade.objects.all()
+    ano_grade = request.POST.get('ano_grade')
+    semestre_grade = request.POST.get('semestre_grade')
+    form = PeriodoForm(request.POST or None)
+    if form.is_valid():
+        form.sigla_curso = Curso.objects.get(sigla_curso = sigla_curso)
+        form.ano_grade = Grade.objects.get(ano_grade = ano_grade)
+        form.semestre_grade = Grade.objects.get(semestre_grade = semestre_grade)
+        form.save()
+        return redirect('listar_periodo')
+    return render(request, template_name, {'form':form, 'curso': curso, 'grade': grade})
+
+def apagar_periodo(request, pk, template_name='app/periodo/confirmacao_apagar_periodo.html'):
+    periodo = get_object_or_404(Periodo, pk=pk)
+    if request.method=='POST':
+        periodo.delete()
+        return redirect('listar_periodo')
+    return render(request, template_name, {'object':periodo.numero_periodo})
+
+def editar_periodo(request, pk, template_name='app/periodo/novo_periodo.html'):
+    if request.user.is_superuser:
+        periodo = get_object_or_404(Periodo, pk=pk)
+    else:
+        periodo = get_object_or_404(Periodo, pk=pk)
+    form = PeriodoForm(request.POST or None, instance = periodo)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_periodo')
+    return render(request, template_name, {'form':form})
