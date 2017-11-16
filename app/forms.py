@@ -307,7 +307,7 @@ class PeriodoForm(forms.ModelForm):
             fields =    ['sigla_curso',
                         'ano_grade',
                         'semestre_grade',
-                        'numero']
+                        'numero_periodo']
 
 
 
