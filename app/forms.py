@@ -341,14 +341,14 @@ class PeriodoForm(forms.ModelForm):
                         'numero_periodo']
 
 class PeriododisciplinaForm(forms.ModelForm):
-        class Meta:
-            model = Periododisciplina
-            fields =    ['sigla_curso',
-                        'ano_grade',
-                        'semestre_grade',
-                        'numero_periodo',
-                        'numero_periodo',
-                        'nome_disciplina']
+    class Meta:
+        model = Periododisciplina
+        fields = [  'sigla_curso',
+                    'ano_grade',
+                    'semestre_grade',
+                    'numero_periodo',
+                    'numero_periodo',
+                    'nome_disciplina']
 
 class ProfessorForm(forms.ModelForm):
         ra_professor = forms.CharField(
