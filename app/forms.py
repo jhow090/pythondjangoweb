@@ -439,3 +439,12 @@ class MatriculaForm(forms.ModelForm):
                     'ano_disciplina',
                     'semestre_disciplina',
                     'id_turma']
+
+class CursoturmaForm(forms.ModelForm):
+    class Meta:
+        model = Cursoturma
+        fields = [  'sigla_curso',
+                    'nome_disciplina',
+                    'ano_disciplina',
+                    'semestre_disciplina',
+                    'id_turma']

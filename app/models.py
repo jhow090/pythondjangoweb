@@ -12,6 +12,13 @@ class Curso(models.Model):
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
 
+class Cursoturma(models.Model):
+    sigla_curso = models.CharField(max_length=5)
+    nome_disciplina = models.CharField(max_length=240)
+    ano_disciplina = models.CharField(max_length=5)
+    semestre_disciplina = models.CharField(max_length=5)
+    id_turma = models.CharField(max_length=5)
+
 class Disciplina(models.Model):
     nome_disciplina = models.CharField(max_length=240)
     carga_horaria_disciplina = models.CharField(max_length=100)
