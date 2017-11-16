@@ -438,7 +438,7 @@ def editar_matricula(request, pk, template_name='app/matricula/novo_matricula.ht
         return redirect('listar_matricula')
     return render(request, template_name, {'form':form})
 
-def listar_cursoturma(request):
+def listar_cursturma(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -446,12 +446,12 @@ def listar_cursoturma(request):
         context_instance = RequestContext(request,
         {
             'title':'Lista de curso turma',
-            'cursoturmas': Cursoturma.objects.all(),
+            'cursturmas': Cursturma.objects.all(),
             'year':datetime.now().year,
         })
     )
 
-def novo_cursoturma(request, template_name='app/cursoturma/novo_cursoturma.html'):
+def novo_cursturma(request, template_name='app/cursoturma/novo_cursoturma.html'):
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     disciplinofertada = Disciplinofertada.objects.all()
@@ -460,26 +460,26 @@ def novo_cursoturma(request, template_name='app/cursoturma/novo_cursoturma.html'
     semestre_disciplina = request.POST.get('semestre_disciplina')
     turma = Turma.objects.all()
     id_turma = request.POST.get('id_turma')
-    form = CursoturmaForm(request.POST or None)
+    form = CursturmaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_cursoturma')
+        return redirect('listar_cursturma')
     return render(request, template_name, { 'form':form, 'curso': curso, 'disciplinofertada': disciplinofertada, 'turma': turma})
 
-def apagar_cursoturma(request, pk, template_name='app/cursoturma/confirmacao_apagar_cursoturma.html'):
-    cursoturma = get_object_or_404(Cursoturma, pk=pk)
+def apagar_cursturma(request, pk, template_name='app/cursoturma/confirmacao_apagar_cursoturma.html'):
+    cursoturma = get_object_or_404(Cursturma, pk=pk)
     if request.method=='POST':
         cursoturma.delete()
         return redirect('listar_cursoturma')
-    return render(request, template_name, {'object':cursoturma.sigla_curso})
+    return render(request, template_name, {'object':cursturma.sigla_curso})
 
-def editar_cursoturma(request, pk, template_name='app/cursoturma/novo_cursoturma.html'):
+def editar_cursturma(request, pk, template_name='app/cursoturma/novo_cursoturma.html'):
     if request.user.is_superuser:
         cursoturma = get_object_or_404(Cursoturma, pk=pk)
     else:
         cursoturma = get_object_or_404(Cursoturma, pk=pk)
-    form = CursoturmaForm(request.POST or None, instance = Cursoturma)
+    form = CursturmaForm(request.POST or None, instance = Cursturma)
     if form.is_valid():
         form.save()
-        return redirect('listar_cursoturma')
+        return redirect('listar_cursturma')
     return render(request, template_name, {'form':form})
