@@ -61,12 +61,12 @@
         </tr>
         <tr>
           <td>
-            <label for="nome_curso">Nome curso: </label>
+            <label for="nome_disciplina">Nome disciplina: </label>
           </td>
           <td align="left">
-            <select name="nome_curso">
-              {% for curso in curso %}
-                <option value="{{ curso.nome_curso }}">{{ curso.nome_curso }}</option>
+            <select name="nome_disciplina">
+              {% for disciplina in disciplina %}
+                <option value="{{ disciplina.nome_disciplina }}">{{ disciplina.nome_disciplina }}</option>
               {% endfor %}
             </select></br>
           </td>

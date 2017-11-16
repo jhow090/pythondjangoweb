@@ -277,8 +277,8 @@ def listar_perioddisciplina(request):
     )
 
 def novo_perioddisciplina(request, template_name='app/perioddisciplina/novo_perioddisciplina.html'):
-    curso = Curso.objects.all()
-    nome_curso = request.POST.get('nome_curso')
+    disciplina = Disciplina.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
     periodo = Periodo.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     ano_grade = request.POST.get('ano_grade')
@@ -288,7 +288,7 @@ def novo_perioddisciplina(request, template_name='app/perioddisciplina/novo_peri
     if form.is_valid():
         form.save()
         return redirect('listar_perioddisciplina')
-    return render(request, template_name, {'form':form, 'curso': curso, 'periodo': periodo})
+    return render(request, template_name, {'form':form, 'disciplina': disciplina, 'periodo': periodo})
 
 def apagar_perioddisciplina(request, pk, template_name='app/periododisciplina/confirmacao_apagar_periododisciplina.html'):
     perioddisciplina = get_object_or_404(Periodo, pk=pk)
