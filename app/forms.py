@@ -329,7 +329,6 @@ class ProfessorForm(forms.ModelForm):
                         'email_professor',
                         'celular_professor']
 
-
 class DisciplinaOfertadaForm(forms.ModelForm):
         nome_disciplinaofertada = forms.CharField(
         max_length=240,
