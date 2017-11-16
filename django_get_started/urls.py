@@ -22,15 +22,17 @@ urlpatterns = patterns('',
     url(r'^editar_disciplina/(?P<pk>\d+)$', 'app.views.editar_disciplina', name='editar_disciplina'),
     url(r'^apagar_disciplina/(?P<pk>\d+)$', 'app.views.apagar_disciplina', name='apagar_disciplina'),
 
+    url(r'^listar_disciplinaofertada', 'app.views.listar_disciplinaofertada', name='listar_disciplinaofertada'),
+    url(r'^novo_disciplinaofertada', 'app.views.novo_disciplinaofertada', name='novo_disciplinaofertada'),
+    url(r'^editar_disciplinaofertada/(?P<pk>\d+)$', 'app.views.editar_disciplinaofertada', name='editar_disciplinaofertada'),
+    url(r'^apagar_disciplinaofertada/(?P<pk>\d+)$', 'app.views.apagar_disciplinaofertada', name='apagar_disciplinaofertada'),
+
     url(r'^listar_professor', 'app.views.listar_professor', name='listar_professor'),
     url(r'^novo_professor', 'app.views.novo_professor', name='novo_professor'),
     url(r'^editar_professor/(?P<pk>\d+)$', 'app.views.editar_professor', name='editar_professor'),
     url(r'^apagar_professor/(?P<pk>\d+)$', 'app.views.apagar_professor', name='apagar_professor'),
 
-    url(r'^listar_disciplinaofertada', 'app.views.listar_disciplinaofertada', name='listar_disciplinaofertada'),
-    url(r'^novo_disciplinaofertada', 'app.views.novo_disciplinaofertada', name='novo_disciplinaofertada'),
-    url(r'^editar_disciplinaofertada/(?P<pk>\d+)$', 'app.views.editar_disciplinaofertada', name='editar_disciplinaofertada'),
-    url(r'^apagar_disciplinaofertada/(?P<pk>\d+)$', 'app.views.apagar_disciplinaofertada', name='apagar_disciplinaofertada'),
+
 
 
 )
