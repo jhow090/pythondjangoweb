@@ -234,7 +234,7 @@ def listar_periodo(request):
         })
     )
 
-def novo_grade(request, template_name='app/periodo/novo_periodo.html'):
+def novo_periodo(request, template_name='app/periodo/novo_periodo.html'):
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     grade = Grade.objects.all()
