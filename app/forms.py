@@ -38,7 +38,7 @@ class AlunoForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'title': 'Email',
-                'type': 'text',
+                'type': 'email',
                 'name': 'email_aluno',
                 'id': 'email_aluno',
                 'size': 15,
@@ -52,7 +52,7 @@ class AlunoForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'title': 'Celular',
-                'type': 'text',
+                'type': 'tel',
                 'name': 'celular_aluno',
                 'id': 'celular_aluno',
                 'size': 10,
