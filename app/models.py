@@ -6,11 +6,11 @@ class Aluno(models.Model):
     nome_aluno = models.CharField(max_length=100)
     email_aluno = models.CharField(max_length=100)
     celular_aluno = models.CharField(max_length=15)
-    sigla_curso = models.ForeignKey('Curso', on_delete=models.CASCADE)
+    sigla_curso = models.CharField(max_length=15)
 
 class Curso(models.Model):
     nome_curso = models.CharField(max_length=50)
-    sigla_curso = models.CharField(max_length=5)
+    sigla_curso = models.ForeignKey('Aluno', on_delete=models.CASCADE)
 
 class Disciplina(models.Model):
     nome_disciplina = models.CharField(max_length=240)
