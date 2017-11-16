@@ -291,7 +291,7 @@ def novo_perioddisciplina(request, template_name='app/perioddisciplina/novo_peri
     return render(request, template_name, {'form':form, 'disciplina': disciplina, 'periodo': periodo})
 
 def apagar_perioddisciplina(request, pk, template_name='app/periododisciplina/confirmacao_apagar_periododisciplina.html'):
-    perioddisciplina = get_object_or_404(Periodo, pk=pk)
+    perioddisciplina = get_object_or_404(Perioddisciplina, pk=pk)
     if request.method=='POST':
         perioddisciplina.delete()
         return redirect('listar_periododisciplina')
@@ -306,4 +306,45 @@ def editar_perioddisciplina(request, pk, template_name='app/perioddisciplina/nov
     if form.is_valid():
         form.save()
         return redirect('listar_perioddisciplina')
+    return render(request, template_name, {'form':form})
+
+
+def listar_disciplinofertada(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/disciplinofertada/listar_disciplinofertada.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de disciplina ofertada',
+            'disciplinofertadas': Disciplinofertada.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_disciplinofertada(request, template_name='app/disciplinofertada/novo_disciplinofertada.html'):
+    disciplina = Disciplina.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    form = PeriododisciplinaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplinofertada')
+    return render(request, template_name, {'form':form, 'disciplina': disciplina})
+
+def apagar_disciplinofertada(request, pk, template_name='app/disciplinofertada/confirmacao_apagar_disciplinofertada.html'):
+    disciplinofertada = get_object_or_404(Disciplinofertada, pk=pk)
+    if request.method=='POST':
+        disciplinofertada.delete()
+        return redirect('listar_disciplinofertada')
+    return render(request, template_name, {'object':disciplinofertada.nome_disciplina})
+
+def editar_disciplinofertada(request, pk, template_name='app/disciplinofertada/novo_disciplinofertada.html'):
+    if request.user.is_superuser:
+        disciplinofertada = get_object_or_404(Disciplinofertada, pk=pk)
+    else:
+        disciplinofertada = get_object_or_404(Disciplinofertada, pk=pk)
+    form = DisciplinofertadaForm(request.POST or None, instance = Disciplinofertada)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplinofertada')
     return render(request, template_name, {'form':form})

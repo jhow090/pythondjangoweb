@@ -1,0 +1,36 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Lista de disciplina ofertada</h1>
+</div>
+
+<table class="table">
+    <tr>
+      <th>Nome da disciplina</th>
+      <th>Ano</th>
+      <th>Semestre</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+        {% for disciplinofertada in disciplinofertadas %}
+          <tr>
+            <td>{{ disciplinofertada.nome_disciplina }}</td>
+            <td>{{ disciplinofertada.ano_disciplina }}</td>
+            <td>{{ disciplinofertada.semestre_disciplina }}</td>
+            <td>
+              <a href="{% url 'editar_disciplinofertada' disciplinofertada.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'apagar_disciplinofertada' disciplinofertada.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

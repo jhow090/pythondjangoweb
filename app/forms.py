@@ -252,6 +252,43 @@ class DisciplinaForm(forms.ModelForm):
                         'bibliografia_disciplina',
                         'bibliografia_complementar_disciplina']
 
+
+class DisciplinofertadaForm(forms.ModelForm):
+        ano_disciplina = forms.CharField(
+        max_length=4,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Ano',
+                'type': 'number',
+                'name': 'ano_disciplina',
+                'id': 'ano_disciplina',
+                'size': 5,
+                'placeholder': 'Ano'
+            }
+        )
+    )
+
+            semestre_disciplina = forms.CharField(
+            max_length=1,
+            widget=forms.TextInput(
+                attrs={
+                    'title': 'Semestre',
+                    'type': 'number',
+                    'name': 'semestre_disciplina',
+                    'id': 'semestre_disciplina',
+                    'size': 5,
+                    'placeholder': 'Semestre'
+                }
+            )
+        )
+        class Meta:
+            model = Disciplina
+            fields =    ['nome_disciplina',
+                        'ano_disciplina',
+                        'semestre_disciplina']
+
+
+
 class GradeForm(forms.ModelForm):
         ano_grade = forms.CharField(
         max_length=4,
