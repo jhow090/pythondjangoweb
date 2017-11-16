@@ -436,14 +436,14 @@ class ProfessorForm(forms.ModelForm):
                         'celular_professor']
 
 class TurmaForm(forms.ModelForm):
-        turma_turno = forms.CharField(
+        turno_turma = forms.CharField(
         max_length=15,
         widget=forms.TextInput(
             attrs={
                 'title': 'Turma',
                 'type': 'text',
-                'name': 'turma_turno',
-                'id': 'turma_turno',
+                'name': 'turno_turma',
+                'id': 'turno_turma',
                 'size': 5,
                 'placeholder': 'Turma'
             }
@@ -454,5 +454,5 @@ class TurmaForm(forms.ModelForm):
             fields =    ['nome_disciplina',
                         'ano_ofertado',
                         'semestre_ofertado',
-                        'turma_turno',
+                        'turno_turma',
                         'ra_professor']
