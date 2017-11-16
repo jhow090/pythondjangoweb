@@ -30,7 +30,7 @@
           <td align="left">
             <select name="ano_ofertado">
               {% for disciplinofertada in disciplinofertada %}
-                <option value="{{ disciplinofertada.ano_ofertado }}">{{ disciplinofertada.ano_ofertado }}</option>
+                <option value="{{ disciplinofertada.ano_disciplina }}">{{ disciplinofertada.ano_disciplina }}</option>
               {% endfor %}
             </select></br>
           </td>
@@ -42,7 +42,7 @@
           <td align="left">
             <select name="semestre_ofertado">
               {% for disciplinofertada in disciplinofertada %}
-                <option value="{{ disciplinofertada.semestre_ofertado }}">{{ disciplinofertada.semestre_ofertado }}</option>
+                <option value="{{ disciplinofertada.semestre_disciplina }}">{{ disciplinofertada.semestre_disciplina }}</option>
               {% endfor %}
             </select></br>
           </td>
