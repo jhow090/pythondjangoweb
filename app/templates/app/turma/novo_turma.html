@@ -25,10 +25,10 @@
         </tr>
         <tr>
           <td>
-            <label for="ano_ofertado">Ano: </label>
+            <label for="ano_disciplina">Ano: </label>
           </td>
           <td align="left">
-            <select name="ano_ofertado">
+            <select name="ano_disciplina">
               {% for disciplinofertada in disciplinofertada %}
                 <option value="{{ disciplinofertada.ano_disciplina }}">{{ disciplinofertada.ano_disciplina }}</option>
               {% endfor %}
@@ -37,10 +37,10 @@
         </tr>
         <tr>
           <td>
-            <label for="semestre_ofertado">Semestre: </label>
+            <label for="semestre_disciplina">Semestre: </label>
           </td>
           <td align="left">
-            <select name="semestre_ofertado">
+            <select name="semestre_disciplina">
               {% for disciplinofertada in disciplinofertada %}
                 <option value="{{ disciplinofertada.semestre_disciplina }}">{{ disciplinofertada.semestre_disciplina }}</option>
               {% endfor %}
