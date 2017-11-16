@@ -34,6 +34,13 @@ class Grade(models.Model):
     ano_grade = models.CharField(max_length=5)
     semestre_grade = models.CharField(max_length=5)
 
+class Matricula(models.Model):
+    ra_aluno = models.CharField(max_length=5)
+    nome_disciplina = models.CharField(max_length=240)
+    ano_disciplina = models.CharField(max_length=5)
+    semestre_disciplina = models.CharField(max_length=5)
+    id_turma = models.CharField(max_length=5)
+
 class Periodo(models.Model):
     sigla_curso = models.CharField(max_length=5)
     ano_grade = models.CharField(max_length=5)

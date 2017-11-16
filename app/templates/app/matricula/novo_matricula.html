@@ -1,0 +1,85 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de matricula</h1>
+</div>
+
+<form action="{% url 'novo_matricula' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados da matricula</legend>
+      <table cellspacing="2">
+        <tr>
+          <td>
+            <label for="ra_aluno">Ra do aluno: </label>
+          </td>
+          <td align="left">
+            <select name="sigla_curso">
+              {% for aluno in aluno %}
+                <option value="{{ aluno.ra_aluno }}">{{ aluno.ra_aluno }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="nome_disciplina">Nome da disciplina: </label>
+          </td>
+          <td align="left">
+            <select name="nome_disciplina">
+              {% for disciplinofertada in disciplinofertada %}
+                <option value="{{ disciplinofertada.nome_disciplina }}">{{ disciplinofertada.nome_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_disciplina">Ano: </label>
+          </td>
+          <td align="left">
+            <select name="nome_disciplina">
+              {% for disciplinofertada in disciplinofertada %}
+                <option value="{{ disciplinofertada.ano_disciplina }}">{{ disciplinofertada.ano_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_disciplina">Semestre: </label>
+          </td>
+          <td align="left">
+            <select name="semestre_disciplina">
+              {% for disciplinofertada in disciplinofertada %}
+                <option value="{{ disciplinofertada.semestre_disciplina }}">{{ disciplinofertada.semestre_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_turma">Turma: </label>
+          </td>
+          <td align="left">
+            <select name="id_turma">
+              {% for turma in turma %}
+                <option value="{{ turma.id }}">{{ turma.id }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

@@ -32,6 +32,11 @@ urlpatterns = patterns('',
     url(r'^editar_grade/(?P<pk>\d+)$', 'app.views.editar_disciplina', name='editar_grade'),
     url(r'^apagar_grade/(?P<pk>\d+)$', 'app.views.apagar_grade', name='apagar_grade'),
 
+    url(r'^listar_matricula', 'app.views.listar_matricula', name='listar_matricula'),
+    url(r'^novo_matricula', 'app.views.novo_matricula', name='novo_matricula'),
+    url(r'^editar_matricula/(?P<pk>\d+)$', 'app.views.editar_matricula', name='editar_matricula'),
+    url(r'^apagar_matricula/(?P<pk>\d+)$', 'app.views.apagar_matricula', name='apagar_matricula'),
+
     url(r'^listar_periodo', 'app.views.listar_periodo', name='listar_periodo'),
     url(r'^novo_periodo', 'app.views.novo_periodo', name='novo_periodo'),
     url(r'^editar_periodo/(?P<pk>\d+)$', 'app.views.editar_periodo', name='editar_periodo'),

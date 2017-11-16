@@ -392,3 +392,49 @@ def editar_turma(request, pk, template_name='app/turma/novo_turma.html'):
         form.save()
         return redirect('listar_turma')
     return render(request, template_name, {'form':form})
+
+def listar_matricula(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/matricula/listar_matricula.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de matricula',
+            'matriculas': Matricula.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_matricula(request, template_name='app/matricula/novo_matricula.html'):
+    aluno = Aluno.objects.all()
+    ra_aluno = request.POST.get('ra_aluno')
+    disciplinofertada = Disciplinofertada.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    ano_disciplina = request.POST.get('ano_disciplina')
+    semestre_disciplina = request.POST.get('semestre_disciplina')
+    turma = Turma.objects.all()
+    id_turma = request.POST.get('id_turma')
+    form = MatriculaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_matricula')
+    return render(request, template_name, { 'form':form, 'aluno': aluno, 'disciplinofertada': disciplinofertada, 'turma': turma})
+
+def apagar_matricula(request, pk, template_name='app/matricula/confirmacao_apagar_matricula.html'):
+    matricula = get_object_or_404(Matricula, pk=pk)
+    if request.method=='POST':
+        matricula.delete()
+        return redirect('listar_matricula')
+    return render(request, template_name, {'object':matricula.ra_aluno})
+
+def editar_matricula(request, pk, template_name='app/matricula/novo_matricula.html'):
+    if request.user.is_superuser:
+        matricula = get_object_or_404(Matricula, pk=pk)
+    else:
+        matricula = get_object_or_404(Matricula, pk=pk)
+    form = MatriculaForm(request.POST or None, instance = Matricula)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_matricula')
+    return render(request, template_name, {'form':form})
