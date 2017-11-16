@@ -279,7 +279,7 @@ class DisciplinofertadaForm(forms.ModelForm):
             )
         )
         class Meta:
-            model = Disciplina
+            model = Disciplinofertada
             fields =    ['nome_disciplina',
                         'ano_disciplina',
                         'semestre_disciplina']
