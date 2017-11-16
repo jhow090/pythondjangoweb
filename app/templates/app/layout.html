@@ -736,12 +736,14 @@ footer {
         <div class="dropdown-content">
           <a href="{% url 'listar_disciplina' %}">Lista</a>
           <a href="{% url 'novo_disciplina' %}">Novo</a>
-            <a href="" class="dropbtn">Disciplina Ofertada</a>
-            <div class="dropdown-content">
-              <a href="{% url 'listar_disciplina_ofertada' %}">Lista</a>
-              <a href="{% url 'novo_disciplina_ofertada' %}">Novo</a>
-            </div>
         </div>
+      </li>
+      <li class="dropdown">
+        <a href="" class="dropbtn">Disciplina Ofertada</a>
+          <div class="dropdown-content">
+            <a href="{% url 'listar_disciplina_ofertada' %}">Lista</a>
+            <a href="{% url 'novo_disciplina_ofertada' %}">Novo</a>
+          </div>
       </li>
       <li class="dropdown">
         <a href="" class="dropbtn">Professor</a>
