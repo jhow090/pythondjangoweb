@@ -15,20 +15,20 @@
       <th>Editar</th>
       <th>Apagar</th>
     </tr>
-        {% for periododisciplina in periododisciplinas %}
+        {% for perioddisciplina in perioddisciplinas %}
           <tr>
-            <td>{{ periododisciplina.sigla_curso }}</td>
-            <td>{{ periododisciplina.ano_grade }}</td>
-            <td>{{ periododisciplina.semestre_grade }}</td>
-            <td>{{ periododisciplina.numero_periodo }}</td>
-            <td>{{ periododisciplina.nome_curso }}</td>
+            <td>{{ perioddisciplina.sigla_curso }}</td>
+            <td>{{ perioddisciplina.ano_grade }}</td>
+            <td>{{ perioddisciplina.semestre_grade }}</td>
+            <td>{{ perioddisciplina.numero_periodo }}</td>
+            <td>{{ perioddisciplina.nome_curso }}</td>
             <td>
-              <a href="{% url 'editar_periododisciplina' periododisciplina.id %}">
+              <a href="{% url 'editar_perioddisciplina' perioddisciplina.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
               </a>
             </td>
             <td>
-              <a href="{% url 'apagar_periododisciplina' periododisciplina.id %}">
+              <a href="{% url 'apagar_perioddisciplina' perioddisciplina.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
               </a>
             </td>
