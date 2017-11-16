@@ -4,7 +4,6 @@ from models import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.utils.translation import ugettext_lazy as _
 
-
 class AlunoForm(forms.ModelForm):
         ra_aluno = forms.CharField(
         max_length=100,
@@ -69,7 +68,6 @@ class AlunoForm(forms.ModelForm):
                         'email_aluno',
                         'celular_aluno',
                         'sigla_curso']
-
 
 class CursoForm(forms.ModelForm):
         nome_curso = forms.CharField(
@@ -252,7 +250,6 @@ class DisciplinaForm(forms.ModelForm):
                         'bibliografia_disciplina',
                         'bibliografia_complementar_disciplina']
 
-
 class DisciplinofertadaForm(forms.ModelForm):
         ano_disciplina = forms.CharField(
         max_length=4,
@@ -286,8 +283,6 @@ class DisciplinofertadaForm(forms.ModelForm):
             fields =    ['nome_disciplina',
                         'ano_disciplina',
                         'semestre_disciplina']
-
-
 
 class GradeForm(forms.ModelForm):
         ano_grade = forms.CharField(
@@ -323,7 +318,6 @@ class GradeForm(forms.ModelForm):
                         'ano_grade',
                         'semestre_grade']
 
-
 class PeriodoForm(forms.ModelForm):
         numero_periodo = forms.CharField(
         max_length=4,
@@ -345,7 +339,6 @@ class PeriodoForm(forms.ModelForm):
                         'ano_grade',
                         'semestre_grade',
                         'numero_periodo']
-
 
 class PeriododisciplinaForm(forms.ModelForm):
         class Meta:
