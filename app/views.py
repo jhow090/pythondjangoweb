@@ -139,3 +139,42 @@ def editar_disciplina(request, pk, template_name='app/disciplina/novo_disciplina
         form.save()
         return redirect('listar_disciplina')
     return render(request, template_name, {'form':form})
+
+
+def listar_professor(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/professor/listar_professor.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de professor',
+            'professors': Professor.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_professor(request, template_name='app/professor/novo_professor.html'):
+    form = ProfessorForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_professor')
+    return render(request, template_name, {'form':form})
+
+def apagar_professor(request, pk, template_name='app/professor/confirmacao_apagar_professor.html'):
+    professor = get_object_or_404(Professor, pk=pk)
+    if request.method=='POST':
+        professor.delete()
+        return redirect('listar_professor')
+    return render(request, template_name, {'object':professor.nome_professor})
+
+def editar_professor(request, pk, template_name='app/professor/novo_professor.html'):
+    if request.user.is_superuser:
+        professor = get_object_or_404(Professor, pk=pk)
+    else:
+        professor = get_object_or_404(Professor, pk=pk)
+    form = ProfessorForm(request.POST or None, instance = professor)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_professor')
+    return render(request, template_name, {'form':form})

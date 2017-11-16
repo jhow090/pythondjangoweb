@@ -1,0 +1,66 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de professor</h1>
+</div>
+
+<form action="{% url 'novo_professor' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados da professor</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="ra_professor">Ra: </label>
+          </td>
+          <td align="left">
+            {{ form.ra_professor }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="apelido_professor">Apelido: </label>
+          </td>
+          <td align="left">
+          {{ form.apelido_professor }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="nome_professor">Nome: </label>
+          </td>
+          <td align="left">
+          {{ form.nome_professor }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email_professor">Email: </label>
+          </td>
+          <td align="left">
+          {{ form.email_professor }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="celular_professor">Celular: </label>
+          </td>
+          <td align="left">
+          {{ form.celular_professor }}</br>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

@@ -250,3 +250,81 @@ class DisciplinaForm(forms.ModelForm):
                         'conteudo_disciplina',
                         'bibliografia_disciplina',
                         'bibliografia_complementar_disciplina']
+
+class ProfessorForm(forms.ModelForm):
+        ra_professor = forms.CharField(
+        max_length=10,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Ra',
+                'type': 'text',
+                'name': 'ra_professor',
+                'id': 'ra_professor',
+                'size': 5,
+                'placeholder': 'Ra'
+            }
+        )
+    )
+
+        apelido_professor = forms.CharField(
+        max_length=30,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Apelido',
+                'type': 'text',
+                'name': 'apelido_professor',
+                'id': 'apelido_professor',
+                'size': 10,
+                'placeholder': 'Apelido'
+            }
+        )
+    )
+
+        nome_professor = forms.CharField(
+        max_length=120,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Nome',
+                'type': 'text',
+                'name': 'nome_professor',
+                'id': 'nome_professor',
+                'size': 15,
+                'placeholder': 'Nome'
+            }
+        )
+    )
+
+        email_professor = forms.CharField(
+        max_length=120,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Email',
+                'type': 'text',
+                'name': 'email_professor',
+                'id': 'email_professor',
+                'size': 10,
+                'placeholder': 'Email'
+            }
+        )
+    )
+
+        celular_professor = forms.CharField(
+        max_length=120,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Celular',
+                'type': 'text',
+                'name': 'celular_professor',
+                'id': 'celular_professor',
+                'size': 10,
+                'placeholder': 'Celular'
+            }
+        )
+    )
+        class Meta:
+            model = Professor
+            fields =    ['ra_professor',
+                        'apelido_professor',
+                        'nome_professor',
+                        'email_professor',
+                        'celular_professor']

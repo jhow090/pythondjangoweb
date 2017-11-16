@@ -22,3 +22,10 @@ class Disciplina(models.Model):
     conteudo_disciplina = models.CharField(max_length=50)
     bibliografia_disciplina = models.CharField(max_length=50)
     bibliografia_complementar_disciplina = models.CharField(max_length=50)
+
+class Professor(models.Model):
+    ra_professor = models.CharField()
+    apelido_professor = models.CharField(max_length=30)
+    nome_professor = models.CharField(max_length=120)
+    email_professor = models.CharField(max_length=80)
+    celular_professor = models.CharField(max_length=11)
