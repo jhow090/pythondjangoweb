@@ -364,18 +364,16 @@ def listar_turma(request):
 
 def novo_turma(request, template_name='app/turma/novo_turma.html'):
     disciplinofertada = Disciplinofertada.objects.all()
-    professor = Professor.objects.all()
     nome_disciplina = request.POST.get('nome_disciplina')
     ano_disciplina = request.POST.get('ano_disciplina')
     semestre_disciplina = request.POST.get('semestre_disciplina')
+    professor = Professor.objects.all()
     ra_professor = request.POST.get('ra_professor')
     form = TurmaForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_turma')
-    return render(request, template_name, { 'form':form,
-                                            'disciplinofertada': disciplinofertada,
-                                            'professor': professor})
+    return render(request, template_name, { 'form':form, 'disciplinofertada': disciplinofertada, 'professor': professor})
 
 def apagar_turma(request, pk, template_name='app/turma/confirmacao_apagar_turma.html'):
     turma = get_object_or_404(Turma, pk=pk)
