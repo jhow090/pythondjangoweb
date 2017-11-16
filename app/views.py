@@ -201,7 +201,7 @@ def novo_disciplinaofertada(request, template_name='app/disciplinaofertada/novo_
         return redirect('listar_disciplinaofertada')
     return render(request, template_name, {'form':form})
 
-def apagar_disciplinaofertada(request, pk, template_name='app/professor/confirmacao_apagar_disciplina_ofertada.html'):
+def apagar_disciplinaofertada(request, pk, template_name='app/disciplinaofertada/confirmacao_apagar_disciplina_ofertada.html'):
     disciplinaofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
     if request.method=='POST':
         disciplinaofertada.delete()
