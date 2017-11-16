@@ -59,15 +59,9 @@ class AlunoForm(forms.ModelForm):
             }
         )
     )
-
-
-        class Meta:
-            model = Aluno
-            fields =    ['ra_aluno',
-                        'nome_aluno',
-                        'email_aluno',
-                        'celular_aluno',
-                        'sigla_curso']
+    class Meta:
+        model = Aluno
+        fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno', 'sigla_curso']
 
 class CursoForm(forms.ModelForm):
         nome_curso = forms.CharField(
@@ -340,9 +334,9 @@ class PeriodoForm(forms.ModelForm):
                         'semestre_grade',
                         'numero_periodo']
 
-class PeriododisciplinaForm(forms.ModelForm):
+class PerioddisciplinaForm(forms.ModelForm):
     class Meta:
-        model = Periododisciplina
+        model = Perioddisciplina
         fields = [  'sigla_curso',
                     'ano_grade',
                     'semestre_grade',
@@ -442,10 +436,10 @@ class TurmaForm(forms.ModelForm):
             }
         )
     )
-        class Meta:
-            model = Turma
-            fields =    ['nome_disciplina',
-                        'ano_disciplina',
-                        'semestre_disciplina',
-                        'turno_turma',
-                        'ra_professor']
+    class Meta:
+        model = Turma
+        fields =    ['nome_disciplina',
+                    'ano_disciplina',
+                    'semestre_disciplina',
+                    'turno_turma',
+                    'ra_professor']

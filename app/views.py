@@ -271,7 +271,7 @@ def listar_perioddisciplina(request):
         context_instance = RequestContext(request,
         {
             'title':'Lista de periodo disciplina',
-            'perioddisciplinas': Periododisciplina.objects.all(),
+            'perioddisciplinas': Perioddisciplina.objects.all(),
             'year':datetime.now().year,
         })
     )
@@ -284,7 +284,7 @@ def novo_perioddisciplina(request, template_name='app/perioddisciplina/novo_peri
     ano_grade = request.POST.get('ano_grade')
     semestre_grade = request.POST.get('semestre_grade')
     numero_periodo = request.POST.get('numero_periodo')
-    form = PeriododisciplinaForm(request.POST or None)
+    form = PerioddisciplinaForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_perioddisciplina')
@@ -294,15 +294,15 @@ def apagar_perioddisciplina(request, pk, template_name='app/periododisciplina/co
     perioddisciplina = get_object_or_404(Perioddisciplina, pk=pk)
     if request.method=='POST':
         perioddisciplina.delete()
-        return redirect('listar_periododisciplina')
+        return redirect('listar_perioddisciplina')
     return render(request, template_name, {'object':perioddisciplina.nome_disciplina})
 
 def editar_perioddisciplina(request, pk, template_name='app/perioddisciplina/novo_perioddisciplina.html'):
     if request.user.is_superuser:
-        perioddisciplina = get_object_or_404(Periododisciplina, pk=pk)
+        perioddisciplina = get_object_or_404(Perioddisciplina, pk=pk)
     else:
-        periododisciplina = get_object_or_404(Periododisciplina, pk=pk)
-    form = PeriododisciplinaForm(request.POST or None, instance = perioddisciplina)
+        perioddisciplina = get_object_or_404(Perioddisciplina, pk=pk)
+    form = PerioddisciplinaForm(request.POST or None, instance = perioddisciplina)
     if form.is_valid():
         form.save()
         return redirect('listar_perioddisciplina')

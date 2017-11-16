@@ -40,7 +40,7 @@ class Periodo(models.Model):
     semestre_grade = models.CharField(max_length=5)
     numero_periodo = models.CharField(max_length=5)
 
-class Periododisciplina(models.Model):
+class Perioddisciplina(models.Model):
     sigla_curso = models.CharField(max_length=5)
     ano_grade = models.CharField(max_length=5)
     semestre_grade = models.CharField(max_length=5)
