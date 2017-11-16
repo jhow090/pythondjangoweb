@@ -34,7 +34,7 @@ class AlunoForm(forms.ModelForm):
     )
 
         email_aluno = forms.CharField(
-        max_length=15,
+        max_length=50,
         widget=forms.TextInput(
             attrs={
                 'title': 'Email',
