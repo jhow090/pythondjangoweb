@@ -67,7 +67,8 @@ class AlunoForm(forms.ModelForm):
             fields =    ['ra_aluno',
                         'nome_aluno',
                         'email_aluno',
-                        'celular_aluno']
+                        'celular_aluno',
+                        'sigla_curso']
 
 
 class CursoForm(forms.ModelForm):
