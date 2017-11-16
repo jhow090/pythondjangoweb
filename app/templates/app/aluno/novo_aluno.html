@@ -59,7 +59,7 @@
           <label for="sigla_curso">Curso: </label>
         </td>
         <td align="left">
-          <select id="silga_curso" name="sigla_curso">
+          <select name="sigla_curso">
             {% for curso in curso %}
               <option value="{{ curso.sigla_curso }}">{{ curso.sigla_curso }}</option>
             {% endfor %}
