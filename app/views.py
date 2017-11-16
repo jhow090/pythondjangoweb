@@ -247,7 +247,7 @@ def novo_periodo(request, template_name='app/periodo/novo_periodo.html'):
         form.semestre_grade = Grade.objects.get(semestre_grade = semestre_grade)
         form.save()
         return redirect('listar_periodo')
-    return render(request, template_name, {'form':form, 'curso': curso, 'grade': grade})
+    return render(request, template_name, {'form':form, 'curso': curso, 'grade': grade, 'grade': grade})
 
 def apagar_periodo(request, pk, template_name='app/periodo/confirmacao_apagar_periodo.html'):
     periodo = get_object_or_404(Periodo, pk=pk)
