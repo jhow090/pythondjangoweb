@@ -310,7 +310,7 @@ class PeriodoForm(forms.ModelForm):
                         'numero_periodo']
 
 
-class PeriodoDisciplinaForm(forms.ModelForm):
+class PeriododisciplinaForm(forms.ModelForm):
         class Meta:
             model = PeriodoDisciplina
             fields =    ['sigla_curso',
