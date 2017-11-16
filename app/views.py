@@ -208,7 +208,7 @@ def apagar_grade(request, pk, template_name='app/grade/confirmacao_apagar_grade.
     if request.method=='POST':
         grade.delete()
         return redirect('listar_grade')
-    return render(request, template_name, {'object':grade.sigra_curso})
+    return render(request, template_name, {'object':grade.sigla_curso})
 
 def editar_grade(request, pk, template_name='app/grade/novo_grade.html'):
     if request.user.is_superuser:
