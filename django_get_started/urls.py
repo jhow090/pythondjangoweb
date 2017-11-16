@@ -22,17 +22,9 @@ urlpatterns = patterns('',
     url(r'^editar_disciplina/(?P<pk>\d+)$', 'app.views.editar_disciplina', name='editar_disciplina'),
     url(r'^apagar_disciplina/(?P<pk>\d+)$', 'app.views.apagar_disciplina', name='apagar_disciplina'),
 
-    url(r'^listar_discofer', 'app.views.listar_discofer', name='listar_discofer'),
-    url(r'^novo_discofer', 'app.views.novo_discofer', name='novo_discofer'),
-    url(r'^editar_discofer/(?P<pk>\d+)$', 'app.views.editar_discofer', name='editar_discofer'),
-    url(r'^apagar_discofer/(?P<pk>\d+)$', 'app.views.apagar_discofer', name='apagar_discofer'),
-
     url(r'^listar_professor', 'app.views.listar_professor', name='listar_professor'),
     url(r'^novo_professor', 'app.views.novo_professor', name='novo_professor'),
     url(r'^editar_professor/(?P<pk>\d+)$', 'app.views.editar_professor', name='editar_professor'),
     url(r'^apagar_professor/(?P<pk>\d+)$', 'app.views.apagar_professor', name='apagar_professor'),
-
-
-
 
 )

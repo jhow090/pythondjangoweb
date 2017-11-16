@@ -23,11 +23,6 @@ class Disciplina(models.Model):
     bibliografia_disciplina = models.CharField(max_length=50)
     bibliografia_complementar_disciplina = models.CharField(max_length=50)
 
-class DiscOfer(models.Model):
-    nome_disciplinaofertada = models.CharField(max_length=240)
-    ano_disciplinaofertada = models.CharField(max_length=4)
-    semestre_disciplinaofertada = models.CharField(max_length=4)
-
 class Professor(models.Model):
     ra_professor = models.CharField(max_length=10)
     apelido_professor = models.CharField(max_length=30)
