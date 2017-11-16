@@ -198,14 +198,14 @@ def novo_disciplinaofertada(request, template_name='app/disciplinaofertada/novo_
     form = DisciplinaOfertadaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_disciplinaofertada')
+        return redirect('listar_discofer')
     return render(request, template_name, {'form':form})
 
 def apagar_disciplinaofertada(request, pk, template_name='app/disciplinaofertada/confirmacao_apagar_disciplina_ofertada.html'):
     disciplinaofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
     if request.method=='POST':
         disciplinaofertada.delete()
-        return redirect('listar_disciplinaofertada')
+        return redirect('listar_discofer')
     return render(request, template_name, {'object':disciplinaofertada.nome_disciplinaofertada})
 
 def editar_disciplinaofertada(request, pk, template_name='app/disciplinaofertada/novo_disciplinaofertada.html'):
@@ -216,5 +216,5 @@ def editar_disciplinaofertada(request, pk, template_name='app/disciplinaofertada
     form = DisciplinaOfertadaForm(request.POST or None, instance = disciplinaofertada)
     if form.is_valid():
         form.save()
-        return redirect('listar_disciplinaofertada')
+        return redirect('listar_discofer')
     return render(request, template_name, {'form':form})
