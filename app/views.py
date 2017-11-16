@@ -201,19 +201,19 @@ def novo_discofer(request, template_name='app/disciplinaofertada/novo_disciplina
         return redirect('listar_discofer')
     return render(request, template_name, {'form':form})
 
-def apagar_disciplinaofertada(request, pk, template_name='app/disciplinaofertada/confirmacao_apagar_disciplina_ofertada.html'):
+def apagar_discofer(request, pk, template_name='app/disciplinaofertada/confirmacao_apagar_disciplina_ofertada.html'):
     disciplinaofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
     if request.method=='POST':
         disciplinaofertada.delete()
         return redirect('listar_discofer')
-    return render(request, template_name, {'object':disciplinaofertada.nome_disciplinaofertada})
+    return render(request, template_name, {'object':discofer.nome_disciplinaofertada})
 
-def editar_disciplinaofertada(request, pk, template_name='app/disciplinaofertada/novo_disciplinaofertada.html'):
+def editar_discofer(request, pk, template_name='app/disciplinaofertada/novo_disciplinaofertada.html'):
     if request.user.is_superuser:
-        disciplinaofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
+        discofer = get_object_or_404(DiscOfer, pk=pk)
     else:
-        disciplinaofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
-    form = DisciplinaOfertadaForm(request.POST or None, instance = disciplinaofertada)
+        discofer = get_object_or_404(DiscOfer, pk=pk)
+    form = DisciplinaOfertadaForm(request.POST or None, instance = discofer)
     if form.is_valid():
         form.save()
         return redirect('listar_discofer')
