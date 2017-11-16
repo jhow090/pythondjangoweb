@@ -59,9 +59,10 @@ class AlunoForm(forms.ModelForm):
             }
         )
     )
-    class Meta:
-        model = Aluno
-        fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno', 'sigla_curso']
+
+        class Meta:
+            model = Aluno
+            fields = ['ra_aluno', 'nome_aluno', 'email_aluno', 'celular_aluno', 'sigla_curso']
 
 class CursoForm(forms.ModelForm):
         nome_curso = forms.CharField(
