@@ -1,0 +1,82 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de periodo disciplina</h1>
+</div>
+
+<form action="{% url 'novo_periododisciplina' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados do periodo disciplina</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="sigla_curso">Sigla do curso: </label>
+          </td>
+          <td align="left">
+            <select name="sigla_curso">
+              {% for periodo in periodo %}
+                <option value="{{ periodo.sigla_curso }}">{{ periodo.sigla_curso }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_grade">Ano: </label>
+          </td>
+          <td align="left">
+            <select name="ano_grade">
+              {% for periodo in periodo %}
+                <option value="{{ periodo.ano_grade }}">{{ periodo.ano_grade }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_grade">Semestre: </label>
+          </td>
+          <td align="left">
+            <select name="semestre_grade">
+              {% for periodo in periodo %}
+                <option value="{{ periodo.semestre_grade }}">{{ periodo.semestre_grade }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="numero_periodo">Numero: </label>
+          </td>
+          <td align="left">
+            {% for periodo in periodo %}
+              <option value="{{ periodo.numero_periodo }}">{{ periodo.numero_periodo }}</option>
+            {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="numero_periodo">Nome curso: </label>
+          </td>
+          <td align="left">
+            {% for curso in curso %}
+              <option value="{{ curso.nome_curso }}">{{ curso.nome_curso }}</option>
+            {% endfor %}
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

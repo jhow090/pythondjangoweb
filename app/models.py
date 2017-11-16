@@ -35,6 +35,13 @@ class Periodo(models.Model):
     semestre_grade = models.CharField(max_length=5)
     numero_periodo = models.CharField(max_length=5)
 
+class PeriodoDisciplina(models.Model):
+    sigla_curso = models.CharField(max_length=5)
+    ano_grade = models.CharField(max_length=5)
+    semestre_grade = models.CharField(max_length=5)
+    numero_periodo = models.CharField(max_length=5)
+    nome_disciplina = models.CharField(max_length=240)
+
 class Professor(models.Model):
     ra_professor = models.CharField(max_length=10)
     apelido_professor = models.CharField(max_length=30)
