@@ -1,11 +1,12 @@
-# Contributing to Azure samples
 
-Thank you for your interest in contributing to Azure samples!
+Contribuindo para amostras Azure
 
-## Ways to contribute
+Obrigado pelo seu interesse em contribuir com amostras de Azure!
 
-You can contribute to [Azure samples](https://azure.microsoft.com/documentation/samples/) in a few different ways:
+Formas de contribuir
 
-- Submit feedback on [this sample page](https://azure.microsoft.com/documentation/samples/app-service-web-python-get-started/) whether it was helpful or not.  
-- Submit issues through [issue tracker](https://github.com/Azure-Samples/app-service-web-python-get-started/issues) on GitHub. We are actively monitoring the issues and improving our samples.
-- If you wish to make code changes to samples, or contribute something new, please follow the [GitHub Forks / Pull requests model](https://help.github.com/articles/fork-a-repo/): Fork the sample repo, make the change and propose it back by submitting a pull request.
+Você pode contribuir com amostras de Azure de várias maneiras diferentes:
+
+Envie comentários sobre esta página de amostra, seja útil ou não.
+Envie problemas por meio do rastreador de problemas no GitHub. Estamos monitorando ativamente os problemas e melhorando nossas amostras.
+Se você deseja fazer alterações de código em amostras, ou contribuir com algo novo, siga o modelo de solicitação GitHub Forks / Pull: Forque o repo de amostra, faça a alteração e proponha-a de volta enviando uma solicitação de tração.
