@@ -366,8 +366,8 @@ def novo_turma(request, template_name='app/turma/novo_turma.html'):
     disciplinofertada = Disciplinofertada.objects.all()
     professor = Professor.objects.all()
     nome_disciplina = request.POST.get('nome_disciplina')
-    ano_ofertado = request.POST.get('ano_ofertado')
-    semestre_ofertado = request.POST.get('semestre_ofertado')
+    ano_disciplina = request.POST.get('ano_disciplina')
+    semestre_disciplina = request.POST.get('semestre_disciplina')
     ra_professor = request.POST.get('ra_professor')
     form = TurmaForm(request.POST or None)
     if form.is_valid():
