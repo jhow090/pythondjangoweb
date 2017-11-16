@@ -195,7 +195,7 @@ def listar_disciplinaofertada(request):
     )
 
 def novo_disciplinaofertada(request, template_name='app/disciplinaofertada/novo_disciplinaofertada.html'):
-    form = DisciplinaOfertadaForm(request.POST or None)
+    form = DiscOferForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_discofer')

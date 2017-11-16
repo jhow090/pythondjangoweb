@@ -329,7 +329,7 @@ class ProfessorForm(forms.ModelForm):
                         'email_professor',
                         'celular_professor']
 
-class DisciplinaOfertadaForm(forms.ModelForm):
+class DiscOferForm(forms.ModelForm):
         nome_disciplinaofertada = forms.CharField(
         max_length=240,
         widget=forms.TextInput(
@@ -373,7 +373,7 @@ class DisciplinaOfertadaForm(forms.ModelForm):
     )
 
         class Meta:
-            model = DisciplinaOfertada
+            model = DiscOfer
             fields =    ['nome_disciplinaofertada',
                         'ano_disciplinaofertada',
                         'semestre_disciplinaofertada']
