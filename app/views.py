@@ -38,7 +38,7 @@ def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
     curso = Curso.objects.all()
     form = AlunoForm(request.POST or None)
     if form.is_valid():
-        sigla_curso = Curso.objects.get(sigla_curso = sigla_curso)
+        form.sigla_curso = Curso.objects.get(sigla_curso = sigla_curso)
         form.save()
         return redirect('listar_aluno')
     return render(request, template_name, {'form':form, 'curso': curso})
