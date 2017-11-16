@@ -13,10 +13,10 @@
 
         <tr>
           <td>
-            <label for="sigla_curso_grade">Sigla do curso: </label>
+            <label for="sigla_curso">Sigla do curso: </label>
           </td>
           <td align="left">
-            <select id="sigla_curso_grade" name="sigla_curso_grade" value="{{ sigla_curso_grade }}">
+            <select name="sigla_curso">
               {% for curso in curso %}
                 <option value="{{ curso.sigla_curso }}">{{ curso.sigla_curso }}</option>
               {% endfor %}

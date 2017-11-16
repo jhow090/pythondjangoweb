@@ -258,7 +258,7 @@ class GradeForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'title': 'Ano',
-                'type': 'text',
+                'type': 'number',
                 'name': 'ano_grade',
                 'id': 'ano_grade',
                 'size': 5,
@@ -268,11 +268,11 @@ class GradeForm(forms.ModelForm):
     )
 
         semestre_grade = forms.CharField(
-        max_length=4,
+        max_length=1,
         widget=forms.TextInput(
             attrs={
                 'title': 'Semestre',
-                'type': 'text',
+                'type': 'number',
                 'name': 'semestre_grade',
                 'id': 'semestre_grade',
                 'size': 5,
@@ -282,7 +282,8 @@ class GradeForm(forms.ModelForm):
     )
         class Meta:
             model = Grade
-            fields =    ['ano_grade',
+            fields =    ['sigla_curso',
+                        'ano_grade',
                         'semestre_grade']
 
 

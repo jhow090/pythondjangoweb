@@ -195,8 +195,10 @@ def listar_grade(request):
 
 def novo_grade(request, template_name='app/grade/novo_grade.html'):
     curso = Curso.objects.all()
+    sigla_curso = request.POST.get('sigla_curso')
     form = GradeForm(request.POST or None)
     if form.is_valid():
+        form.sigla_curso = Curso.objects.get(sigla_curso = sigla_curso)
         form.save()
         return redirect('listar_grade')
     return render(request, template_name, {'form':form, 'curso': curso})
