@@ -52,19 +52,23 @@
             <label for="numero_periodo">Numero: </label>
           </td>
           <td align="left">
-            {% for periodo in periodo %}
-              <option value="{{ periodo.numero_periodo }}">{{ periodo.numero_periodo }}</option>
-            {% endfor %}
+            <select name="numero_periodo">
+              {% for periodo in periodo %}
+                <option value="{{ periodo.numero_periodo }}">{{ periodo.numero_periodo }}</option>
+              {% endfor %}
+            </select></br>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="numero_periodo">Nome curso: </label>
+            <label for="nome_curso">Nome curso: </label>
           </td>
           <td align="left">
-            {% for curso in curso %}
-              <option value="{{ curso.nome_curso }}">{{ curso.nome_curso }}</option>
-            {% endfor %}
+            <select name="nome_curso">
+              {% for curso in curso %}
+                <option value="{{ curso.nome_curso }}">{{ curso.nome_curso }}</option>
+              {% endfor %}
+            </select></br>
           </td>
         </tr>
       </table>
