@@ -348,3 +348,49 @@ def editar_disciplinofertada(request, pk, template_name='app/disciplinofertada/n
         form.save()
         return redirect('listar_disciplinofertada')
     return render(request, template_name, {'form':form})
+
+def listar_turma(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/turma/listar_turma.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de turma',
+            'turmas': Turma.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_turma(request, template_name='app/turma/novo_turma.html'):
+    disciplinofertada = Disciplinofertada.objects.all()
+    professor = Professor.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    ano_ofertado = request.POST.get('ano_ofertado')
+    semestre_ofertado = request.POST.get('semestre_ofertado')
+    ra_professor = request.POST.get('ra_professor')
+    form = TurmaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_turma')
+    return render(request, template_name, { 'form':form,
+                                            'disciplinofertada': disciplinofertada,
+                                            'professor': professor})
+
+def apagar_turma(request, pk, template_name='app/turma/confirmacao_apagar_turma.html'):
+    turma = get_object_or_404(Turma, pk=pk)
+    if request.method=='POST':
+        turma.delete()
+        return redirect('listar_turma')
+    return render(request, template_name, {'object':turma.turno_turma})
+
+def editar_turma(request, pk, template_name='app/turma/novo_turma.html'):
+    if request.user.is_superuser:
+        turma = get_object_or_404(Turma, pk=pk)
+    else:
+        turma = get_object_or_404(Turma, pk=pk)
+    form = TurmaForm(request.POST or None, instance = Turma)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_turma')
+    return render(request, template_name, {'form':form})

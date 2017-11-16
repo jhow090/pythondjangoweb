@@ -47,4 +47,9 @@ urlpatterns = patterns('',
     url(r'^editar_professor/(?P<pk>\d+)$', 'app.views.editar_professor', name='editar_professor'),
     url(r'^apagar_professor/(?P<pk>\d+)$', 'app.views.apagar_professor', name='apagar_professor'),
 
+    url(r'^listar_turma', 'app.views.listar_turma', name='listar_turma'),
+    url(r'^novo_turma', 'app.views.novo_turma', name='novo_turma'),
+    url(r'^editar_turma/(?P<pk>\d+)$', 'app.views.editar_turma', name='editar_turma'),
+    url(r'^apagar_turma/(?P<pk>\d+)$', 'app.views.apagar_turma', name='apagar_turma'),
+
 )

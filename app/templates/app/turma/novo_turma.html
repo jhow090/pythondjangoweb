@@ -1,0 +1,82 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de turma</h1>
+</div>
+
+<form action="{% url 'novo_turma' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados da turma</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="nome_disciplina">Nome da disciplina: </label>
+          </td>
+          <td align="left">
+            <select name="nome_disciplina">
+              {% for disciplinofertada in disciplinofertada %}
+                <option value="{{ disciplinofertada.nome_disciplina }}">{{ disciplinofertada.nome_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_ofertado">Ano: </label>
+          </td>
+          <td align="left">
+            <select name="ano_ofertado">
+              {% for disciplinofertada in disciplinofertada %}
+                <option value="{{ disciplinofertada.ano_ofertado }}">{{ disciplinofertada.ano_ofertado }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_ofertado">Semestre: </label>
+          </td>
+          <td align="left">
+            <select name="semestre_ofertado">
+              {% for disciplinofertada in disciplinofertada %}
+                <option value="{{ disciplinofertada.semestre_ofertado }}">{{ disciplinofertada.semestre_ofertado }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="turno_turma">Turno: </label>
+          </td>
+          <td align="left">
+          {{ form.turno_turma }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ra_professor">Ra do professor: </label>
+          </td>
+          <td align="left">
+            <select name="ra_professor">
+              {% for professor in professor %}
+                <option value="{{ professor.ra_professor }}">{{ professor.ra_professor }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

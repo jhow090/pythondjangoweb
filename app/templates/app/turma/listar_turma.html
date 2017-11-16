@@ -1,0 +1,40 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Lista de turma</h1>
+</div>
+
+<table class="table">
+    <tr>
+      <th>Nome disciplina</th>
+      <th>Ano</th>
+      <th>Semestre</th>
+      <th>Turno</th>
+      <th>Ra professor</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+        {% for turma in turmas %}
+          <tr>
+            <td>{{ turma.nome_disciplina }}</td>
+            <td>{{ turma.ano_ofertado }}</td>
+            <td>{{ turma.semestre_ofertado }}</td>
+            <td>{{ turma.turno_turma }}</td>
+            <td>{{ turma.ra_professor }}</td>
+            <td>
+              <a href="{% url 'editar_turma' turma.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'apagar_turma' turma.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

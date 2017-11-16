@@ -53,3 +53,10 @@ class Professor(models.Model):
     nome_professor = models.CharField(max_length=120)
     email_professor = models.CharField(max_length=80)
     celular_professor = models.CharField(max_length=11)
+
+class Turma(models.Model):
+    nome_disciplina = models.CharField(max_length=240)
+    ano_ofertado = models.CharField(max_length=5)
+    semestre_ofertado = models.CharField(max_length=5)
+    turno_turma = models.CharField(max_length=15)
+    ra_professor = models.CharField(max_length=11)
