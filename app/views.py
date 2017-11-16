@@ -325,7 +325,7 @@ def listar_disciplinofertada(request):
 def novo_disciplinofertada(request, template_name='app/disciplinofertada/novo_disciplinofertada.html'):
     disciplina = Disciplina.objects.all()
     nome_disciplina = request.POST.get('nome_disciplina')
-    form = PeriododisciplinaForm(request.POST or None)
+    form = DisciplinofertadaForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_disciplinofertada')
