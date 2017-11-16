@@ -242,9 +242,6 @@ def novo_periodo(request, template_name='app/periodo/novo_periodo.html'):
     semestre_grade = request.POST.get('semestre_grade')
     form = PeriodoForm(request.POST or None)
     if form.is_valid():
-        form.sigla_curso = Curso.objects.get(sigla_curso = sigla_curso)
-        form.ano_grade = Grade.objects.get(ano_grade = ano_grade)
-        form.semestre_grade = Grade.objects.get(semestre_grade = semestre_grade)
         form.save()
         return redirect('listar_periodo')
     return render(request, template_name, {'form':form, 'curso': curso, 'grade': grade, 'grade': grade})
