@@ -178,3 +178,42 @@ def editar_professor(request, pk, template_name='app/professor/novo_professor.ht
         form.save()
         return redirect('listar_professor')
     return render(request, template_name, {'form':form})
+
+def listar_grade(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/grade/listar_grade.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de grade',
+            'grades': Grade.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_grade(request, template_name='app/grade/novo_grade.html'):
+    curso = Curso.objects.all()
+    form = GradeForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_grade')
+    return render(request, template_name, {'form':form, 'curso': curso})
+
+def apagar_grade(request, pk, template_name='app/grade/confirmacao_apagar_grade.html'):
+    grade = get_object_or_404(Grade, pk=pk)
+    if request.method=='POST':
+        grade.delete()
+        return redirect('listar_grade')
+    return render(request, template_name, {'object':grade.sigra_curso_grade})
+
+def editar_grade(request, pk, template_name='app/grade/novo_grade.html'):
+    if request.user.is_superuser:
+        grade = get_object_or_404(Grade, pk=pk)
+    else:
+        grade = get_object_or_404(Grade, pk=pk)
+    form = GradeForm(request.POST or None, instance = grade)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_grade')
+    return render(request, template_name, {'form':form})

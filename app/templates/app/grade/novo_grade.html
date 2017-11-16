@@ -1,0 +1,54 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de grade curricular</h1>
+</div>
+
+<form action="{% url 'novo_grade' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados da grade curricular</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="sigla_curso_grade">Sigla do curso: </label>
+          </td>
+          <td align="left">
+            <select id="sigla_curso_grade" name="sigla_curso_grade">
+              {% for curso in curso %}
+                <option value="{{ curso.id }}">{{ curso.sigla_curso }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_grade">Ano: </label>
+          </td>
+          <td align="left">
+          {{ form.ano_grade }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_grade">Semestre: </label>
+          </td>
+          <td align="left">
+          {{ form.semestre_grade }}</br>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}
