@@ -442,8 +442,8 @@ class TurmaForm(forms.ModelForm):
             attrs={
                 'title': 'Turma',
                 'type': 'text',
-                'name': 'turno_turno',
-                'id': 'turno_turno',
+                'name': 'turma_turno',
+                'id': 'turma_turno',
                 'size': 5,
                 'placeholder': 'Turma'
             }
@@ -454,5 +454,5 @@ class TurmaForm(forms.ModelForm):
             fields =    ['nome_disciplina',
                         'ano_ofertado',
                         'semestre_ofertado',
-                        'turno_turno',
+                        'turma_turno',
                         'ra_professor']
