@@ -14,18 +14,18 @@
       <th>Editar</th>
       <th>Apagar</th>
     </tr>
-        {% for disciplinaofertada in disciplinaofertadas %}
+        {% for discofer in discofers %}
           <tr>
-            <td>{{ disciplinaofertada.nome_disciplinaofertada }}</td>
-            <td>{{ disciplinaofertada.ano_disciplinaofertada }}</td>
-            <td>{{ disciplinaofertada.semestre_disciplinaofertada }}</td>
+            <td>{{ discofer.nome_discofer }}</td>
+            <td>{{ discofer.ano_discofer }}</td>
+            <td>{{ discofer.semestre_discofer }}</td>
             <td>
-              <a href="{% url 'editar_disciplinaofertada' disciplinaofertada.id %}">
+              <a href="{% url 'editar_discofer' discofer.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
               </a>
             </td>
             <td>
-              <a href="{% url 'apagar_disciplinaofertada' disciplinaofertada.id %}">
+              <a href="{% url 'apagar_discofer' discofer.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
               </a>
             </td>

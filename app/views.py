@@ -194,7 +194,7 @@ def listar_disciplinaofertada(request):
         })
     )
 
-def novo_disciplinaofertada(request, template_name='app/disciplinaofertada/novo_disciplinaofertada.html'):
+def novo_discofer(request, template_name='app/disciplinaofertada/novo_disciplinaofertada.html'):
     form = DiscOferForm(request.POST or None)
     if form.is_valid():
         form.save()
