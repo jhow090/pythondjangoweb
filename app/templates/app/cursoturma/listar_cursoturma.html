@@ -16,20 +16,20 @@
       <th>Editar</th>
       <th>Apagar</th>
     </tr>
-        {% for cursoturma in cursoturmas %}
+        {% for cursturma in cursturmas %}
           <tr>
-            <td>{{ cursoturma.sigla_curso }}</td>
-            <td>{{ cursoturma.nome_disciplina }}</td>
-            <td>{{ cursoturma.ano_disciplina }}</td>
-            <td>{{ cursoturma.semestre_disciplina }}</td>
-            <td>{{ cursoturma.id_turma }}</td>
+            <td>{{ cursturma.sigla_curso }}</td>
+            <td>{{ cursturma.nome_disciplina }}</td>
+            <td>{{ cursturma.ano_disciplina }}</td>
+            <td>{{ cursturma.semestre_disciplina }}</td>
+            <td>{{ cursturma.id_turma }}</td>
             <td>
-              <a href="{% url 'editar_cursoturma' cursoturma.id %}">
+              <a href="{% url 'editar_cursturma' cursturma.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
               </a>
             </td>
             <td>
-              <a href="{% url 'apagar_cursoturma' cursoturma.id %}">
+              <a href="{% url 'apagar_cursturma' cursturma.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
               </a>
             </td>
