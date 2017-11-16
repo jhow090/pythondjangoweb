@@ -6,14 +6,14 @@
     <h1>Cadastro de disciplina ofertada</h1>
 </div>
 
-<form action="{% url 'novo_disciplina_ofertada' %}" method="POST">{% csrf_token %}
+<form action="{% url 'novo_disciplinaofertada' %}" method="POST">{% csrf_token %}
   <fieldset>
     <legend>Dados da disciplina ofertada</legend>
       <table cellspacing="2">
 
         <tr>
           <td>
-            <label for="nome_disciplina_ofertada">Nome da disciplina ofertada: </label>
+            <label for="nome_disciplinaofertada">Nome da disciplina ofertada: </label>
           </td>
           <td align="left">
             {{ form.nome_disciplina_ofertada }}</br>
@@ -21,18 +21,18 @@
         </tr>
         <tr>
           <td>
-            <label for="ano_disciplina_ofertada ">Ano: </label>
+            <label for="ano_disciplinaofertada ">Ano: </label>
           </td>
           <td align="left">
-          {{ form.ano_disciplina_ofertada  }}</br>
+          {{ form.ano_disciplinaofertada  }}</br>
           </td>
         </tr>
         <tr>
           <td>
-            <label for="semestre_disciplina_ofertada">Semestre: </label>
+            <label for="semestre_disciplinaofertada">Semestre: </label>
           </td>
           <td align="left">
-          {{ form.semestre_disciplina_ofertada }}</br>
+          {{ form.semestre_disciplinaofertada }}</br>
           </td>
         </tr>
       </table>

@@ -331,42 +331,42 @@ class ProfessorForm(forms.ModelForm):
 
 
 class DisciplinaOfertadaForm(forms.ModelForm):
-        nome_disciplina_ofertada = forms.CharField(
+        nome_disciplinaofertada = forms.CharField(
         max_length=240,
         widget=forms.TextInput(
             attrs={
                 'title': 'Nome da disciplina',
                 'type': 'text',
-                'name': 'nome_disciplina_ofertada',
-                'id': 'nome_disciplina_ofertada',
+                'name': 'nome_disciplinaofertada',
+                'id': 'nome_disciplinaofertada',
                 'size': 15,
                 'placeholder': 'Nome da disciplina'
             }
         )
     )
 
-        ano_disciplina_ofertada = forms.CharField(
+        ano_disciplinaofertada = forms.CharField(
         max_length=4,
         widget=forms.TextInput(
             attrs={
                 'title': 'Ano',
                 'type': 'text',
-                'name': 'ano_disciplina_ofertada',
-                'id': 'ano_disciplina_ofertada',
+                'name': 'ano_disciplinaofertada',
+                'id': 'ano_disciplinaofertada',
                 'size': 5,
                 'placeholder': 'Ano'
             }
         )
     )
 
-        semestre_disciplina_ofertada = forms.CharField(
+        semestre_disciplinaofertada = forms.CharField(
         max_length=4,
         widget=forms.TextInput(
             attrs={
                 'title': 'Semestre',
                 'type': 'text',
-                'name': 'semestre_disciplina_ofertada',
-                'id': 'semestre_disciplina_ofertada',
+                'name': 'semestre_disciplinaofertada',
+                'id': 'semestre_disciplinaofertada',
                 'size': 5,
                 'placeholder': 'Semestre'
             }
@@ -375,6 +375,6 @@ class DisciplinaOfertadaForm(forms.ModelForm):
 
         class Meta:
             model = DisciplinaOfertada
-            fields =    ['nome_disciplina_ofertada',
-                        'ano_disciplina_ofertada',
-                        'semestre_disciplina_ofertada']
+            fields =    ['nome_disciplinaofertada',
+                        'ano_disciplinaofertada',
+                        'semestre_disciplinaofertada']

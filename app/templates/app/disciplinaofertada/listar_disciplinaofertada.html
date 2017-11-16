@@ -14,18 +14,18 @@
       <th>Editar</th>
       <th>Apagar</th>
     </tr>
-        {% for disciplina_ofertada in disciplina_ofertadas %}
+        {% for disciplinaofertada in disciplinaofertadas %}
           <tr>
-            <td>{{ disciplina_ofertada.nome_disciplina_ofertada }}</td>
-            <td>{{ disciplina_ofertada.ano_disciplina_ofertada }}</td>
-            <td>{{ disciplina_ofertada.semestre_disciplina_ofertada }}</td>
+            <td>{{ disciplinaofertada.nome_disciplinaofertada }}</td>
+            <td>{{ disciplinaofertada.ano_disciplinaofertada }}</td>
+            <td>{{ disciplinaofertada.semestre_disciplinaofertada }}</td>
             <td>
-              <a href="{% url 'editar_disciplina_ofertada' disciplina_ofertada.id %}">
+              <a href="{% url 'editar_disciplinaofertada' disciplinaofertada.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
               </a>
             </td>
             <td>
-              <a href="{% url 'apagar_disciplina_ofertada' disciplina_ofertada.id %}">
+              <a href="{% url 'apagar_disciplinaofertada' disciplinaofertada.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
               </a>
             </td>

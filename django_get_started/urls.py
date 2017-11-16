@@ -27,10 +27,10 @@ urlpatterns = patterns('',
     url(r'^editar_professor/(?P<pk>\d+)$', 'app.views.editar_professor', name='editar_professor'),
     url(r'^apagar_professor/(?P<pk>\d+)$', 'app.views.apagar_professor', name='apagar_professor'),
 
-    url(r'^listar_disciplina_ofertada', 'app.views.listar_disciplina_ofertada', name='listar_disciplina_ofertada'),
-    url(r'^novo_disciplina_ofertada', 'app.views.novo_disciplina_ofertada', name='novo_disciplina_ofertada'),
-    url(r'^editar_disciplina_ofertada/(?P<pk>\d+)$', 'app.views.editar_disciplina_ofertada', name='editar_disciplina_ofertada'),
-    url(r'^apagar_disciplina_ofertada/(?P<pk>\d+)$', 'app.views.apagar_disciplina_ofertada', name='apagar_disciplina_ofertada'),
+    url(r'^listar_disciplinaofertada', 'app.views.listar_disciplinaofertada', name='listar_disciplinaofertada'),
+    url(r'^novo_disciplinaofertada', 'app.views.novo_disciplinaofertada', name='novo_disciplinaofertada'),
+    url(r'^editar_disciplinaofertada/(?P<pk>\d+)$', 'app.views.editar_disciplinaofertada', name='editar_disciplinaofertada'),
+    url(r'^apagar_disciplinaofertada/(?P<pk>\d+)$', 'app.views.apagar_disciplinaofertada', name='apagar_disciplinaofertada'),
 
 
 )
