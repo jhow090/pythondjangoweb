@@ -12,7 +12,7 @@ class Curso(models.Model):
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
 
-class Cursoturma(models.Model):
+class Cursturma(models.Model):
     sigla_curso = models.CharField(max_length=5)
     nome_disciplina = models.CharField(max_length=240)
     ano_disciplina = models.CharField(max_length=5)
