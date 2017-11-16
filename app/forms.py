@@ -52,7 +52,7 @@ class AlunoForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'title': 'Celular',
-                'type': 'tel',
+                'type': 'number',
                 'name': 'celular_aluno',
                 'id': 'celular_aluno',
                 'size': 10,
