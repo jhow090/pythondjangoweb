@@ -1,0 +1,50 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de disciplina ofertada</h1>
+</div>
+
+<form action="{% url 'novo_disciplina_ofertada' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados da disciplina ofertada</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="nome_disciplina_ofertada">Nome da disciplina ofertada: </label>
+          </td>
+          <td align="left">
+            {{ form.nome_disciplina_ofertada }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_disciplina_ofertada ">Ano: </label>
+          </td>
+          <td align="left">
+          {{ form.ano_disciplina_ofertada  }}</br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_disciplina_ofertada">Semestre: </label>
+          </td>
+          <td align="left">
+          {{ form.semestre_disciplina_ofertada }}</br>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

@@ -328,3 +328,53 @@ class ProfessorForm(forms.ModelForm):
                         'nome_professor',
                         'email_professor',
                         'celular_professor']
+
+
+class DisciplinaOfertadaForm(forms.ModelForm):
+        nome_disciplina_ofertada = forms.CharField(
+        max_length=240,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Nome da disciplina',
+                'type': 'text',
+                'name': 'nome_disciplina_ofertada',
+                'id': 'nome_disciplina_ofertada',
+                'size': 15,
+                'placeholder': 'Nome da disciplina'
+            }
+        )
+    )
+
+        ano_disciplina_ofertada = forms.CharField(
+        max_length=4,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Ano',
+                'type': 'text',
+                'name': 'ano_disciplina_ofertada',
+                'id': 'ano_disciplina_ofertada',
+                'size': 5,
+                'placeholder': 'Ano'
+            }
+        )
+    )
+
+        semestre_disciplina_ofertada = forms.CharField(
+        max_length=4,
+        widget=forms.TextInput(
+            attrs={
+                'title': 'Semestre',
+                'type': 'text',
+                'name': 'semestre_disciplina_ofertada',
+                'id': 'semestre_disciplina_ofertada',
+                'size': 5,
+                'placeholder': 'Semestre'
+            }
+        )
+    )
+
+        class Meta:
+            model = DisciplinaOfertada
+            fields =    ['nome_disciplina_ofertada',
+                        'ano_disciplina_ofertada',
+                        'semestre_disciplina_ofertada']

@@ -178,3 +178,43 @@ def editar_professor(request, pk, template_name='app/professor/novo_professor.ht
         form.save()
         return redirect('listar_professor')
     return render(request, template_name, {'form':form})
+
+
+
+def listar_disciplina_ofertada(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/disciplina_ofertada/listar_disciplina_ofertada.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de disciplina ofertada',
+            'disciplina_ofertadas': DisciplinaOfertada.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_disciplina_ofertada(request, template_name='app/disciplina_ofertada/novo_disciplina_ofertada.html'):
+    form = DisciplinaOfertadaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplina_ofertada')
+    return render(request, template_name, {'form':form})
+
+def apagar_disciplina_ofertada(request, pk, template_name='app/professor/confirmacao_apagar_disciplina_ofertada.html'):
+    disciplina_ofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
+    if request.method=='POST':
+        professor.delete()
+        return redirect('listar_disciplina_ofertada')
+    return render(request, template_name, {'object':disciplina_ofertada.nome_disciplina_ofertada})
+
+def editar_disciplina_ofertada(request, pk, template_name='app/disciplina_ofertada/novo_disciplina_ofertada.html'):
+    if request.user.is_superuser:
+        disciplina_ofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
+    else:
+        disciplina_ofertada = get_object_or_404(DisciplinaOfertada, pk=pk)
+    form = DisciplinaOfertadaForm(request.POST or None, instance = disciplina_ofertada)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_disciplina_ofertada')
+    return render(request, template_name, {'form':form})

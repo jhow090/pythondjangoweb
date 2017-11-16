@@ -3,27 +3,43 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Lista de cursos</h1>
+    <h1>Lista de disciplina</h1>
 </div>
 
 <table class="table">
     <tr>
-      <th>Nome do curso</th>
-      <th>Sigla</th>
+      <th>Nome da disciplina</th>
+      <th>Carga horaria</th>
+      <th>Teoria</th>
+      <th>Pratica</th>
+      <th>Ementa</th>
+      <th>Competencias</th>
+      <th>Habilidades</th>
+      <th>Conteudo</th>
+      <th>Bibliografia</th>
+      <th>Bibliografia Complementar</th>
       <th>Editar</th>
       <th>Apagar</th>
     </tr>
-        {% for curso in cursos %}
+        {% for disciplina in disciplinas %}
           <tr>
-            <td>{{ curso.nome_curso }}</td>
-            <td>{{ curso.sigla_curso }}</td>
+            <td>{{ disciplina.nome_disciplina }}</td>
+            <td>{{ disciplina.carga_horaria_disciplina }}</td>
+            <td>{{ disciplina.teoria_disciplina }}</td>
+            <td>{{ disciplina.pratica_disciplina }}</td>
+            <td>{{ disciplina.ementa_disciplina }}</td>
+            <td>{{ disciplina.competencias_disciplina }}</td>
+            <td>{{ disciplina.habilidades_disciplina }}</td>
+            <td>{{ disciplina.conteudo_disciplina }}</td>
+            <td>{{ disciplina.bibliografia_disciplina }}</td>
+            <td>{{ disciplina.bibliografia_complementar_disciplina }}</td>
             <td>
-              <a href="{% url 'editar_curso' curso.id %}">
+              <a href="{% url 'editar_disciplina' disciplina.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
               </a>
             </td>
             <td>
-              <a href="{% url 'apagar_curso' curso.id %}">
+              <a href="{% url 'apagar_disciplina' disciplina.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
               </a>
             </td>
