@@ -312,7 +312,7 @@ class PeriodoForm(forms.ModelForm):
 
 class PeriododisciplinaForm(forms.ModelForm):
         class Meta:
-            model = PeriodoDisciplina
+            model = Periododisciplina
             fields =    ['sigla_curso',
                         'ano_grade',
                         'semestre_grade',
