@@ -531,12 +531,12 @@ class RespostaForm(forms.ModelForm):
     max_length=100,
     widget=forms.TextInput(
         attrs={
-            'title': 'Descrição',
+            'title': 'Descricao',
             'type': 'text',
             'name': 'descricao_resposta',
             'id': 'descricao_resposta',
             'size': 15,
-            'placeholder': 'Descrição'
+            'placeholder': 'Descricao'
         }
     )
 )
