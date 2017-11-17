@@ -1,0 +1,43 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Lista de arquivo questão</h1>
+</div>
+
+<table class="table">
+    <tr>
+      <th>Nome disciplina</th>
+      <th>Ano</th>
+      <th>Semestre</th>
+      <th>Turma</th>
+      <th>Numero</th>
+      <th>Arquivo</th>
+      <th>Data</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+        {% for arquivquestao in arquivquestaos %}
+          <tr>
+            <td>{{ arquivquestao.nome_disciplina }}</td>
+            <td>{{ arquivquestao.ano_disciplina }}</td>
+            <td>{{ arquivquestao.semestre_disciplina }}</td>
+            <td>{{ arquivquestao.id_turma }}</td>
+            <td>{{ arquivquestao.numero_questao }}</td>
+            <td>{{ arquivquestao.arquivo_questao }}</td>
+            <td>
+              <a href="{% url 'editar_arquivquestao' arquivquestao.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'apagar_arquivquestao' arquivquestao.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

@@ -593,3 +593,54 @@ class RespostaForm(forms.ModelForm):
                     'avaliacao_resposta',
                     'descricao_resposta',
                     'datadeenvio_resposta']
+
+
+class ArquivrespostaForm(forms.ModelForm):
+    arquivo_resposta = forms.CharField(
+    max_length=500,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Arquivo resposta',
+            'type': 'text',
+            'name': 'arquivo_resposta',
+            'id': 'arquivo_resposta',
+            'size': 10,
+            'placeholder': 'Arquivo resposta'
+        }
+    )
+)
+
+    class Meta:
+        model = Arquivresposta
+        fields = [  'nome_disciplina',
+                    'ano_disciplina',
+                    'semestre_disciplina',
+                    'id_turma',
+                    'numero_questao',
+                    'ra_aluno',
+                    'arquivo_resposta']
+
+class ArquivquestaoForm(forms.ModelForm):
+    arquivo_questao = forms.CharField(
+    max_length=500,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Arquivo questao',
+            'type': 'text',
+            'name': 'arquivo_questao',
+            'id': 'arquivo_questao',
+            'size': 10,
+            'placeholder': 'Arquivo questao'
+        }
+    )
+)
+
+    class Meta:
+        model = Arquivquestao
+        fields = [  'nome_disciplina',
+                    'ano_disciplina',
+                    'semestre_disciplina',
+                    'id_turma',
+                    'numero_questao',
+                    'ra_aluno',
+                    'arquivo_questao']

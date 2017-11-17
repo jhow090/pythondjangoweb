@@ -72,4 +72,14 @@ urlpatterns = patterns('',
     url(r'^editar_resposta/(?P<pk>\d+)$', 'app.views.editar_resposta', name='editar_resposta'),
     url(r'^apagar_resposta/(?P<pk>\d+)$', 'app.views.apagar_resposta', name='apagar_resposta'),
 
+    url(r'^listar_arquivresposta', 'app.views.listar_arquivresposta', name='listar_arquivresposta'),
+    url(r'^novo_arquivresposta', 'app.views.novo_arquivresposta', name='novo_arquivresposta'),
+    url(r'^editar_arquivresposta/(?P<pk>\d+)$', 'app.views.editar_arquivresposta', name='editar_arquivresposta'),
+    url(r'^apagar_arquivresposta/(?P<pk>\d+)$', 'app.views.apagar_arquivresposta', name='apagar_arquivresposta'),
+
+    url(r'^listar_arquivquestao', 'app.views.listar_arquivquestao', name='listar_arquivquestao'),
+    url(r'^novo_arquivquestao', 'app.views.novo_arquivquestao', name='novo_arquivquestao'),
+    url(r'^editar_arquivquestao/(?P<pk>\d+)$', 'app.views.editar_arquivquestao', name='editar_arquivquestao'),
+    url(r'^apagar_arquivquestao/(?P<pk>\d+)$', 'app.views.apagar_arquivquestao', name='apagar_arquivquestao'),
+
 )

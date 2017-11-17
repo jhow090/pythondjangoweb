@@ -573,3 +573,93 @@ def editar_resposta(request, pk, template_name='app/resposta/novo_resposta.html'
         form.save()
         return redirect('listar_resposta')
     return render(request, template_name, {'form':form})
+
+def listar_arquivresposta(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/arquivresposta/listar_arquivresposta.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de arquivo resposta',
+            'arquivrespostas': Arquivresposta.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_arquivresposta(request, template_name='app/arquivresposta/novo_arquivresposta.html'):
+    resposta = Resposta.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    ano_disciplina = request.POST.get('ano_disciplina')
+    semestre_disciplina = request.POST.get('semestre_disciplina')
+    id_turma = request.POST.get('id_turma')
+    numero_questao = request.POST.get('numero_questao')
+    aluno = Aluno.objects.all()
+    ra_aluno = request.POST.get('ra_aluno')
+    form = ArquivrespostaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_arquivresposta')
+    return render(request, template_name, { 'form':form, 'resposta': resposta, 'aluno': aluno})
+
+def apagar_arquivresposta(request, pk, template_name='app/arquivresposta/confirmacao_apagar_arquivresposta.html'):
+    arquivresposta = get_object_or_404(Resposta, pk=pk)
+    if request.method=='POST':
+        arquivresposta.delete()
+        return redirect('listar_arquivresposta')
+    return render(request, template_name, {'object':arquivresposta.ra_aluno})
+
+def editar_arquivresposta(request, pk, template_name='app/arquivresposta/novo_arquivresposta.html'):
+    if request.user.is_superuser:
+        arquivresposta = get_object_or_404(Arquivresposta, pk=pk)
+    else:
+        arquivresposta = get_object_or_404(Arquivresposta, pk=pk)
+    form = ArquivrespostaForm(request.POST or None, instance = Arquivresposta)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_arquivresposta')
+    return render(request, template_name, {'form':form})
+
+def listar_arquivquestao(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/arquivquestao/listar_arquivquestao.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de arquivo questao',
+            'arquivquestaos': Arquivquestao.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_arquivquestao(request, template_name='app/arquivquestao/novo_arquivquestao.html'):
+    questao = Questao.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    ano_disciplina = request.POST.get('ano_disciplina')
+    semestre_disciplina = request.POST.get('semestre_disciplina')
+    id_turma = request.POST.get('id_turma')
+    numero_questao = request.POST.get('numero_questao')
+    form = ArquivquestaoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_arquivquestao')
+    return render(request, template_name, { 'form':form, 'questao': questao})
+
+def apagar_arquivquestao(request, pk, template_name='app/arquivquestao/confirmacao_apagar_arquivquestao.html'):
+    arquivquestao = get_object_or_404(Arquivquestao, pk=pk)
+    if request.method=='POST':
+        arquivquestao.delete()
+        return redirect('listar_arquivquestao')
+    return render(request, template_name, {'object':arquivquestao.numero_questao})
+
+def editar_arquivquestao(request, pk, template_name='app/arquivquestao/novo_arquivquestao.html'):
+    if request.user.is_superuser:
+        arquivquestao = get_object_or_404(Arquivquestao, pk=pk)
+    else:
+        arquivquestao = get_object_or_404(Arquivquestao, pk=pk)
+    form = ArquivquestaoForm(request.POST or None, instance = Arquivquestao)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_arquivquestao')
+    return render(request, template_name, {'form':form})
