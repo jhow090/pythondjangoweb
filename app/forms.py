@@ -454,12 +454,12 @@ class QuestaoForm(forms.ModelForm):
     max_length=5,
     widget=forms.TextInput(
         attrs={
-            'title': 'Numero questão',
+            'title': 'Numero questao',
             'type': 'number',
             'name': 'numero_questao',
             'id': 'numero_questao',
             'size': 5,
-            'placeholder': 'Numero questão'
+            'placeholder': 'Numero questao'
         }
     )
 )
