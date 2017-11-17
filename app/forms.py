@@ -642,5 +642,4 @@ class ArquivquestaoForm(forms.ModelForm):
                     'semestre_disciplina',
                     'id_turma',
                     'numero_questao',
-                    'ra_aluno',
                     'arquivo_questao']
