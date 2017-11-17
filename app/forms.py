@@ -463,6 +463,32 @@ class QuestaoForm(forms.ModelForm):
         }
     )
 )
+    datalimiteentrega_questao = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Data limite entrega',
+            'type': 'number',
+            'name': 'datalimiteentrega_questao',
+            'id': 'datalimiteentrega_questao',
+            'size': 5,
+            'placeholder': 'Data limite entrega'
+        }
+    )
+)
+    descricao_questao = forms.CharField(
+    max_length=15,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Descricao da questao',
+            'type': 'text',
+            'name': 'descricao_questao',
+            'id': 'descricao_questao',
+            'size': 15,
+            'placeholder': 'Descricao da questao'
+        }
+    )
+)
     data_questao = forms.CharField(
     max_length=15,
     widget=forms.TextInput(
@@ -484,7 +510,7 @@ class QuestaoForm(forms.ModelForm):
                     'id_turma',
                     'numero_questao',
                     'datalimiteentrega_questao',
-                    'descricao_resposta',
+                    'descricao_questao',
                     'data_questao']
 
 class RespostaForm(forms.ModelForm):
