@@ -492,12 +492,12 @@ class RespostaForm(forms.ModelForm):
     max_length=15,
     widget=forms.TextInput(
         attrs={
-            'title': 'Data da avaliação',
+            'title': 'Data da avaliacao',
             'type': 'text',
             'name': 'dataavaliacao_resposta',
             'id': 'dataavaliacao_resposta',
             'size': 10,
-            'placeholder': 'Data da avaliação'
+            'placeholder': 'Data da avaliacao'
         }
     )
 )
@@ -518,12 +518,12 @@ class RespostaForm(forms.ModelForm):
     max_length=100,
     widget=forms.TextInput(
         attrs={
-            'title': 'Avaliação',
+            'title': 'Avaliacao',
             'type': 'text',
             'name': 'avaliacao_resposta',
             'id': 'avaliacao_resposta',
             'size': 15,
-            'placeholder': 'Avaliação'
+            'placeholder': 'Avaliacao'
         }
     )
 )
