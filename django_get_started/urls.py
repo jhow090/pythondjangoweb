@@ -19,10 +19,13 @@ urlpatterns = patterns('',
 
     url(r'^listar_cursturma', 'app.views.listar_cursturma', name='listar_cursturma'),
     url(r'^novo_cursturma', 'app.views.novo_cursturma', name='novo_cursturma'),
+<<<<<<< HEAD
     url(r'^editar_cursturma/(?P<pk>\d+)$', 'app.views.editar_cursturma', name='editar_cursturma'),
     url(r'^apagar_cursturma/(?P<pk>\d+)$', 'app.views.apagar_cursturma', name='apagar_cursturma'),
+=======
     url(r'^editar_cursoturma/(?P<pk>\d+)$', 'app.views.editar_cursturma', name='editar_cursturma'),
     url(r'^apagar_cursoturma/(?P<pk>\d+)$', 'app.views.apagar_cursturma', name='apagar_cursturma'),
+>>>>>>> ebc764bcc3c22022ede456ff306e91ca1959c315
 
     url(r'^listar_disciplina', 'app.views.listar_disciplina', name='listar_disciplina'),
     url(r'^novo_disciplina', 'app.views.novo_disciplina', name='novo_disciplina'),

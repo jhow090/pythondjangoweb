@@ -451,9 +451,11 @@ def listar_cursturma(request):
         })
     )
 
+<<<<<<< HEAD
 def novo_cursturma(request, template_name='app/cursturma/novo_cursoturma.html'):
 =======
 def novo_cursturma(request, template_name='app/cursoturma/novo_cursoturma.html'):
+>>>>>>> ebc764bcc3c22022ede456ff306e91ca1959c315
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     disciplinofertada = Disciplinofertada.objects.all()
