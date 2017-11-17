@@ -451,11 +451,7 @@ def listar_cursturma(request):
         })
     )
 
-<<<<<<< HEAD
-def novo_cursturma(request, template_name='app/cursturma/novo_cursoturma.html'):
-=======
-def novo_cursturma(request, template_name='app/cursoturma/novo_cursoturma.html'):
->>>>>>> ebc764bcc3c22022ede456ff306e91ca1959c315
+def novo_cursturma(request, template_name='app/cursturma/novo_cursturma.html'):
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     disciplinofertada = Disciplinofertada.objects.all()
@@ -470,7 +466,7 @@ def novo_cursturma(request, template_name='app/cursoturma/novo_cursoturma.html')
         return redirect('listar_cursturma')
     return render(request, template_name, { 'form':form, 'curso': curso, 'disciplinofertada': disciplinofertada, 'turma': turma})
 
-<<<<<<< HEAD
+
 def apagar_cursturma(request, pk, template_name='app/cursturma/confirmacao_apagar_cursturma.html'):
     cursturma = get_object_or_404(Cursturma, pk=pk)
     if request.method=='POST':
