@@ -504,7 +504,7 @@ def novo_questao(request, template_name='app/questao/novo_questao.html'):
     ano_disciplina = request.POST.get('ano_disciplina')
     semestre_disciplina = request.POST.get('semestre_disciplina')
     id_turma = request.POST.get('id_turma')
-    form = CursoturmaForm(request.POST or None)
+    form = CursturmaForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_questao')
