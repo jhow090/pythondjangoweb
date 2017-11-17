@@ -492,7 +492,7 @@ def listar_questao(request):
         'app/questao/listar_questao.html',
         context_instance = RequestContext(request,
         {
-            'title':'Lista de questão',
+            'title':'Lista de questao',
             'questaos': Questao.objects.all(),
             'year':datetime.now().year,
         })
