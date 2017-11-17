@@ -452,6 +452,8 @@ def listar_cursturma(request):
     )
 
 def novo_cursturma(request, template_name='app/cursturma/novo_cursoturma.html'):
+=======
+def novo_cursturma(request, template_name='app/cursoturma/novo_cursoturma.html'):
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     disciplinofertada = Disciplinofertada.objects.all()
@@ -466,6 +468,7 @@ def novo_cursturma(request, template_name='app/cursturma/novo_cursoturma.html'):
         return redirect('listar_cursturma')
     return render(request, template_name, { 'form':form, 'curso': curso, 'disciplinofertada': disciplinofertada, 'turma': turma})
 
+<<<<<<< HEAD
 def apagar_cursturma(request, pk, template_name='app/cursturma/confirmacao_apagar_cursturma.html'):
     cursturma = get_object_or_404(Cursturma, pk=pk)
     if request.method=='POST':
@@ -563,12 +566,30 @@ def apagar_resposta(request, pk, template_name='app/resposta/confirmacao_apagar_
     return render(request, template_name, {'object':resposta.ra_aluno})
 
 def editar_resposta(request, pk, template_name='app/resposta/novo_resposta.html'):
+=======
+def apagar_cursturma(request, pk, template_name='app/cursoturma/confirmacao_apagar_cursoturma.html'):
+    cursoturma = get_object_or_404(Cursturma, pk=pk)
+    if request.method=='POST':
+        cursoturma.delete()
+        return redirect('listar_cursoturma')
+    return render(request, template_name, {'object':cursturma.sigla_curso})
+
+def editar_cursturma(request, pk, template_name='app/cursoturma/novo_cursoturma.html'):
+>>>>>>> ebc764bcc3c22022ede456ff306e91ca1959c315
     if request.user.is_superuser:
         resposta = get_object_or_404(Resposta, pk=pk)
     else:
+<<<<<<< HEAD
         resposta = get_object_or_404(Resposta, pk=pk)
     form = RespostaForm(request.POST or None, instance = Resposta)
     if form.is_valid():
         form.save()
         return redirect('listar_resposta')
+=======
+        cursoturma = get_object_or_404(Cursoturma, pk=pk)
+    form = CursturmaForm(request.POST or None, instance = Cursturma)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_cursturma')
+>>>>>>> ebc764bcc3c22022ede456ff306e91ca1959c315
     return render(request, template_name, {'form':form})

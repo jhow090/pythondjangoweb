@@ -21,6 +21,8 @@ urlpatterns = patterns('',
     url(r'^novo_cursturma', 'app.views.novo_cursturma', name='novo_cursturma'),
     url(r'^editar_cursturma/(?P<pk>\d+)$', 'app.views.editar_cursturma', name='editar_cursturma'),
     url(r'^apagar_cursturma/(?P<pk>\d+)$', 'app.views.apagar_cursturma', name='apagar_cursturma'),
+    url(r'^editar_cursoturma/(?P<pk>\d+)$', 'app.views.editar_cursturma', name='editar_cursturma'),
+    url(r'^apagar_cursoturma/(?P<pk>\d+)$', 'app.views.apagar_cursturma', name='apagar_cursturma'),
 
     url(r'^listar_disciplina', 'app.views.listar_disciplina', name='listar_disciplina'),
     url(r'^novo_disciplina', 'app.views.novo_disciplina', name='novo_disciplina'),
