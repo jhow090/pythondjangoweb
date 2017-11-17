@@ -1,0 +1,138 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Cadastro de resposta</h1>
+</div>
+
+<form action="{% url 'novo_resposta' %}" method="POST">{% csrf_token %}
+  <fieldset>
+    <legend>Dados da resposta</legend>
+      <table cellspacing="2">
+
+        <tr>
+          <td>
+            <label for="nome_disciplina">Nome da disciplina: </label>
+          </td>
+          <td align="left">
+            <select name="nome_disciplina">
+              {% for questao in questao %}
+                <option value="{{ questao.nome_disciplina }}">{{ questao.nome_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="ano_disciplina">Ano: </label>
+          </td>
+          <td align="left">
+            <select name="ano_disciplina">
+              {% for questao in questao %}
+                <option value="{{ questao.ano_disciplina }}">{{ questao.ano_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="semestre_disciplina">Semestre: </label>
+          </td>
+          <td align="left">
+            <select name="semestre_disciplina">
+              {% for questao in questao %}
+                <option value="{{ questao.semestre_disciplina }}">{{ questao.semestre_disciplina }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="id_turma">Turma: </label>
+          </td>
+          <td align="left">
+            <select name="id_turma">
+              {% for questao in questao %}
+                <option value="{{ questao.id_turma }}">{{ questao.id_turma }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="numero_questao">Número da questão: </label>
+          </td>
+          <td align="left">
+            <select name="numero_questao">
+              {% for questao in questao %}
+                <option value="{{ questao.numero_questao }}">{{ questao.numero_questao }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="ra_aluno">Ra do aluno: </label>
+            </td>
+          <td align="left">
+            <select name="ra_aluno">
+              {% for aluno in aluno %}
+                <option value="{{ aluno.ra_aluno }}">{{ aluno.ra_aluno }}</option>
+              {% endfor %}
+            </select></br>
+          </td>
+          <tr>
+            <td>
+              <label for="dataavaliacao_resposta">Data da avaliação: </label>
+            </td>
+            <td align="left">
+              {{ form.dataavaliacao_resposta" }}</br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="nota_resposta">Nota da avaliação: </label>
+            </td>
+            <td align="left">
+              {{ form.nota_resposta" }}</br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="avaliacao_resposta">Avaliação: </label>
+            </td>
+            <td align="left">
+              {{ form.avaliacao_resposta" }}</br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="descricao_resposta">Descrição: </label>
+            </td>
+            <td align="left">
+              {{ form.descricao_resposta" }}</br>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="datadeenvio_resposta">Data de envio: </label>
+            </td>
+            <td align="left">
+              {{ form.datadeenvio_resposta" }}</br>
+            </td>
+          </tr>
+        </tr>
+      </table>
+    </fieldset>
+
+  <table>
+    <tr>
+      <td>
+          <input type="submit" value="Salvar" />
+      </td>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

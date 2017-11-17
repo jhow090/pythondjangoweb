@@ -440,7 +440,7 @@ class MatriculaForm(forms.ModelForm):
                     'semestre_disciplina',
                     'id_turma']
 
-class CursoturmaForm(forms.ModelForm):
+class CursturmaForm(forms.ModelForm):
     class Meta:
         model = Cursoturma
         fields = [  'sigla_curso',
@@ -448,3 +448,122 @@ class CursoturmaForm(forms.ModelForm):
                     'ano_disciplina',
                     'semestre_disciplina',
                     'id_turma']
+
+class QuestaoForm(forms.ModelForm):
+    numero_questao = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Numero questão',
+            'type': 'number',
+            'name': 'numero_questao',
+            'id': 'numero_questao',
+            'size': 5,
+            'placeholder': 'Numero questão'
+        }
+    )
+)
+    data_questao = forms.CharField(
+    max_length=15,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Data',
+            'type': 'text',
+            'name': 'data_questao',
+            'id': 'data_questao',
+            'size': 5,
+            'placeholder': 'Data'
+        }
+    )
+)
+    class Meta:
+        model = Questao
+        fields = [  'nome_disciplina',
+                    'ano_disciplina',
+                    'semestre_disciplina',
+                    'id_turma',
+                    'numero_questao',
+                    'datalimiteentrega_questao',
+                    'descricao_resposta',
+                    'data_questao']
+
+class RespostaForm(forms.ModelForm):
+    dataavaliacao_resposta = forms.CharField(
+    max_length=15,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Data da avaliação',
+            'type': 'text',
+            'name': 'dataavaliacao_resposta',
+            'id': 'dataavaliacao_resposta',
+            'size': 10,
+            'placeholder': 'Data da avaliação'
+        }
+    )
+)
+    nota_resposta = forms.CharField(
+    max_length=5,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Nota',
+            'type': 'text',
+            'name': 'nota_resposta',
+            'id': 'nota_resposta',
+            'size': 5,
+            'placeholder': 'Nota'
+        }
+    )
+)
+    avaliacao_resposta = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Avaliação',
+            'type': 'text',
+            'name': 'avaliacao_resposta',
+            'id': 'avaliacao_resposta',
+            'size': 15,
+            'placeholder': 'Avaliação'
+        }
+    )
+)
+    descricao_resposta = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Descrição',
+            'type': 'text',
+            'name': 'descricao_resposta',
+            'id': 'descricao_resposta',
+            'size': 15,
+            'placeholder': 'Descrição'
+        }
+    )
+)
+    datadeenvio_resposta = forms.CharField(
+    max_length=15,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Data de envio',
+            'type': 'text',
+            'name': 'datadeenvio_resposta',
+            'id': 'datadeenvio_resposta',
+            'size': 10,
+            'placeholder': 'Data de envio'
+        }
+    )
+)
+
+    class Meta:
+        model = Resposta
+        fields = [  'nome_disciplina',
+                    'ano_disciplina',
+                    'semestre_disciplina',
+                    'id_turma',
+                    'numero_questao',
+                    'ra_aluno',
+                    'dataavaliacao_resposta',
+                    'nota_resposta',
+                    'avaliacao_resposta',
+                    'descricao_resposta',
+                    'datadeenvio_resposta']

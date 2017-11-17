@@ -38,7 +38,6 @@ def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
     sigla_curso = request.POST.get('sigla_curso')
     form = AlunoForm(request.POST or None)
     if form.is_valid():
-        form.sigla_curso = Curso.objects.get(sigla_curso = sigla_curso)
         form.save()
         return redirect('listar_aluno')
     return render(request, template_name, {'form':form, 'curso': curso})
@@ -439,20 +438,20 @@ def editar_matricula(request, pk, template_name='app/matricula/novo_matricula.ht
         return redirect('listar_matricula')
     return render(request, template_name, {'form':form})
 
-def listar_cursoturma(request):
+def listar_cursturma(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/cursoturma/listar_cursoturma.html',
+        'app/cursoturma/listar_cursturma.html',
         context_instance = RequestContext(request,
         {
             'title':'Lista de curso turma',
-            'cursoturmas': Cursoturma.objects.all(),
+            'cursturmas': Cursturma.objects.all(),
             'year':datetime.now().year,
         })
     )
 
-def novo_cursoturma(request, template_name='app/cursoturma/novo_cursoturma.html'):
+def novo_cursturma(request, template_name='app/cursturma/novo_cursoturma.html'):
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     disciplinofertada = Disciplinofertada.objects.all()
@@ -461,26 +460,115 @@ def novo_cursoturma(request, template_name='app/cursoturma/novo_cursoturma.html'
     semestre_disciplina = request.POST.get('semestre_disciplina')
     turma = Turma.objects.all()
     id_turma = request.POST.get('id_turma')
+    form = CursturmaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_cursturma')
+    return render(request, template_name, { 'form':form, 'curso': curso, 'disciplinofertada': disciplinofertada, 'turma': turma})
+
+def apagar_cursturma(request, pk, template_name='app/cursturma/confirmacao_apagar_cursturma.html'):
+    cursturma = get_object_or_404(Cursturma, pk=pk)
+    if request.method=='POST':
+        cursturma.delete()
+        return redirect('listar_cursturma')
+    return render(request, template_name, {'object':cursturma.sigla_curso})
+
+def editar_cursturma(request, pk, template_name='app/cursturma/novo_cursturma.html'):
+    if request.user.is_superuser:
+        cursturma = get_object_or_404(Cursturma, pk=pk)
+    else:
+        cursturma = get_object_or_404(Cursturma, pk=pk)
+    form = CursturmaForm(request.POST or None, instance = Cursturma)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_cursturma')
+    return render(request, template_name, {'form':form})
+
+def listar_questao(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/questao/listar_questao.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de questão',
+            'questaos': Questao.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_questao(request, template_name='app/questao/novo_questao.html'):
+    turma = Turma.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    ano_disciplina = request.POST.get('ano_disciplina')
+    semestre_disciplina = request.POST.get('semestre_disciplina')
+    id_turma = request.POST.get('id_turma')
     form = CursoturmaForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('listar_cursoturma')
-    return render(request, template_name, { 'form':form, 'curso': curso, 'disciplinofertada': disciplinofertada, 'turma': turma})
+        return redirect('listar_questao')
+    return render(request, template_name, { 'form':form, 'turma': turma})
 
-def apagar_cursoturma(request, pk, template_name='app/cursoturma/confirmacao_apagar_cursoturma.html'):
-    cursoturma = get_object_or_404(Cursoturma, pk=pk)
+def apagar_questao(request, pk, template_name='app/questao/confirmacao_apagar_questao.html'):
+    questao = get_object_or_404(Questao, pk=pk)
     if request.method=='POST':
-        cursoturma.delete()
-        return redirect('listar_cursoturma')
-    return render(request, template_name, {'object':cursoturma.sigla_curso})
+        questao.delete()
+        return redirect('listar_questao')
+    return render(request, template_name, {'object':questao.numero_questao})
 
-def editar_cursoturma(request, pk, template_name='app/cursoturma/novo_cursoturma.html'):
+def editar_questao(request, pk, template_name='app/questao/novo_questao.html'):
     if request.user.is_superuser:
-        cursoturma = get_object_or_404(Cursoturma, pk=pk)
+        questao = get_object_or_404(Questao, pk=pk)
     else:
-        cursoturma = get_object_or_404(Cursoturma, pk=pk)
-    form = CursoturmaForm(request.POST or None, instance = Cursoturma)
+        questao = get_object_or_404(Questao, pk=pk)
+    form = QuestaoForm(request.POST or None, instance = Questao)
     if form.is_valid():
         form.save()
-        return redirect('listar_cursoturma')
+        return redirect('listar_questao')
+    return render(request, template_name, {'form':form})
+
+def listar_resposta(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/resposta/listar_resposta.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de resposta',
+            'respostas': Resposta.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_resposta(request, template_name='app/resposta/novo_resposta.html'):
+    questao = Questao.objects.all()
+    nome_disciplina = request.POST.get('nome_disciplina')
+    ano_disciplina = request.POST.get('ano_disciplina')
+    semestre_disciplina = request.POST.get('semestre_disciplina')
+    id_turma = request.POST.get('id_turma')
+    numero_questao = request.POST.get('numero_questao')
+    aluno = Aluno.objects.all()
+    ra_aluno = request.POST.get('ra_aluno')
+    form = RespostaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_resposta')
+    return render(request, template_name, { 'form':form, 'questao': questao, 'aluno': aluno})
+
+def apagar_resposta(request, pk, template_name='app/resposta/confirmacao_apagar_resposta.html'):
+    resposta = get_object_or_404(Resposta, pk=pk)
+    if request.method=='POST':
+        resposta.delete()
+        return redirect('listar_resposta')
+    return render(request, template_name, {'object':resposta.ra_aluno})
+
+def editar_resposta(request, pk, template_name='app/resposta/novo_resposta.html'):
+    if request.user.is_superuser:
+        resposta = get_object_or_404(Resposta, pk=pk)
+    else:
+        resposta = get_object_or_404(Resposta, pk=pk)
+    form = RespostaForm(request.POST or None, instance = Resposta)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_resposta')
     return render(request, template_name, {'form':form})

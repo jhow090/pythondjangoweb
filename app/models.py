@@ -12,7 +12,7 @@ class Curso(models.Model):
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
 
-class Cursoturma(models.Model):
+class Cursturma(models.Model):
     sigla_curso = models.CharField(max_length=5)
     nome_disciplina = models.CharField(max_length=240)
     ano_disciplina = models.CharField(max_length=5)
@@ -67,6 +67,29 @@ class Professor(models.Model):
     nome_professor = models.CharField(max_length=120)
     email_professor = models.CharField(max_length=80)
     celular_professor = models.CharField(max_length=11)
+
+class Resposta(models.Model):
+    nome_disciplina = models.CharField(max_length=240)
+    ano_disciplina = models.CharField(max_length=5)
+    semestre_disciplina = models.CharField(max_length=5)
+    id_turma = models.CharField(max_length=5)
+    numero_questao = models.CharField(max_length=5)
+    ra_aluno = models.CharField(max_length=5)
+    dataavaliacao_resposta = models.CharField(max_length=15)
+    nota_resposta = models.CharField(max_length=5)
+    avaliacao_resposta = models.CharField(max_length=100)
+    descricao_resposta = models.CharField(max_length=100)
+    datadeenvio_resposta = models.CharField(max_length=15)
+
+class Questao(models.Model):
+    nome_disciplina = models.CharField(max_length=10)
+    ano_disciplina = models.CharField(max_length=5)
+    semestre_disciplina = models.CharField(max_length=5)
+    id_turma = models.CharField(max_length=5)
+    numero_questao = models.CharField(max_length=5)
+    datalimiteentrega_questao = models.CharField(max_length=15)
+    descricao_questao = models.CharField(max_length=100)
+    data_questao = models.CharField(max_length=15)
 
 class Turma(models.Model):
     nome_disciplina = models.CharField(max_length=240)

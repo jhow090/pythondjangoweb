@@ -17,10 +17,10 @@ urlpatterns = patterns('',
     url(r'^editar_curso/(?P<pk>\d+)$', 'app.views.editar_curso', name='editar_curso'),
     url(r'^apagar_curso/(?P<pk>\d+)$', 'app.views.apagar_curso', name='apagar_curso'),
 
-    url(r'^listar_cursoturma', 'app.views.listar_cursoturma', name='listar_cursoturma'),
-    url(r'^novo_cursoturma', 'app.views.novo_cursoturma', name='novo_cursoturma'),
-    url(r'^editar_cursoturma/(?P<pk>\d+)$', 'app.views.editar_cursoturma', name='editar_cursoturma'),
-    url(r'^apagar_cursoturma/(?P<pk>\d+)$', 'app.views.apagar_cursoturma', name='apagar_cursoturma'),
+    url(r'^listar_cursturma', 'app.views.listar_cursturma', name='listar_cursturma'),
+    url(r'^novo_cursturma', 'app.views.novo_cursturma', name='novo_cursturma'),
+    url(r'^editar_cursturma/(?P<pk>\d+)$', 'app.views.editar_cursturma', name='editar_cursturma'),
+    url(r'^apagar_cursturma/(?P<pk>\d+)$', 'app.views.apagar_cursturma', name='apagar_cursturma'),
 
     url(r'^listar_disciplina', 'app.views.listar_disciplina', name='listar_disciplina'),
     url(r'^novo_disciplina', 'app.views.novo_disciplina', name='novo_disciplina'),
@@ -61,5 +61,15 @@ urlpatterns = patterns('',
     url(r'^novo_turma', 'app.views.novo_turma', name='novo_turma'),
     url(r'^editar_turma/(?P<pk>\d+)$', 'app.views.editar_turma', name='editar_turma'),
     url(r'^apagar_turma/(?P<pk>\d+)$', 'app.views.apagar_turma', name='apagar_turma'),
+
+    url(r'^listar_questao', 'app.views.listar_questao', name='listar_questao'),
+    url(r'^novo_questao', 'app.views.novo_questao', name='novo_questao'),
+    url(r'^editar_questao/(?P<pk>\d+)$', 'app.views.editar_questao', name='editar_questao'),
+    url(r'^apagar_questao/(?P<pk>\d+)$', 'app.views.apagar_questao', name='apagar_questao'),
+
+    url(r'^listar_resposta', 'app.views.listar_resposta', name='listar_resposta'),
+    url(r'^novo_resposta', 'app.views.novo_resposta', name='novo_resposta'),
+    url(r'^editar_resposta/(?P<pk>\d+)$', 'app.views.editar_resposta', name='editar_resposta'),
+    url(r'^apagar_resposta/(?P<pk>\d+)$', 'app.views.apagar_resposta', name='apagar_resposta'),
 
 )

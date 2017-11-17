@@ -3,33 +3,39 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Lista de curso turma</h1>
+    <h1>Lista de questão</h1>
 </div>
 
 <table class="table">
     <tr>
-      <th>Sigla curso</th>
       <th>Nome disciplina</th>
       <th>Ano</th>
       <th>Semestre</th>
       <th>Turma</th>
+      <th>Numero</th>
+      <th>Data limite entrega</th>
+      <th>Descrição</th>
+      <th>Data</th>
       <th>Editar</th>
       <th>Apagar</th>
     </tr>
-        {% for cursoturma in cursoturmas %}
+        {% for questao in questaos %}
           <tr>
-            <td>{{ cursoturma.sigla_curso }}</td>
-            <td>{{ cursoturma.nome_disciplina }}</td>
-            <td>{{ cursoturma.ano_disciplina }}</td>
-            <td>{{ cursoturma.semestre_disciplina }}</td>
-            <td>{{ cursoturma.id_turma }}</td>
+            <td>{{ questao.nome_disciplina }}</td>
+            <td>{{ questao.ano_disciplina }}</td>
+            <td>{{ questao.semestre_disciplina }}</td>
+            <td>{{ questao.id_turma }}</td>
+            <td>{{ questao.numero_questao }}</td>
+            <td>{{ questao.datalimiteentrega_questao }}</td>
+            <td>{{ questao.descricao_questao }}</td>
+            <td>{{ questao.data_questao }}</td>
             <td>
-              <a href="{% url 'editar_cursoturma' cursoturma.id %}">
+              <a href="{% url 'editar_questao' questao.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
               </a>
             </td>
             <td>
-              <a href="{% url 'apagar_cursoturma' cursoturma.id %}">
+              <a href="{% url 'apagar_questao' questao.id %}">
                 <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
               </a>
             </td>

@@ -1,0 +1,52 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Lista de resposta</h1>
+</div>
+
+<table class="table">
+    <tr>
+      <th>Nome disciplina</th>
+      <th>Ano</th>
+      <th>Semestre</th>
+      <th>Turma</th>
+      <th>Número da questão</th>
+      <th>Ra do aluno</th>
+      <th>Data avaliação</th>
+      <th>Nota</th>
+      <th>Avaliação</th>
+      <th>Descriçao</th>
+      <th>Data de envio</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+        {% for resposta in respostas %}
+          <tr>
+            <td>{{ resposta.nome_disciplina }}</td>
+            <td>{{ resposta.ano_disciplina }}</td>
+            <td>{{ resposta.semestre_disciplina }}</td>
+            <td>{{ resposta.id_turma }}</td>
+            <td>{{ resposta.numero_questao }}</td>
+            <td>{{ resposta.ra_aluno }}</td>
+            <td>{{ resposta.dataavaliacao_resposta }}</td>
+            <td>{{ resposta.nota_resposta }}</td>
+            <td>{{ resposta.avaliacao_resposta }}</td>
+            <td>{{ resposta.descricao_resposta }}</td>
+            <td>{{ resposta.datadeenvio_resposta }}</td>
+            <td>
+              <a href="{% url 'editar_resposta' resposta.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'apagar_resposta' resposta.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}
