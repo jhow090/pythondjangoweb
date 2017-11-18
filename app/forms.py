@@ -74,7 +74,7 @@ class CursoForm(forms.ModelForm):
             'id': 'nome_curso',
             'size': 15,
             'placeholder': 'Nome',
-            'onkeypress': 'somenteletra(e)'
+            'onkeypress': 'return somenteletra(event)'
 
         }
     )
