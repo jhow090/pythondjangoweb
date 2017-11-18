@@ -508,7 +508,7 @@ def novo_questao(request, template_name='app/questao/novo_questao.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_questao')
-    return render(request, template_name, {'title':'Questão', 'form':form, 'turma': turma})
+    return render(request, template_name, {'title':'Questao', 'form':form, 'turma': turma})
 
 def apagar_questao(request, pk, template_name='app/questao/confirmacao_apagar_questao.html'):
     questao = get_object_or_404(Questao, pk=pk)
