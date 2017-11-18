@@ -722,21 +722,25 @@ footer {
    <ul>
      <li class="dropdown">
        <a href="#" class="dropbtn">Curso</a>
-       <div class="dropdown-content">
+
          <ul>
            <li><a href="#">Curso</a>
              <ul>
-                <a href="{% url 'listar_aluno' %}">Lista</a>
-                <a href="{% url 'novo_aluno' %}">Novo</a>
+                <div class="dropdown-content">
+                  <a href="{% url 'listar_aluno' %}">Lista</a>
+                  <a href="{% url 'novo_aluno' %}">Novo</a>
+                </div>  
              </ul>
            </li>
            <li><a href="#">Cursos turma</a>
              <ul>
-               <a href="{% url 'listar_curso' %}">Lista</a>
-               <a href="{% url 'novo_curso' %}">Novo</a>
+               <div class="dropdown-content">
+                 <a href="{% url 'listar_curso' %}">Lista</a>
+                <a href="{% url 'novo_curso' %}">Novo</a>
+              </div>
              </ul>
            </li>
-          </div>
+
          </ul>
 
      </li>
