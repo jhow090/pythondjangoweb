@@ -917,7 +917,7 @@ function somenteletra(e)
   function somenteletraacento(e)
   	{
   		var expressao;
-  		expressao = /^([a-zA-Zà-úÀ-Ú0-9]|-|_|\s)+$/;
+  		expressao = /^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']+$/;
   		if(expressao.test(String.fromCharCode(e.keyCode)))
   		{
   			return true;
