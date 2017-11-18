@@ -507,9 +507,11 @@ footer {
         <a href="">Cursos</a>
           <a href="{% url 'listar_curso' %}">Lista</a>
           <a href="{% url 'novo_curso' %}">Novo</a>
-        <a href="">Cursos turma</a>
-          <a href="{% url 'listar_cursturma' %}">Lista</a>
-          <a href="{% url 'novo_cursturma' %}">Novo</a>
+          <li>
+            <a href="">Cursos turma</a>
+              <a href="{% url 'listar_cursturma' %}">Lista</a>
+              <a href="{% url 'novo_cursturma' %}">Novo</a>
+          </li>
       </li>
       <li class="dropdown">
         <a href="" class="dropbtn">Disciplina</a>
