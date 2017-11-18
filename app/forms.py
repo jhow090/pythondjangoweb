@@ -263,7 +263,8 @@ class DisciplinofertadaForm(forms.ModelForm):
             'name': 'ano_disciplina',
             'id': 'ano_disciplina',
             'size': 5,
-            'placeholder': 'Ano'
+            'placeholder': 'Ano',
+            'onkeypress' : 'validarano(this); return numerico(event);'
         }
     )
 )
@@ -276,7 +277,8 @@ class DisciplinofertadaForm(forms.ModelForm):
             'name': 'semestre_disciplina',
             'id': 'semestre_disciplina',
             'size': 5,
-            'placeholder': 'Semestre'
+            'placeholder': 'Semestre',
+            'onkeypress' : 'validarsemestre(this); return numerico(event);'
         }
     )
 )
