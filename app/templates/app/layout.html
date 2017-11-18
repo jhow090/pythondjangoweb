@@ -899,5 +899,19 @@ function numerico(evt) {
   }
   return false;
 }
+
+function somenteletra(e)
+	{
+		var expressao;
+		expressao = /[a-zA-Z]/;
+		if(expressao.test(String.fromCharCode(e.keyCode)))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 </script>
 </html>

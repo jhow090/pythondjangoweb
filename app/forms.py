@@ -42,7 +42,6 @@ class AlunoForm(forms.ModelForm):
             'id': 'email_aluno',
             'size': 15,
             'placeholder': 'Email',
-            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
@@ -55,7 +54,8 @@ class AlunoForm(forms.ModelForm):
             'name': 'celular_aluno',
             'id': 'celular_aluno',
             'size': 10,
-            'placeholder': 'Celular'
+            'placeholder': 'Celular',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
@@ -73,7 +73,9 @@ class CursoForm(forms.ModelForm):
             'name': 'nome_curso',
             'id': 'nome_curso',
             'size': 15,
-            'placeholder': 'Nome'
+            'placeholder': 'Nome',
+            'onkeypress': 'somenteletra(e)'
+
         }
     )
 )
