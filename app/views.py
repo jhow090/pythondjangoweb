@@ -372,7 +372,7 @@ def novo_turma(request, template_name='app/turma/novo_turma.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_turma')
-    return render(request, template_name, { 'form':form, 'disciplinofertada': disciplinofertada, 'professor': professor})
+    return render(request, template_name, { 'title':'Turma', 'form':form, 'disciplinofertada': disciplinofertada, 'professor': professor})
 
 def apagar_turma(request, pk, template_name='app/turma/confirmacao_apagar_turma.html'):
     turma = get_object_or_404(Turma, pk=pk)
@@ -504,7 +504,7 @@ def novo_questao(request, template_name='app/questao/novo_questao.html'):
     ano_disciplina = request.POST.get('ano_disciplina')
     semestre_disciplina = request.POST.get('semestre_disciplina')
     id_turma = request.POST.get('id_turma')
-    form = CursturmaForm(request.POST or None)
+    form = QuestaoForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('listar_questao')
