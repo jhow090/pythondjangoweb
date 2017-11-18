@@ -159,7 +159,7 @@ def novo_professor(request, template_name='app/professor/novo_professor.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_professor')
-    return render(request, template_name, {'form':form})
+    return render(request, template_name, {'title':'Professor', 'form':form})
 
 def apagar_professor(request, pk, template_name='app/professor/confirmacao_apagar_professor.html'):
     professor = get_object_or_404(Professor, pk=pk)
@@ -287,7 +287,7 @@ def novo_perioddisciplina(request, template_name='app/perioddisciplina/novo_peri
     if form.is_valid():
         form.save()
         return redirect('listar_perioddisciplina')
-    return render(request, template_name, {'form':form, 'disciplina': disciplina, 'periodo': periodo})
+    return render(request, template_name, {'title':'Periodo Disciplina', 'form':form, 'disciplina': disciplina, 'periodo': periodo})
 
 def apagar_perioddisciplina(request, pk, template_name='app/periododisciplina/confirmacao_apagar_periododisciplina.html'):
     perioddisciplina = get_object_or_404(Perioddisciplina, pk=pk)
@@ -328,7 +328,7 @@ def novo_disciplinofertada(request, template_name='app/disciplinofertada/novo_di
     if form.is_valid():
         form.save()
         return redirect('listar_disciplinofertada')
-    return render(request, template_name, {'form':form, 'disciplina': disciplina})
+    return render(request, template_name, {'title':'Disciplina Ofertada', 'form':form, 'disciplina': disciplina})
 
 def apagar_disciplinofertada(request, pk, template_name='app/disciplinofertada/confirmacao_apagar_disciplinofertada.html'):
     disciplinofertada = get_object_or_404(Disciplinofertada, pk=pk)
