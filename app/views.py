@@ -418,7 +418,7 @@ def novo_matricula(request, template_name='app/matricula/novo_matricula.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_matricula')
-    return render(request, template_name, { 'form':form, 'aluno': aluno, 'disciplinofertada': disciplinofertada, 'turma': turma})
+    return render(request, template_name, { 'title':'Matricula', 'form':form, 'aluno': aluno, 'disciplinofertada': disciplinofertada, 'turma': turma})
 
 def apagar_matricula(request, pk, template_name='app/matricula/confirmacao_apagar_matricula.html'):
     matricula = get_object_or_404(Matricula, pk=pk)
