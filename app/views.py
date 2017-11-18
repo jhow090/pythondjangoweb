@@ -120,7 +120,7 @@ def novo_disciplina(request, template_name='app/disciplina/novo_disciplina.html'
     if form.is_valid():
         form.save()
         return redirect('listar_disciplina')
-    return render(request, template_name, {'title':'Curso Turma', 'form':form})
+    return render(request, template_name, {'title':'Disciplina', 'form':form})
 
 def apagar_disciplina(request, pk, template_name='app/disciplina/confirmacao_apagar_disciplina.html'):
     disciplina = get_object_or_404(Disciplina, pk=pk)
