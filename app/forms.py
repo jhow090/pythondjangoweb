@@ -365,7 +365,8 @@ class ProfessorForm(forms.ModelForm):
             'name': 'ra_professor',
             'id': 'ra_professor',
             'size': 5,
-            'placeholder': 'Ra'
+            'placeholder': 'Ra',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
@@ -378,7 +379,8 @@ class ProfessorForm(forms.ModelForm):
             'name': 'apelido_professor',
             'id': 'apelido_professor',
             'size': 10,
-            'placeholder': 'Apelido'
+            'placeholder': 'Apelido',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -391,7 +393,8 @@ class ProfessorForm(forms.ModelForm):
             'name': 'nome_professor',
             'id': 'nome_professor',
             'size': 15,
-            'placeholder': 'Nome'
+            'placeholder': 'Nome',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -417,7 +420,8 @@ class ProfessorForm(forms.ModelForm):
             'name': 'celular_professor',
             'id': 'celular_professor',
             'size': 10,
-            'placeholder': 'Celular'
+            'placeholder': 'Celular',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )

@@ -242,7 +242,7 @@ def novo_periodo(request, template_name='app/periodo/novo_periodo.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_periodo')
-    return render(request, template_name, {'form':form, 'curso': curso, 'grade': grade})
+    return render(request, template_name, {'title':'Periodo', 'form':form, 'curso': curso, 'grade': grade})
 
 def apagar_periodo(request, pk, template_name='app/periodo/confirmacao_apagar_periodo.html'):
     periodo = get_object_or_404(Periodo, pk=pk)
