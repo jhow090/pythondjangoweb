@@ -554,7 +554,7 @@ def novo_resposta(request, template_name='app/resposta/novo_resposta.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_resposta')
-    return render(request, template_name, { 'form':form, 'questao': questao, 'aluno': aluno})
+    return render(request, template_name, { 'title':'Resposta', 'form':form, 'questao': questao, 'aluno': aluno})
 
 def apagar_resposta(request, pk, template_name='app/resposta/confirmacao_apagar_resposta.html'):
     resposta = get_object_or_404(Resposta, pk=pk)
@@ -600,7 +600,7 @@ def novo_arquivresposta(request, template_name='app/arquivresposta/novo_arquivre
     if form.is_valid():
         form.save()
         return redirect('listar_arquivresposta')
-    return render(request, template_name, { 'form':form, 'resposta': resposta, 'aluno': aluno})
+    return render(request, template_name, { 'title':'Arquivo Resposta', 'form':form, 'resposta': resposta, 'aluno': aluno})
 
 def apagar_arquivresposta(request, pk, template_name='app/arquivresposta/confirmacao_apagar_arquivresposta.html'):
     arquivresposta = get_object_or_404(Resposta, pk=pk)
@@ -644,7 +644,7 @@ def novo_arquivquestao(request, template_name='app/arquivquestao/novo_arquivques
     if form.is_valid():
         form.save()
         return redirect('listar_arquivquestao')
-    return render(request, template_name, { 'form':form, 'questao': questao})
+    return render(request, template_name, { 'title':'Arquivo Questao', 'form':form, 'questao': questao})
 
 def apagar_arquivquestao(request, pk, template_name='app/arquivquestao/confirmacao_apagar_arquivquestao.html'):
     arquivquestao = get_object_or_404(Arquivquestao, pk=pk)
