@@ -913,5 +913,20 @@ function somenteletra(e)
 			return false;
 		}
 	}
+
+  function somenteletraacento(e)
+  	{
+  		var expressao;
+  		expressao = /^([a-zA-Zà-úÀ-Ú0-9]|-|_|\s)+$/;
+  		if(expressao.test(String.fromCharCode(e.keyCode)))
+  		{
+  			return true;
+  		}
+  		else
+  		{
+  			return false;
+  		}
+  	}
+
 </script>
 </html>

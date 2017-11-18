@@ -28,7 +28,8 @@ class AlunoForm(forms.ModelForm):
             'name': 'nome_aluno',
             'id': 'nome_aluno',
             'size': 15,
-            'placeholder': 'Nome'
+            'placeholder': 'Nome',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -74,7 +75,7 @@ class CursoForm(forms.ModelForm):
             'id': 'nome_curso',
             'size': 15,
             'placeholder': 'Nome',
-            'onkeypress': 'return somenteletra(event)'
+            'onkeypress': 'return somenteletraacento(event)'
 
         }
     )
