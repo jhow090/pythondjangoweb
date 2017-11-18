@@ -484,7 +484,8 @@ class QuestaoForm(forms.ModelForm):
             'name': 'numero_questao',
             'id': 'numero_questao',
             'size': 5,
-            'placeholder': 'Numero questao'
+            'placeholder': 'Numero questao',
+            'onkeypress' : 'validarano(this); return numerico(event);'
         }
     )
 )
@@ -493,7 +494,7 @@ class QuestaoForm(forms.ModelForm):
     widget=forms.TextInput(
         attrs={
             'title': 'Data limite entrega',
-            'type': 'number',
+            'type': 'date',
             'name': 'datalimiteentrega_questao',
             'id': 'datalimiteentrega_questao',
             'size': 5,
@@ -510,7 +511,8 @@ class QuestaoForm(forms.ModelForm):
             'name': 'descricao_questao',
             'id': 'descricao_questao',
             'size': 15,
-            'placeholder': 'Descricao da questao'
+            'placeholder': 'Descricao da questao',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -587,7 +589,8 @@ class RespostaForm(forms.ModelForm):
             'name': 'descricao_resposta',
             'id': 'descricao_resposta',
             'size': 15,
-            'placeholder': 'Descricao'
+            'placeholder': 'Descricao',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
