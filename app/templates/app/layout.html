@@ -816,19 +816,36 @@ footer {
          <a href="{% url 'novo_professor' %}">Novo</a>
        </div>
      </li>
+     <li class="dropdown">
+       <a href="#" class="dropbtn">Questão</a>
+         <ul>
+           <div class="dropdown-content">
+           <li><a href="#">Questão</a>
+             <ul>
+              <div class="dropdown-content">
+                  <a href="{% url 'listar_questao' %}">Lista</a>
+                  <a href="{% url 'novo_questao' %}">Novo</a>
+                </div>
+             </ul>
+           </li>
+           <li><a href="#">Arquivo</a>
+             <ul>
+              <div class="dropdown-content">
+                 <a href="{% url 'listar_arquivquestao' %}">Lista</a>
+                <a href="{% url 'novo_arquivquestao' %}">Novo</a>
+              </div>
+             </ul>
+           </li>
+          </div>
+         </ul>
+     </li>
    </ul>
   </nav>
   <div class="nav">
     <ul>
 
 
-      <li class="dropdown">
-        <a href="" class="dropbtn">Questão</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_questao' %}">Lista</a>
-          <a href="{% url 'novo_questao' %}">Novo</a>
-        </div>
-      </li>
+
       <li class="dropdown">
         <a href="" class="dropbtn">Resposta</a>
         <div class="dropdown-content">
@@ -848,13 +865,6 @@ footer {
         <div class="dropdown-content">
           <a href="{% url 'listar_arquivresposta' %}">Lista</a>
           <a href="{% url 'novo_arquivresposta' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Arquivo questão</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_arquivquestao' %}">Lista</a>
-          <a href="{% url 'novo_arquivquestao' %}">Novo</a>
         </div>
       </li>
     </ul>
