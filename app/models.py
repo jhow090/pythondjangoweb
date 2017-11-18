@@ -38,8 +38,8 @@ class Disciplinofertada(models.Model):
 
 class Grade(models.Model):
     sigla_curso = models.CharField(max_length=5)
-    ano_grade = models.CharField(max_length=5)
-    semestre_grade = models.CharField(max_length=5)
+    ano_grade = models.CharField(max_length=4)
+    semestre_grade = models.CharField(max_length=1)
 
 class Matricula(models.Model):
     ra_aluno = models.CharField(max_length=5)
