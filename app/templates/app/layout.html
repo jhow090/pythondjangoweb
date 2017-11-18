@@ -721,10 +721,12 @@ footer {
        <a href="#" class="dropbtn">Curso</a>
        <div class="dropdown-content">
          <ul>
-           <li><a href="#">JavaScript4</a>
+           <li><a href="#">Curso</a>
              <ul>
-               <li><a href="#">jQuery</a></li>
-               <li><a href="#">Angular</a></li>
+              <div class="dropdown-content">
+                <a href="{% url 'listar_aluno' %}">Lista</a>
+                <a href="{% url 'novo_aluno' %}">Novo</a>
+              </div>
              </ul>
            </li>
            <li><a href="#">JavaScript4</a>
@@ -735,8 +737,6 @@ footer {
            </li>
          </ul>
       </div>
-     </li>
-     <li><a href="#">Crie seu Próprio Menu</a>
      </li>
    </ul>
   </nav>
