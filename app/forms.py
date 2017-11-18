@@ -490,7 +490,7 @@ class QuestaoForm(forms.ModelForm):
     )
 )
     datalimiteentrega_questao = forms.CharField(
-    max_length=5,
+    max_length=15,
     widget=forms.TextInput(
         attrs={
             'title': 'Data limite entrega',
