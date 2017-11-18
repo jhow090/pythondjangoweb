@@ -99,7 +99,7 @@ class Turma(models.Model):
     ra_professor = models.CharField(max_length=11)
 
 class Arquivresposta(models.Model):
-    nome_disciplina = models.CharField(max_length=10)
+    nome_disciplina = models.CharField(max_length=240)
     ano_disciplina = models.CharField(max_length=5)
     semestre_disciplina = models.CharField(max_length=5)
     id_turma = models.CharField(max_length=5)
@@ -108,7 +108,7 @@ class Arquivresposta(models.Model):
     aquivo_resposta = models.CharField(max_length=500)
 
 class Arquivquestao(models.Model):
-    nome_disciplina = models.CharField(max_length=10)
+    nome_disciplina = models.CharField(max_length=240)
     ano_disciplina = models.CharField(max_length=5)
     semestre_disciplina = models.CharField(max_length=5)
     id_turma = models.CharField(max_length=5)
