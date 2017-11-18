@@ -120,7 +120,7 @@ def novo_disciplina(request, template_name='app/disciplina/novo_disciplina.html'
     if form.is_valid():
         form.save()
         return redirect('listar_disciplina')
-    return render(request, template_name, {'form':form})
+    return render(request, template_name, {'title':'Curso Turma', 'form':form})
 
 def apagar_disciplina(request, pk, template_name='app/disciplina/confirmacao_apagar_disciplina.html'):
     disciplina = get_object_or_404(Disciplina, pk=pk)
@@ -199,7 +199,7 @@ def novo_grade(request, template_name='app/grade/novo_grade.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_grade')
-    return render(request, template_name, {'form':form, 'curso': curso})
+    return render(request, template_name, {'title':'Grade Curricular', 'form':form, 'curso': curso})
 
 def apagar_grade(request, pk, template_name='app/grade/confirmacao_apagar_grade.html'):
     grade = get_object_or_404(Grade, pk=pk)

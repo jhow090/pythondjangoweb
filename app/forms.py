@@ -286,7 +286,8 @@ class GradeForm(forms.ModelForm):
             'name': 'ano_grade',
             'id': 'ano_grade',
             'size': 5,
-            'placeholder': 'Ano'
+            'placeholder': 'Ano',
+            'onkeypress' : 'validarano(this); return numerico(event);'
         }
     )
 )
@@ -300,7 +301,8 @@ class GradeForm(forms.ModelForm):
             'name': 'semestre_grade',
             'id': 'semestre_grade',
             'size': 5,
-            'placeholder': 'Semestre'
+            'placeholder': 'Semestre',
+            'onkeypress' : 'validarsemestre(this); return numerico(event);'
         }
     )
 )

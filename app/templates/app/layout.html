@@ -887,7 +887,18 @@ function validar(field) {
     field.value = str.substring(0, str.length - 1);
   }
 }
-
+function validarano(field) {
+  str = field.value;
+  if (str.length > 4) {
+    field.value = str.substring(0, str.length - 1);
+  }
+}
+function validarsemestre(field) {
+  str = field.value;
+  if (str.length > 1) {
+    field.value = str.substring(0, str.length - 1);
+  }
+}
 function numerico(evt) {
   var key_code = evt.keyCode ? evt.keyCode : evt.charCode ? evt.charCode : evt.which ? evt.which : void 0;
   if (key_code == 8 || key_code == 9 || key_code == 13 || key_code == 27 || key_code == 46) {
@@ -898,6 +909,13 @@ function numerico(evt) {
     return true
   }
   return false;
+}
+
+function validarano(field) {
+  str = field.value;
+  if (str.length > 4) {
+    field.value = str.substring(0, str.length - 1);
+  }
 }
 
 function somenteletra(e)
