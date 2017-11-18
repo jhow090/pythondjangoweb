@@ -719,6 +719,13 @@ footer {
   <nav>
    <ul>
      <li class="dropdown">
+       <a href="" class="dropbtn">Aluno</a>
+       <div class="dropdown-content">
+         <a href="{% url 'listar_aluno' %}">Lista</a>
+         <a href="{% url 'novo_aluno' %}">Novo</a>
+       </div>
+     </li>
+     <li class="dropdown">
        <a href="#" class="dropbtn">Curso</a>
          <ul>
            <div class="dropdown-content">
@@ -740,47 +747,36 @@ footer {
            </li>
           </div>
          </ul>
+     </li>
 
+     <li class="dropdown">
+       <a href="#" class="dropbtn">Disciplina</a>
+         <ul>
+           <div class="dropdown-content">
+           <li><a href="#">Disciplina</a>
+             <ul>
+              <div class="dropdown-content">
+                  <a href="{% url 'listar_disciplina' %}">Lista</a>
+                  <a href="{% url 'novo_disciplina' %}">Novo</a>
+                </div>
+             </ul>
+           </li>
+           <li><a href="#">Ofertada</a>
+             <ul>
+              <div class="dropdown-content">
+                 <a href="{% url 'listar_disciplinofertada' %}">Lista</a>
+                <a href="{% url 'novo_disciplinofertada' %}">Novo</a>
+              </div>
+             </ul>
+           </li>
+          </div>
+         </ul>
      </li>
    </ul>
   </nav>
   <div class="nav">
     <ul>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Aluno</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_aluno' %}">Lista</a>
-          <a href="{% url 'novo_aluno' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Cursos</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_curso' %}">Lista</a>
-          <a href="{% url 'novo_curso' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Cursos turma</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_cursturma' %}">Lista</a>
-          <a href="{% url 'novo_cursturma' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Disciplina</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_disciplina' %}">Lista</a>
-          <a href="{% url 'novo_disciplina' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Disciplina Ofertada</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_disciplinofertada' %}">Lista</a>
-          <a href="{% url 'novo_disciplinofertada' %}">Novo</a>
-        </div>
-      </li>
+
       <li class="dropdown">
         <a href="" class="dropbtn">Grade curricular</a>
         <div class="dropdown-content">
