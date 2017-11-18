@@ -15,6 +15,7 @@ class AlunoForm(forms.ModelForm):
             'id': 'ra_aluno',
             'size': 10,
             'placeholder': 'Ra',
+            'min': '1',
             'max': '8'
         }
     )
