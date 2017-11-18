@@ -14,7 +14,8 @@ class AlunoForm(forms.ModelForm):
             'name': 'ra_aluno',
             'id': 'ra_aluno',
             'size': 10,
-            'placeholder': 'Ra'
+            'placeholder': 'Ra',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
