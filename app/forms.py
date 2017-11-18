@@ -88,7 +88,9 @@ class CursoForm(forms.ModelForm):
             'name': 'sigla_curso',
             'id': 'sigla_curso',
             'size': 5,
-            'placeholder': 'Sigla'
+            'placeholder': 'Sigla',
+            'style': 'text-transform:uppercase',
+            'onkeypress': 'return somenteletra(event)'
         }
     )
 )
