@@ -839,36 +839,38 @@ footer {
           </div>
          </ul>
      </li>
+     <li class="dropdown">
+       <a href="#" class="dropbtn">Resposta</a>
+         <ul>
+           <div class="dropdown-content">
+           <li><a href="#">Resposta</a>
+             <ul>
+              <div class="dropdown-content">
+                  <a href="{% url 'listar_resposta' %}">Lista</a>
+                  <a href="{% url 'novo_resposta' %}">Novo</a>
+                </div>
+             </ul>
+           </li>
+           <li><a href="#">Arquivo</a>
+             <ul>
+              <div class="dropdown-content">
+                 <a href="{% url 'listar_arquivresposta' %}">Lista</a>
+                <a href="{% url 'novo_arquivresposta' %}">Novo</a>
+              </div>
+             </ul>
+           </li>
+          </div>
+         </ul>
+     </li>
+     <li class="dropdown">
+       <a href="" class="dropbtn">Turma</a>
+       <div class="dropdown-content">
+         <a href="{% url 'listar_turma' %}">Lista</a>
+         <a href="{% url 'novo_turma' %}">Novo</a>
+       </div>
+     </li>
    </ul>
   </nav>
-  <div class="nav">
-    <ul>
-
-
-
-      <li class="dropdown">
-        <a href="" class="dropbtn">Resposta</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_resposta' %}">Lista</a>
-          <a href="{% url 'novo_resposta' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Turma</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_turma' %}">Lista</a>
-          <a href="{% url 'novo_turma' %}">Novo</a>
-        </div>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropbtn">Arquivo resposta</a>
-        <div class="dropdown-content">
-          <a href="{% url 'listar_arquivresposta' %}">Lista</a>
-          <a href="{% url 'novo_arquivresposta' %}">Novo</a>
-        </div>
-      </li>
-    </ul>
-  </div>
 
 
 {% block content %}{% endblock %}
