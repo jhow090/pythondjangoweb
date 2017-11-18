@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class AlunoForm(forms.ModelForm):
     ra_aluno = forms.CharField(
-    max_length=8,
+    max_length=10,
     widget=forms.TextInput(
         attrs={
             'title': 'Ra',
@@ -41,7 +41,8 @@ class AlunoForm(forms.ModelForm):
             'name': 'email_aluno',
             'id': 'email_aluno',
             'size': 15,
-            'placeholder': 'Email'
+            'placeholder': 'Email',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
