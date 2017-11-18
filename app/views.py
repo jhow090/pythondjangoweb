@@ -82,7 +82,7 @@ def novo_curso(request, template_name='app/curso/novo_curso.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_curso')
-    return render(request, template_name, {'form':form})
+    return render(request, template_name, {'title':'Curso', 'form':form})
 
 def apagar_curso(request, pk, template_name='app/curso/confirmacao_apagar_curso.html'):
     curso = get_object_or_404(Curso, pk=pk)
