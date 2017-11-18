@@ -442,7 +442,7 @@ def listar_cursturma(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
-        'app/cursoturma/listar_cursturma.html',
+        'app/cursturma/listar_cursturma.html',
         context_instance = RequestContext(request,
         {
             'title':'Lista de curso turma',
