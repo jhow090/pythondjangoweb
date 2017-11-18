@@ -15,7 +15,8 @@ class AlunoForm(forms.ModelForm):
             'id': 'ra_aluno',
             'size': 10,
             'placeholder': 'Ra',
-            'maxlength': '8'
+            'maxlength': '8',
+            'onkeyup': 'limitarInput(this)'
         }
     )
 )
