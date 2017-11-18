@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 class AlunoForm(forms.ModelForm):
     ra_aluno = forms.CharField(
-    max_length=100,
+    max_length=10,
     widget=forms.TextInput(
         attrs={
             'title': 'Ra',
