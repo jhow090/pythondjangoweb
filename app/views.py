@@ -41,13 +41,7 @@ def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
     if form.is_valid():
         form.save()
         return redirect('listar_aluno')
-    return render(
-        request, template_name,
-        context_instance = RequestContext(request,
-        {
-            'title':'Aluno',
-        })
-    ){'form':form, 'curso': curso})
+    return render(request, template_name, context_instance = RequestContext(request, {'title':'Aluno'}){'form':form, 'curso': curso})
 
 def apagar_aluno(request, pk, template_name='app/aluno/confirmacao_apagar_aluno.html'):
     aluno = get_object_or_404(Aluno, pk=pk)
