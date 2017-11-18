@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }} - Projeto de ADS - Faculdade Impacta - Segundo Semestre</title>
-    <link href="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/css/site.css" rel="stylesheet"/>
+
 </head>
 <style>
 body {
@@ -27,31 +27,6 @@ body {
     padding-left: 15px;
     padding-right: 15px;
 }
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
-/* Set padding to keep content from hitting the edges */
 
 input,
 select,
@@ -97,150 +72,6 @@ input[type="checkbox"].input-validation-error {
   float: right;
 }
 
-nav {
-
-}
-.addheader {z-index: 9999;}
-.menu-container {
-  height: 7.5em;
-  background-color: #000;
-  margin: 0;
-    padding: 0;
-
-}
-.menu, .sub-menu {
-    margin: 0;
-    padding: 0;
-  list-style: none;
-    background: #000;
-
-
-}
-.menu {
-  margin: 0 auto;
-  margin-left: 10%;
-  margin-right: 10%;
-
-}
-.menu .alinhar a {
-    text-decoration: none;
-    display: block;
-    padding: 35px 10px 35px 10px;
-    color: #fff;
-    font-family: sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: 700;
-
-}
-.menu .alinhar li {
-    position: relative;
-  margin: 0;
-  float: left;
-  z-index: 9999;
-}
-.menu .alinhar li:hover {
-    background: #444;
-  z-index: 9999;
-
-}
-.menu .alinhar li:hover .sub-menu {
-    display: block;
-}
-.sub-menu {
-    display: none;
-  position: absolute;
-    min-width: 150px;
-}
-.alinhar .sub-menu a {
-  padding: 25px;
-}
-.sub-menu li:hover {
-    background: #555;
-  width: 100%;
-}
-.sub-menu .sub-menu {
-    top: 0;
-    left: 100%;
-}
-
-.logotop li{
-  z-index: 9999;
-  position: relative;
-  float: left;
-}
-
-.menu  img {
-  float: left;
-  padding: 5px;
-  z-index: 9999
-}
-
-.menuadd {
-  float:right;
-  margin: 20px 100px 2px 0px;
-  padding-right: 200px;
-  z-index: 9999;
-  position:inherit;
-
-
-}
-.menuadd img {
-  float:right;
-  z-index: 9999;
-  position: absolute;
-
-}
-
-.lightbox {
-  /** Esconde a classe lightbox */
-  display: none;
-  margin-top: 70px;
-  position:absolute;
-
-  /** Estilo basico para a classe */
-}
-.lightbox:target {
-    /** Aplica essa regras quando target ocorre na classe */
-    display: inline-block;
-    outline: none;
-  z-index: 9999;
-
-
-
-}
-
-.lightbox .dados {
-    /** Aplica essa regras quando target ocorre na classe */
-   display: -webkit-flex;
-   background-color: #dcdcdc;
-   border-radius: 10px;
-   box-shadow: -5px 5px 50px #000;
-   padding: 15px;
-  width: 235px;
-  height: 200px;
-  -webkit-flex-direction: column;
-    flex-direction: column;
-  justify-content: space-between;
-  position:absolute;
-
-
-}
-
-.autenticacao {
-
-  display: -webkit-flex;
-    flex-direction:row;
-  justify-content: space-between;
-
-}
-
-
-.lightbox .dado a{
-    display:block;
-  text-decoration:none;
-
-}
 input{
 float:left;
   border-radius: 5px;
@@ -437,74 +268,6 @@ section {
 .depoimentos {
   overflow:hidden;
 
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-}
-
-li a, .dropbtn {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 10px 14px;
-    text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-    background-color: #7fff00;
-    color: black;
-}
-
-li.dropdown {
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #7fff00}
-
-.dropdown:hover .dropdown-content {
-    display: block;
 }
 footer {
   width: 100%;
@@ -738,8 +501,6 @@ footer {
       <li class="dropdown">
         <a href="" class="dropbtn">Aluno</a>
         <div class="dropdown-content">
-          <a href="" class="dropbtn">Aluno</a>
-          <div class="dropdown-content">
             <a href="{% url 'listar_aluno' %}">Lista</a>
             <a href="{% url 'novo_aluno' %}">Novo</a>
           </div>
