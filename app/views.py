@@ -34,6 +34,7 @@ def listar_aluno(request):
     )
 
 def novo_aluno(request, template_name='app/aluno/novo_aluno.html'):
+    title = 'Aluno'
     curso = Curso.objects.all()
     sigla_curso = request.POST.get('sigla_curso')
     form = AlunoForm(request.POST or None)
