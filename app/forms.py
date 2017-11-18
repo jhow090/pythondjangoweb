@@ -109,7 +109,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'nome_disciplina',
             'id': 'nome_disciplina',
             'size': 15,
-            'placeholder': 'Nome da disciplina'
+            'placeholder': 'Nome da disciplina',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -122,7 +123,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'carga_horaria_disciplina',
             'id': 'carga_horaria_disciplina',
             'size': 10,
-            'placeholder': 'Carga horaria'
+            'placeholder': 'Carga horaria',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
@@ -135,7 +137,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'teoria_disciplina',
             'id': 'teoria_disciplina',
             'size': 5,
-            'placeholder': 'Teoria'
+            'placeholder': 'Teoria',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
@@ -148,7 +151,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'pratica_disciplina',
             'id': 'pratica_disciplina',
             'size': 5,
-            'placeholder': 'Pratica'
+            'placeholder': 'Pratica',
+            'onkeypress' : 'validar(this); return numerico(event);'
         }
     )
 )
@@ -161,7 +165,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'ementa_disciplina',
             'id': 'ementa_disciplina',
             'size': 15,
-            'placeholder': 'Ementa'
+            'placeholder': 'Ementa',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -174,7 +179,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'competencias_disciplina',
             'id': 'competencias_disciplina',
             'size': 15,
-            'placeholder': 'Competencias'
+            'placeholder': 'Competencias',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -187,7 +193,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'habilidades_disciplina',
             'id': 'habilidades_disciplina',
             'size': 15,
-            'placeholder': 'Habilidades'
+            'placeholder': 'Habilidades',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -200,7 +207,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'conteudo_disciplina',
             'id': 'conteudo_disciplina',
             'size': 15,
-            'placeholder': 'Conteudo'
+            'placeholder': 'Conteudo',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -213,7 +221,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'bibliografia_disciplina',
             'id': 'bibliografia_disciplina',
             'size': 20,
-            'placeholder': 'Bibliografia'
+            'placeholder': 'Bibliografia',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
@@ -226,7 +235,8 @@ class DisciplinaForm(forms.ModelForm):
             'name': 'bibliografia_complementar_disciplina',
             'id': 'bibliografia_complementar_disciplina',
             'size': 20,
-            'placeholder': 'Bibliografia complementar'
+            'placeholder': 'Bibliografia complementar',
+            'onkeypress': 'return somenteletraacento(event)'
         }
     )
 )
