@@ -521,7 +521,7 @@ class QuestaoForm(forms.ModelForm):
     widget=forms.TextInput(
         attrs={
             'title': 'Data',
-            'type': 'text',
+            'type': 'date',
             'name': 'data_questao',
             'id': 'data_questao',
             'size': 5,
