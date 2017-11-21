@@ -12,6 +12,11 @@ class Curso(models.Model):
     nome_curso = models.CharField(max_length=50)
     sigla_curso = models.CharField(max_length=5)
 
+class Coordenador(models.Model):
+    nome_coordenador = models.CharField(max_length=50)
+    email_coordenador = models.CharField(max_length=50)
+    celular_coordenador = models.CharField(max_length=15)
+
 class Cursturma(models.Model):
     sigla_curso = models.CharField(max_length=5)
     nome_disciplina = models.CharField(max_length=240)

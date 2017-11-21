@@ -1,0 +1,36 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>Lista de cursos</h1>
+</div>
+
+<table class="table">
+    <tr>
+      <th>Nome do coordenador</th>
+      <th>Email</th>
+      <th>Celular</th>
+      <th>Editar</th>
+      <th>Apagar</th>
+    </tr>
+        {% for coordenador in coordenadors %}
+          <tr>
+            <td>{{ coordenador.nome_coordenador }}</td>
+            <td>{{ coordenador.email_coordenador }}</td>
+            <td>{{ coordenador.celular_coordenador }}</td>
+            <td>
+              <a href="{% url 'editar_coordenador' coordenador.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/editar.png" height="32" width="32">
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'apagar_coordenador' coordenador.id %}">
+                <img src="https://webdjango.scm.azurewebsites.net/dev/api/files/wwwroot/app/static/img/excluir.png" height="32" width="32">
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+</table>
+
+{% endblock %}

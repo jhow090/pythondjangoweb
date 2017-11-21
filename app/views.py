@@ -102,6 +102,45 @@ def editar_curso(request, pk, template_name='app/curso/novo_curso.html'):
         return redirect('listar_curso')
     return render(request, template_name, {'form':form})
 
+def listar_coordenador(request):
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/coordenador/listar_coordenador.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Lista de coordenador',
+            'coordenadors': Coordenador.objects.all(),
+            'year':datetime.now().year,
+        })
+    )
+
+def novo_coordenador(request, template_name='app/coordenador/novo_coordenador.html'):
+    form = CoordenadorForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_coordenador')
+    return render(request, template_name, {'title':'Coordenador', 'form':form})
+
+def apagar_coordenador(request, pk, template_name='app/coordenador/confirmacao_apagar_coordenador.html'):
+    coordenador = get_object_or_404(Coordenador, pk=pk)
+    if request.method=='POST':
+        coordenador.delete()
+        return redirect('listar_coordenador')
+    return render(request, template_name, {'object':coordenador.nome_coordenador})
+
+def editar_coordenador(request, pk, template_name='app/coordenador/novo_coordenador.html'):
+    if request.user.is_superuser:
+        coordenador = get_object_or_404(Coordenador, pk=pk)
+    else:
+        coordenador = get_object_or_404(Coordenador, pk=pk)
+    form = CoordenadorForm(request.POST or None, instance = coordenador)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_coordenador')
+    return render(request, template_name, {'form':form})
+
+
 def listar_disciplina(request):
     assert isinstance(request, HttpRequest)
     return render(

@@ -99,6 +99,53 @@ class CursoForm(forms.ModelForm):
         model = Curso
         fields =    ['nome_curso', 'sigla_curso']
 
+class CoordenadorForm(forms.ModelForm):
+    nome_coordenador = forms.CharField(
+    max_length=100,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Nome',
+            'type': 'text',
+            'name': 'nome_coordenador',
+            'id': 'nome_coordenador',
+            'size': 15,
+            'placeholder': 'Nome',
+            'onkeypress': 'return somenteletraacento(event)'
+        }
+    )
+)
+    email_coordenador = forms.CharField(
+    max_length=50,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Email',
+            'type': 'email',
+            'name': 'email_coordenador',
+            'id': 'email_coordenador',
+            'size': 15,
+            'placeholder': 'Email',
+        }
+    )
+)
+    celular_coordenador = forms.CharField(
+    max_length=15,
+    widget=forms.TextInput(
+        attrs={
+            'title': 'Celular',
+            'type': 'number',
+            'name': 'celular_coordenador',
+            'id': 'celular_coordenador',
+            'size': 10,
+            'placeholder': 'Celular',
+            'onkeypress' : 'validar(this); return numerico(event);'
+        }
+    )
+)
+    class Meta:
+        model = Coordenador
+        fields = ['nome_coordenador', 'email_coordenador', 'celular_coordenador']
+
+
 class DisciplinaForm(forms.ModelForm):
     nome_disciplina = forms.CharField(
     max_length=240,
